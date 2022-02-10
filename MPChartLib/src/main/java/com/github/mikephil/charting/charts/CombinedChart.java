@@ -1,5 +1,6 @@
 
 package com.github.mikephil.charting.charts;
+import androidx.annotation.Nullable;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -131,6 +132,7 @@ public class CombinedChart extends BarLineChartBase<CombinedData> implements Com
     }
 
     @Override
+    @Nullable
     public BarData getBarData() {
         if (mData == null)
             return null;
