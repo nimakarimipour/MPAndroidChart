@@ -37,7 +37,7 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.0.0'
     testImplementation 'junit:junit:4.12'
 
-    annotationProcessor "edu.ucr.cs.riple:nullaway:0.7.12-SNAPSHOT"
+    annotationProcessor "ucr.uber.nullaway:nullaway:0.9.3-SNAPSHOT"
 
     compileOnly "com.google.code.findbugs:jsr305:3.0.2"
     errorprone "com.google.errorprone:error_prone_core:2.3.2"
@@ -56,10 +56,9 @@ tasks.withType(JavaCompile) {
                                               "-Xep:NullAway:ERROR",
                                               "-XepOpt:NullAway:AnnotatedPackages=com.github.mikephil.charting",
                                               "-XepOpt:NullAway:AutoFix=true",
-                                              "-XepOpt:NullAway:FixAnnotations=androidx.annotation.NonNull,androidx.annotation.Nullable",
+                                              "-XepOpt:NullAway:AutoFixOutPutDirectory=/tmp/NullAwayFix",
                                               "-XepDisableAllWarnings"]
         options.compilerArgs << "-Xmaxerrs" << "100000"
-
     }
 }
 
