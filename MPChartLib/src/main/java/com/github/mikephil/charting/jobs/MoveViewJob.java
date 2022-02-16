@@ -1,5 +1,6 @@
 
 package com.github.mikephil.charting.jobs;
+import androidx.annotation.Nullable;
 
 import android.view.View;
 
@@ -33,7 +34,7 @@ public class MoveViewJob extends ViewPortJob {
         pool.recycle(instance);
     }
 
-    public MoveViewJob(ViewPortHandler viewPortHandler, float xValue, float yValue, Transformer trans, View v) {
+    public MoveViewJob(@Nullable ViewPortHandler viewPortHandler, float xValue, float yValue, Transformer trans, View v) {
         super(viewPortHandler, xValue, yValue, trans, v);
     }
 
