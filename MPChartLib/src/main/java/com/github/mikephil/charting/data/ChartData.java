@@ -1,5 +1,6 @@
 
 package com.github.mikephil.charting.data;
+import androidx.annotation.Nullable;
 
 import android.graphics.Typeface;
 import android.util.Log;
@@ -361,6 +362,7 @@ public abstract class ChartData<T extends IDataSet<? extends Entry>> {
             return mDataSets.get(index);
     }
 
+    @Nullable
     public T getDataSetByIndex(int index) {
 
         if (mDataSets == null || index < 0 || index >= mDataSets.size())
