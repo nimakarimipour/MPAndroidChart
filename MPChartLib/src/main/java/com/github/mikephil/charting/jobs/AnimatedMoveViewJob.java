@@ -1,4 +1,5 @@
 package com.github.mikephil.charting.jobs;
+import androidx.annotation.Nullable;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
@@ -40,7 +41,7 @@ public class AnimatedMoveViewJob extends AnimatedViewPortJob {
     }
 
 
-    public AnimatedMoveViewJob(ViewPortHandler viewPortHandler, float xValue, float yValue, Transformer trans, View v, float xOrigin, float yOrigin, long duration) {
+    public AnimatedMoveViewJob(ViewPortHandler viewPortHandler, float xValue, float yValue, @Nullable Transformer trans, View v, float xOrigin, float yOrigin, long duration) {
         super(viewPortHandler, xValue, yValue, trans, v, xOrigin, yOrigin, duration);
     }
 
