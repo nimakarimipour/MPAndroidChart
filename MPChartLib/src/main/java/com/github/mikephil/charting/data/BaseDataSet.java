@@ -1,10 +1,10 @@
 package com.github.mikephil.charting.data;
 
+import androidx.annotation.Nullable;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.Typeface;
-
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.formatter.IValueFormatter;
@@ -12,7 +12,6 @@ import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,16 +50,22 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     /**
      * custom formatter that is used instead of the auto-formatter if set
      */
+    @Nullable
     protected transient IValueFormatter mValueFormatter;
 
     /**
      * the typeface used for the value text
      */
+    @Nullable
     protected Typeface mValueTypeface;
 
     private Legend.LegendForm mForm = Legend.LegendForm.DEFAULT;
+
     private float mFormSize = Float.NaN;
+
     private float mFormLineWidth = Float.NaN;
+
+    @Nullable
     private DashPathEffect mFormLineDashEffect = null;
 
     /**
@@ -94,7 +99,6 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     public BaseDataSet() {
         mColors = new ArrayList<Integer>();
         mValueColors = new ArrayList<Integer>();
-
         // default color
         mColors.add(Color.rgb(140, 234, 255));
         mValueColors.add(Color.BLACK);
@@ -117,11 +121,9 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
         calcMinMax();
     }
 
-
     /**
      * ###### ###### COLOR GETTING RELATED METHODS ##### ######
      */
-
     @Override
     public List<Integer> getColors() {
         return mColors;
@@ -144,7 +146,6 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     /**
      * ###### ###### COLOR SETTING RELATED METHODS ##### ######
      */
-
     /**
      * Sets the colors that should be used fore this DataSet. Colors are reused
      * as soon as the number of Entries the DataSet represents is higher than
@@ -182,13 +183,10 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
      * @param colors
      */
     public void setColors(int[] colors, Context c) {
-
         if (mColors == null) {
             mColors = new ArrayList<>();
         }
-
         mColors.clear();
-
         for (int color : colors) {
             mColors.add(c.getResources().getColor(color));
         }
@@ -252,7 +250,6 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     /**
      * ###### ###### OTHER STYLING RELATED METHODS ##### ######
      */
-
     @Override
     public void setLabel(String label) {
         mLabel = label;
@@ -275,7 +272,6 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
 
     @Override
     public void setValueFormatter(IValueFormatter f) {
-
         if (f == null)
             return;
         else
@@ -283,6 +279,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     }
 
     @Override
+    @Nullable
     public IValueFormatter getValueFormatter() {
         if (needsFormatter())
             return Utils.getDefaultValueFormatter();
@@ -326,6 +323,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     }
 
     @Override
+    @Nullable
     public Typeface getValueTypeface() {
         return mValueTypeface;
     }
@@ -367,6 +365,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     }
 
     @Override
+    @Nullable
     public DashPathEffect getFormLineDashEffect() {
         return mFormLineDashEffect;
     }
@@ -393,7 +392,6 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
 
     @Override
     public void setIconsOffset(MPPointF offsetDp) {
-
         mIconsOffset.x = offsetDp.x;
         mIconsOffset.y = offsetDp.y;
     }
@@ -423,27 +421,21 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
         mAxisDependency = dependency;
     }
 
-
     /**
      * ###### ###### DATA RELATED METHODS ###### ######
      */
-
     @Override
     public int getIndexInEntries(int xIndex) {
-
         for (int i = 0; i < getEntryCount(); i++) {
             if (xIndex == getEntryForIndex(i).getX())
                 return i;
         }
-
         return -1;
     }
 
     @Override
     public boolean removeFirst() {
-
         if (getEntryCount() > 0) {
-
             T entry = getEntryForIndex(0);
             return removeEntry(entry);
         } else
@@ -452,9 +444,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
 
     @Override
     public boolean removeLast() {
-
         if (getEntryCount() > 0) {
-
             T e = getEntryForIndex(getEntryCount() - 1);
             return removeEntry(e);
         } else
@@ -463,26 +453,22 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
 
     @Override
     public boolean removeEntryByXValue(float xValue) {
-
         T e = getEntryForXValue(xValue, Float.NaN);
         return removeEntry(e);
     }
 
     @Override
     public boolean removeEntry(int index) {
-
         T e = getEntryForIndex(index);
         return removeEntry(e);
     }
 
     @Override
     public boolean contains(T e) {
-
         for (int i = 0; i < getEntryCount(); i++) {
             if (getEntryForIndex(i).equals(e))
                 return true;
         }
-
         return false;
     }
 
