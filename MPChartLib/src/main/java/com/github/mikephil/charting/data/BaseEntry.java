@@ -1,5 +1,6 @@
 package com.github.mikephil.charting.data;
 
+import androidx.annotation.Nullable;
 import android.graphics.drawable.Drawable;
 
 /**
@@ -7,17 +8,24 @@ import android.graphics.drawable.Drawable;
  */
 public abstract class BaseEntry {
 
-    /** the y value */
+    /**
+     * the y value
+     */
     private float y = 0f;
 
-    /** optional spot for additional data this Entry represents */
+    /**
+     * optional spot for additional data this Entry represents
+     */
+    @Nullable
     private Object mData = null;
 
-    /** optional icon image */
+    /**
+     * optional icon image
+     */
+    @Nullable
     private Drawable mIcon = null;
 
     public BaseEntry() {
-
     }
 
     public BaseEntry(float y) {
@@ -63,6 +71,7 @@ public abstract class BaseEntry {
      *
      * @return
      */
+    @Nullable
     public Drawable getIcon() {
         return mIcon;
     }
