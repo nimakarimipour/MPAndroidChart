@@ -1,7 +1,7 @@
 package com.github.mikephil.charting.interfaces.datasets;
 
+import androidx.annotation.Nullable;
 import android.graphics.DashPathEffect;
-
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IFillFormatter;
@@ -84,6 +84,7 @@ public interface ILineDataSet extends ILineRadarDataSet<Entry> {
      *
      * @return
      */
+    @Nullable
     DashPathEffect getDashPathEffect();
 
     /**
