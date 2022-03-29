@@ -1,11 +1,11 @@
 package com.github.mikephil.charting.jobs;
 
+import androidx.annotation.Nullable;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.view.View;
-
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
@@ -20,9 +20,10 @@ public abstract class AnimatedViewPortJob extends ViewPortJob implements ValueAn
     protected float phase;
 
     protected float xOrigin;
+
     protected float yOrigin;
 
-    public AnimatedViewPortJob(ViewPortHandler viewPortHandler, float xValue, float yValue, Transformer trans, View v, float xOrigin, float yOrigin, long duration) {
+    public AnimatedViewPortJob(@Nullable ViewPortHandler viewPortHandler, float xValue, float yValue, @Nullable Transformer trans, @Nullable View v, float xOrigin, float yOrigin, long duration) {
         super(viewPortHandler, xValue, yValue, trans, v);
         this.xOrigin = xOrigin;
         this.yOrigin = yOrigin;
@@ -56,7 +57,7 @@ public abstract class AnimatedViewPortJob extends ViewPortJob implements ValueAn
 
     public abstract void recycleSelf();
 
-    protected void resetAnimator(){
+    protected void resetAnimator() {
         animator.removeAllListeners();
         animator.removeAllUpdateListeners();
         animator.reverse();
@@ -66,34 +67,31 @@ public abstract class AnimatedViewPortJob extends ViewPortJob implements ValueAn
 
     @Override
     public void onAnimationStart(Animator animation) {
-
     }
 
     @Override
     public void onAnimationEnd(Animator animation) {
-        try{
+        try {
             recycleSelf();
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             // don't worry about it.
         }
     }
 
     @Override
     public void onAnimationCancel(Animator animation) {
-        try{
+        try {
             recycleSelf();
-        }catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             // don't worry about it.
         }
     }
 
     @Override
     public void onAnimationRepeat(Animator animation) {
-
     }
 
     @Override
     public void onAnimationUpdate(ValueAnimator animation) {
-
     }
 }
