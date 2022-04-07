@@ -1,5 +1,6 @@
 package com.github.mikephil.charting.interfaces.datasets;
 
+import androidx.annotation.Nullable;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.renderer.scatter.IShapeRenderer;
 
@@ -34,5 +35,6 @@ public interface IScatterDataSet extends ILineScatterCandleRadarDataSet<Entry> {
      *
      * @return
      */
+    @Nullable
     IShapeRenderer getShapeRenderer();
 }
