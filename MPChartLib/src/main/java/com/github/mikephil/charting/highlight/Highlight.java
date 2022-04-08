@@ -1,6 +1,6 @@
-
 package com.github.mikephil.charting.highlight;
 
+import androidx.annotation.Nullable;
 import com.github.mikephil.charting.components.YAxis;
 
 /**
@@ -48,6 +48,7 @@ public class Highlight {
     /**
      * the axis the highlighted value belongs to
      */
+    @Nullable
     private YAxis.AxisDependency axis;
 
     /**
@@ -223,12 +224,10 @@ public class Highlight {
      * @return
      */
     public boolean equalTo(Highlight h) {
-
         if (h == null)
             return false;
         else {
-            if (this.mDataSetIndex == h.mDataSetIndex && this.mX == h.mX
-                    && this.mStackIndex == h.mStackIndex && this.mDataIndex == h.mDataIndex)
+            if (this.mDataSetIndex == h.mDataSetIndex && this.mX == h.mX && this.mStackIndex == h.mStackIndex && this.mDataIndex == h.mDataIndex)
                 return true;
             else
                 return false;
@@ -237,7 +236,6 @@ public class Highlight {
 
     @Override
     public String toString() {
-        return "Highlight, x: " + mX + ", y: " + mY + ", dataSetIndex: " + mDataSetIndex
-                + ", stackIndex (only stacked barentry): " + mStackIndex;
+        return "Highlight, x: " + mX + ", y: " + mY + ", dataSetIndex: " + mDataSetIndex + ", stackIndex (only stacked barentry): " + mStackIndex;
     }
 }

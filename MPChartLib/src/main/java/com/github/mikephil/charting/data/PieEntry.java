@@ -1,5 +1,6 @@
 package com.github.mikephil.charting.data;
 
+import androidx.annotation.Nullable;
 import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.util.Log;
 @SuppressLint("ParcelCreator")
 public class PieEntry extends Entry {
 
+    @Nullable
     private String label;
 
     public PieEntry(float value) {

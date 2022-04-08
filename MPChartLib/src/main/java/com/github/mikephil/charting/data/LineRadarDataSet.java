@@ -1,13 +1,11 @@
-
 package com.github.mikephil.charting.data;
 
+import androidx.annotation.Nullable;
 import android.annotation.TargetApi;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-
 import com.github.mikephil.charting.interfaces.datasets.ILineRadarDataSet;
 import com.github.mikephil.charting.utils.Utils;
-
 import java.util.List;
 
 /**
@@ -26,6 +24,7 @@ public abstract class LineRadarDataSet<T extends Entry> extends LineScatterCandl
     /**
      * the drawable to be used for filling the line surface
      */
+    @Nullable
     protected Drawable mFillDrawable;
 
     /**
@@ -42,7 +41,6 @@ public abstract class LineRadarDataSet<T extends Entry> extends LineScatterCandl
      * if true, the data will also be drawn filled
      */
     private boolean mDrawFilled = false;
-
 
     public LineRadarDataSet(List<T> yVals, String label) {
         super(yVals, label);
@@ -101,7 +99,6 @@ public abstract class LineRadarDataSet<T extends Entry> extends LineScatterCandl
      * @param width
      */
     public void setLineWidth(float width) {
-
         if (width < 0.0f)
             width = 0.0f;
         if (width > 10.0f)

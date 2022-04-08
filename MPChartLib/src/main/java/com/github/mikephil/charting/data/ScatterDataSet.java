@@ -1,6 +1,6 @@
-
 package com.github.mikephil.charting.data;
 
+import androidx.annotation.Nullable;
 import com.github.mikephil.charting.charts.ScatterChart;
 import com.github.mikephil.charting.interfaces.datasets.IScatterDataSet;
 import com.github.mikephil.charting.renderer.scatter.ChevronDownShapeRenderer;
@@ -12,7 +12,6 @@ import com.github.mikephil.charting.renderer.scatter.SquareShapeRenderer;
 import com.github.mikephil.charting.renderer.scatter.TriangleShapeRenderer;
 import com.github.mikephil.charting.renderer.scatter.XShapeRenderer;
 import com.github.mikephil.charting.utils.ColorTemplate;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -133,9 +132,9 @@ public class ScatterDataSet extends LineScatterCandleRadarDataSet<Entry> impleme
         return mScatterShapeHoleColor;
     }
 
+    @Nullable
     public static IShapeRenderer getRendererForShape(ScatterChart.ScatterShape shape) {
-
-        switch (shape) {
+        switch(shape) {
             case SQUARE:
                 return new SquareShapeRenderer();
             case CIRCLE:
@@ -151,7 +150,6 @@ public class ScatterDataSet extends LineScatterCandleRadarDataSet<Entry> impleme
             case CHEVRON_DOWN:
                 return new ChevronDownShapeRenderer();
         }
-
         return null;
     }
 }

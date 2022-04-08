@@ -1,9 +1,8 @@
-
 package com.github.mikephil.charting.data;
 
+import androidx.annotation.Nullable;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,6 +14,7 @@ import java.util.List;
  */
 public class RadarData extends ChartData<IRadarDataSet> {
 
+    @Nullable
     private List<String> mLabels;
 
     public RadarData() {
