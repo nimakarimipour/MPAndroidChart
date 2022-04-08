@@ -1,5 +1,6 @@
 package com.github.mikephil.charting.components;
 
+import androidx.annotation.Nullable;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -9,13 +10,11 @@ import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
-
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.utils.FSize;
 import com.github.mikephil.charting.utils.MPPointF;
-
 import java.lang.ref.WeakReference;
 
 /**
@@ -27,13 +26,18 @@ import java.lang.ref.WeakReference;
 public class MarkerImage implements IMarker {
 
     private Context mContext;
+
     private Drawable mDrawable;
 
     private MPPointF mOffset = new MPPointF();
+
     private MPPointF mOffset2 = new MPPointF();
+
+    @Nullable
     private WeakReference<Chart> mWeakChart;
 
     private FSize mSize = new FSize();
+
     private Rect mDrawableBoundsCache = new Rect();
 
     /**
@@ -44,20 +48,15 @@ public class MarkerImage implements IMarker {
      */
     public MarkerImage(Context context, int drawableResourceId) {
         mContext = context;
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-        {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mDrawable = mContext.getResources().getDrawable(drawableResourceId, null);
-        }
-        else
-        {
+        } else {
             mDrawable = mContext.getResources().getDrawable(drawableResourceId);
         }
     }
 
     public void setOffset(MPPointF offset) {
         mOffset = offset;
-
         if (mOffset == null) {
             mOffset = new MPPointF();
         }
@@ -75,7 +74,6 @@ public class MarkerImage implements IMarker {
 
     public void setSize(FSize size) {
         mSize = size;
-
         if (mSize == null) {
             mSize = new FSize();
         }
@@ -89,79 +87,62 @@ public class MarkerImage implements IMarker {
         mWeakChart = new WeakReference<>(chart);
     }
 
+    @Nullable
     public Chart getChartView() {
         return mWeakChart == null ? null : mWeakChart.get();
     }
 
     @Override
     public MPPointF getOffsetForDrawingAtPoint(float posX, float posY) {
-
         MPPointF offset = getOffset();
         mOffset2.x = offset.x;
         mOffset2.y = offset.y;
-
         Chart chart = getChartView();
-
         float width = mSize.width;
         float height = mSize.height;
-
         if (width == 0.f && mDrawable != null) {
             width = mDrawable.getIntrinsicWidth();
         }
         if (height == 0.f && mDrawable != null) {
             height = mDrawable.getIntrinsicHeight();
         }
-
         if (posX + mOffset2.x < 0) {
-            mOffset2.x = - posX;
+            mOffset2.x = -posX;
         } else if (chart != null && posX + width + mOffset2.x > chart.getWidth()) {
             mOffset2.x = chart.getWidth() - posX - width;
         }
-
         if (posY + mOffset2.y < 0) {
-            mOffset2.y = - posY;
+            mOffset2.y = -posY;
         } else if (chart != null && posY + height + mOffset2.y > chart.getHeight()) {
             mOffset2.y = chart.getHeight() - posY - height;
         }
-
         return mOffset2;
     }
 
     @Override
     public void refreshContent(Entry e, Highlight highlight) {
-
     }
 
     @Override
     public void draw(Canvas canvas, float posX, float posY) {
-
-        if (mDrawable == null) return;
-
+        if (mDrawable == null)
+            return;
         MPPointF offset = getOffsetForDrawingAtPoint(posX, posY);
-
         float width = mSize.width;
         float height = mSize.height;
-
         if (width == 0.f) {
             width = mDrawable.getIntrinsicWidth();
         }
         if (height == 0.f) {
             height = mDrawable.getIntrinsicHeight();
         }
-
         mDrawable.copyBounds(mDrawableBoundsCache);
-        mDrawable.setBounds(
-                mDrawableBoundsCache.left,
-                mDrawableBoundsCache.top,
-                mDrawableBoundsCache.left + (int)width,
-                mDrawableBoundsCache.top + (int)height);
-
+        mDrawable.setBounds(mDrawableBoundsCache.left, mDrawableBoundsCache.top, mDrawableBoundsCache.left + (int) width, mDrawableBoundsCache.top + (int) height);
         int saveId = canvas.save();
         // translate to the correct position and draw
         canvas.translate(posX + offset.x, posY + offset.y);
         mDrawable.draw(canvas);
         canvas.restoreToCount(saveId);
-
         mDrawable.setBounds(mDrawableBoundsCache);
     }
 }
