@@ -1,5 +1,6 @@
 package com.github.mikephil.charting.listener;
 
+import androidx.annotation.Nullable;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.highlight.Highlight;
 
@@ -18,7 +19,7 @@ public interface OnChartValueSelectedListener {
      * @param h The corresponding highlight object that contains information
      *          about the highlighted position such as dataSetIndex, ...
      */
-    void onValueSelected(Entry e, Highlight h);
+    void onValueSelected(@Nullable Entry e, @Nullable Highlight h);
 
     /**
      * Called when nothing has been selected or an "un-select" has been made.
