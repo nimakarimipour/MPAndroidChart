@@ -1,8 +1,8 @@
 package com.github.mikephil.charting.interfaces.datasets;
 
+import androidx.annotation.Nullable;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.Fill;
-
 import java.util.List;
 
 /**
@@ -10,6 +10,7 @@ import java.util.List;
  */
 public interface IBarDataSet extends IBarLineScatterCandleBubbleDataSet<BarEntry> {
 
+    @Nullable
     List<Fill> getFills();
 
     Fill getFill(int index);
@@ -59,7 +60,6 @@ public interface IBarDataSet extends IBarLineScatterCandleBubbleDataSet<BarEntry
      * @return
      */
     int getHighLightAlpha();
-
 
     /**
      * Returns the labels used for the different value-stacks in the legend.

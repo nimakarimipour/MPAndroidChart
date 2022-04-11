@@ -1,5 +1,6 @@
 package com.github.mikephil.charting.interfaces.dataprovider;
 
+import androidx.annotation.Nullable;
 import com.github.mikephil.charting.data.CombinedData;
 
 /**
@@ -7,5 +8,6 @@ import com.github.mikephil.charting.data.CombinedData;
  */
 public interface CombinedDataProvider extends LineDataProvider, BarDataProvider, BubbleDataProvider, CandleDataProvider, ScatterDataProvider {
 
+    @Nullable
     CombinedData getCombinedData();
 }

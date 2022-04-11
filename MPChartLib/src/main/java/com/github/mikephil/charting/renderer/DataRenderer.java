@@ -1,13 +1,12 @@
-
 package com.github.mikephil.charting.renderer;
 
+import androidx.annotation.Nullable;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.Paint.Style;
 import android.graphics.drawable.Drawable;
-
 import com.github.mikephil.charting.animation.ChartAnimator;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.formatter.IValueFormatter;
@@ -28,6 +27,7 @@ public abstract class DataRenderer extends Renderer {
     /**
      * the animator object used to perform animations on the chart data
      */
+    @Nullable
     protected ChartAnimator mAnimator;
 
     /**
@@ -48,20 +48,16 @@ public abstract class DataRenderer extends Renderer {
      */
     protected Paint mValuePaint;
 
-    public DataRenderer(ChartAnimator animator, ViewPortHandler viewPortHandler) {
+    public DataRenderer(@Nullable ChartAnimator animator, ViewPortHandler viewPortHandler) {
         super(viewPortHandler);
         this.mAnimator = animator;
-
         mRenderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mRenderPaint.setStyle(Style.FILL);
-
         mDrawPaint = new Paint(Paint.DITHER_FLAG);
-
         mValuePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mValuePaint.setColor(Color.rgb(63, 63, 63));
         mValuePaint.setTextAlign(Align.CENTER);
         mValuePaint.setTextSize(Utils.convertDpToPixel(9f));
-
         mHighlightPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mHighlightPaint.setStyle(Paint.Style.STROKE);
         mHighlightPaint.setStrokeWidth(2f);
@@ -69,8 +65,7 @@ public abstract class DataRenderer extends Renderer {
     }
 
     protected boolean isDrawingValuesAllowed(ChartInterface chart) {
-        return chart.getData().getEntryCount() < chart.getMaxVisibleCount()
-                * mViewPortHandler.getScaleX();
+        return chart.getData().getEntryCount() < chart.getMaxVisibleCount() * mViewPortHandler.getScaleX();
     }
 
     /**
@@ -108,8 +103,7 @@ public abstract class DataRenderer extends Renderer {
      *
      * @param set
      */
-    protected void applyValueTextStyle(IDataSet set) {
-
+    protected void applyValueTextStyle(@Nullable IDataSet set) {
         mValuePaint.setTypeface(set.getValueTypeface());
         mValuePaint.setTextSize(set.getValueTextSize());
     }
@@ -147,7 +141,7 @@ public abstract class DataRenderer extends Renderer {
      * @param y            position
      * @param color
      */
-    public void drawValue(Canvas c, IValueFormatter formatter, float value, Entry entry, int dataSetIndex, float x, float y, int color) {
+    public void drawValue(Canvas c, @Nullable IValueFormatter formatter, float value, Entry entry, int dataSetIndex, float x, float y, int color) {
         mValuePaint.setColor(color);
         c.drawText(formatter.getFormattedValue(value, entry, dataSetIndex, mViewPortHandler), x, y, mValuePaint);
     }
@@ -165,5 +159,5 @@ public abstract class DataRenderer extends Renderer {
      * @param c
      * @param indices the highlighted values
      */
-    public abstract void drawHighlighted(Canvas c, Highlight[] indices);
+    public abstract void drawHighlighted(Canvas c, @Nullable Highlight[] indices);
 }

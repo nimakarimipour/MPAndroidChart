@@ -1,8 +1,8 @@
 package com.github.mikephil.charting.components;
 
+import androidx.annotation.Nullable;
 import android.graphics.Color;
 import android.graphics.Paint;
-
 import com.github.mikephil.charting.utils.Utils;
 
 /**
@@ -82,6 +82,7 @@ public class YAxis extends AxisBase {
      * enum for the position of the y-labels relative to the chart
      */
     public enum YAxisLabelPosition {
+
         OUTSIDE_CHART, INSIDE_CHART
     }
 
@@ -110,12 +111,12 @@ public class YAxis extends AxisBase {
      * @author Philipp Jahoda
      */
     public enum AxisDependency {
+
         LEFT, RIGHT
     }
 
     public YAxis() {
         super();
-
         // default left
         this.mAxisDependency = AxisDependency.LEFT;
         this.mYOffset = 0f;
@@ -340,24 +341,17 @@ public class YAxis extends AxisBase {
      * @param p
      * @return
      */
-    public float getRequiredWidthSpace(Paint p) {
-
+    public float getRequiredWidthSpace(@Nullable Paint p) {
         p.setTextSize(mTextSize);
-
         String label = getLongestLabel();
         float width = (float) Utils.calcTextWidth(p, label) + getXOffset() * 2f;
-
         float minWidth = getMinWidth();
         float maxWidth = getMaxWidth();
-
         if (minWidth > 0.f)
             minWidth = Utils.convertDpToPixel(minWidth);
-
         if (maxWidth > 0.f && maxWidth != Float.POSITIVE_INFINITY)
             maxWidth = Utils.convertDpToPixel(maxWidth);
-
         width = Math.max(minWidth, Math.min(width, maxWidth > 0.0 ? maxWidth : width));
-
         return width;
     }
 
@@ -367,10 +361,8 @@ public class YAxis extends AxisBase {
      * @param p
      * @return
      */
-    public float getRequiredHeightSpace(Paint p) {
-
+    public float getRequiredHeightSpace(@Nullable Paint p) {
         p.setTextSize(mTextSize);
-
         String label = getLongestLabel();
         return (float) Utils.calcTextHeight(p, label) + getYOffset() * 2f;
     }
@@ -381,8 +373,7 @@ public class YAxis extends AxisBase {
      * @return
      */
     public boolean needsOffset() {
-        if (isEnabled() && isDrawLabelsEnabled() && getLabelPosition() == YAxisLabelPosition
-                .OUTSIDE_CHART)
+        if (isEnabled() && isDrawLabelsEnabled() && getLabelPosition() == YAxisLabelPosition.OUTSIDE_CHART)
             return true;
         else
             return false;
@@ -392,7 +383,7 @@ public class YAxis extends AxisBase {
      * Returns true if autoscale restriction for axis min value is enabled
      */
     @Deprecated
-    public boolean isUseAutoScaleMinRestriction( ) {
+    public boolean isUseAutoScaleMinRestriction() {
         return mUseAutoScaleRestrictionMin;
     }
 
@@ -400,7 +391,7 @@ public class YAxis extends AxisBase {
      * Sets autoscale restriction for axis min value as enabled/disabled
      */
     @Deprecated
-    public void setUseAutoScaleMinRestriction( boolean isEnabled ) {
+    public void setUseAutoScaleMinRestriction(boolean isEnabled) {
         mUseAutoScaleRestrictionMin = isEnabled;
     }
 
@@ -416,52 +407,38 @@ public class YAxis extends AxisBase {
      * Sets autoscale restriction for axis max value as enabled/disabled
      */
     @Deprecated
-    public void setUseAutoScaleMaxRestriction( boolean isEnabled ) {
+    public void setUseAutoScaleMaxRestriction(boolean isEnabled) {
         mUseAutoScaleRestrictionMax = isEnabled;
     }
 
-
     @Override
     public void calculate(float dataMin, float dataMax) {
-
         float min = dataMin;
         float max = dataMax;
-
         // Make sure max is greater than min
         // Discussion: https://github.com/danielgindi/Charts/pull/3650#discussion_r221409991
-        if (min > max)
-        {
-            if (mCustomAxisMax && mCustomAxisMin)
-            {
+        if (min > max) {
+            if (mCustomAxisMax && mCustomAxisMin) {
                 float t = min;
                 min = max;
                 max = t;
-            }
-            else if (mCustomAxisMax)
-            {
+            } else if (mCustomAxisMax) {
                 min = max < 0f ? max * 1.5f : max * 0.5f;
-            }
-            else if (mCustomAxisMin)
-            {
+            } else if (mCustomAxisMin) {
                 max = min < 0f ? min * 0.5f : min * 1.5f;
             }
         }
-
         float range = Math.abs(max - min);
-
         // in case all values are equal
         if (range == 0f) {
             max = max + 1f;
             min = min - 1f;
         }
-
         // recalculate
         range = Math.abs(max - min);
-
         // calc extra spacing
         this.mAxisMinimum = mCustomAxisMin ? this.mAxisMinimum : min - (range / 100f) * getSpaceBottom();
         this.mAxisMaximum = mCustomAxisMax ? this.mAxisMaximum : max + (range / 100f) * getSpaceTop();
-
         this.mAxisRange = Math.abs(this.mAxisMinimum - this.mAxisMaximum);
     }
 }
