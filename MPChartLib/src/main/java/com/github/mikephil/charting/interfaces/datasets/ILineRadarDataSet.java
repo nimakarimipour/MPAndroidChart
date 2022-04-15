@@ -1,7 +1,7 @@
 package com.github.mikephil.charting.interfaces.datasets;
 
+import androidx.annotation.Nullable;
 import android.graphics.drawable.Drawable;
-
 import com.github.mikephil.charting.data.Entry;
 
 /**
@@ -21,6 +21,7 @@ public interface ILineRadarDataSet<T extends Entry> extends ILineScatterCandleRa
      *
      * @return
      */
+    @Nullable
     Drawable getFillDrawable();
 
     /**
