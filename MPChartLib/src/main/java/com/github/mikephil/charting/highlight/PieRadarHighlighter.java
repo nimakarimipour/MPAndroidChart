@@ -53,6 +53,5 @@ public abstract class PieRadarHighlighter<T extends PieRadarChartBase> implement
      * @param y
      * @return
      */
-    @Nullable
     protected abstract Highlight getClosestHighlight(int index, float x, float y);
 }

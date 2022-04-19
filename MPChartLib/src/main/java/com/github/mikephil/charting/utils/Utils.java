@@ -413,7 +413,7 @@ public abstract class Utils {
         outputPoint.y = (float) (center.y + dist * Math.sin(Math.toRadians(angle)));
     }
 
-    public static void velocityTrackerPointerUpCleanUpIfNecessary(MotionEvent ev, @Nullable VelocityTracker tracker) {
+    public static void velocityTrackerPointerUpCleanUpIfNecessary(MotionEvent ev, VelocityTracker tracker) {
         // Check the dot product of current velocities.
         // If the pointer that left was opposing another velocity vector, clear.
         tracker.computeCurrentVelocity(1000, mMaximumFlingVelocity);

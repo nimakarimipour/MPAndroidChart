@@ -29,7 +29,7 @@ public abstract class ViewPortJob extends ObjectPool.Poolable implements Runnabl
 
     protected View view;
 
-    public ViewPortJob(@Nullable ViewPortHandler viewPortHandler, float xValue, float yValue, @Nullable Transformer trans, @Nullable View v) {
+    public ViewPortJob(ViewPortHandler viewPortHandler, float xValue, float yValue, Transformer trans, View v) {
         this.mViewPortHandler = viewPortHandler;
         this.xValue = xValue;
         this.yValue = yValue;

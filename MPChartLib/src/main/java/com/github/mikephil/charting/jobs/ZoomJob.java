@@ -42,7 +42,6 @@ public class ZoomJob extends ViewPortJob {
 
     protected float scaleY;
 
-    @Nullable
     protected YAxis.AxisDependency axisDependency;
 
     public ZoomJob(@Nullable ViewPortHandler viewPortHandler, float scaleX, float scaleY, float xValue, float yValue, @Nullable Transformer trans, @Nullable YAxis.AxisDependency axis, @Nullable View v) {

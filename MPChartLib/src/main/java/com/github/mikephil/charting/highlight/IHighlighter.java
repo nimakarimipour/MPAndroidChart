@@ -14,6 +14,5 @@ public interface IHighlighter {
      * @param y
      * @return
      */
-    @Nullable
     Highlight getHighlight(float x, float y);
 }

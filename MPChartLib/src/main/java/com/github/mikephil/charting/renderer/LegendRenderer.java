@@ -379,7 +379,7 @@ public class LegendRenderer extends Renderer {
      * @param y
      * @param label the label to draw
      */
-    protected void drawLabel(Canvas c, float x, float y, @Nullable String label) {
+    protected void drawLabel(Canvas c, float x, float y, String label) {
         c.drawText(label, x, y, mLegendLabelPaint);
     }
 }

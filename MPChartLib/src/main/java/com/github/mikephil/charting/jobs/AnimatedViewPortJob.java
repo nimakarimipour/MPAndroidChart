@@ -23,7 +23,7 @@ public abstract class AnimatedViewPortJob extends ViewPortJob implements ValueAn
 
     protected float yOrigin;
 
-    public AnimatedViewPortJob(@Nullable ViewPortHandler viewPortHandler, float xValue, float yValue, @Nullable Transformer trans, @Nullable View v, float xOrigin, float yOrigin, long duration) {
+    public AnimatedViewPortJob(ViewPortHandler viewPortHandler, float xValue, float yValue, Transformer trans, View v, float xOrigin, float yOrigin, long duration) {
         super(viewPortHandler, xValue, yValue, trans, v);
         this.xOrigin = xOrigin;
         this.yOrigin = yOrigin;

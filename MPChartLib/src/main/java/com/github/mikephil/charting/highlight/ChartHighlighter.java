@@ -31,7 +31,6 @@ public class ChartHighlighter<T extends BarLineScatterCandleBubbleDataProvider> 
     }
 
     @Override
-    @Nullable
     public Highlight getHighlight(float x, float y) {
         MPPointD pos = getValsForTouch(x, y);
         float xVal = (float) pos.x;

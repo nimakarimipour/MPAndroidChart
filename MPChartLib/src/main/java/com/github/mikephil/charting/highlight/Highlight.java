@@ -183,7 +183,6 @@ public class Highlight {
      *
      * @return
      */
-    @Nullable
     public YAxis.AxisDependency getAxis() {
         return axis;
     }

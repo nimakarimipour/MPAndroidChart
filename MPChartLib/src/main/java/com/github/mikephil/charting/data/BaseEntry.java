@@ -91,7 +91,6 @@ public abstract class BaseEntry {
      *
      * @return
      */
-    @Nullable
     public Object getData() {
         return mData;
     }
