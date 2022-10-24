@@ -59,6 +59,7 @@ tasks.withType(JavaCompile) {
                                               "-XepOpt:NullAway:SerializeFixMetadata=true",
                                               "-XepOpt:NullAway:FixSerializationConfigPath=/tmp/NullAwayFix/config.xml",
                                               "-Xep:TypeAnnotatorScanner:ERROR",
+                                              "-Xep:ExhaustiveFixSerializer:OFF",
                                               "-XepOpt:TypeAnnotatorScanner:ConfigPath=/tmp/NullAwayFix/scanner.xml",
                                               "-XepDisableAllWarnings"]
         options.compilerArgs << "-Xmaxerrs" << "100000"
