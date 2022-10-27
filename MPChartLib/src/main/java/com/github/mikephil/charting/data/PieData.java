@@ -1,11 +1,10 @@
-
 package com.github.mikephil.charting.data;
 
+import com.github.mikephil.charting.NullUnmarked;
+import androidx.annotation.Nullable;
 import android.util.Log;
-
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.IPieDataSet;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,12 +50,9 @@ public class PieData extends ChartData<IPieDataSet> {
     @Override
     public List<IPieDataSet> getDataSets() {
         List<IPieDataSet> dataSets = super.getDataSets();
-
         if (dataSets.size() < 1) {
-            Log.e("MPAndroidChart",
-                    "Found multiple data sets while pie chart only allows one");
+            Log.e("MPAndroidChart", "Found multiple data sets while pie chart only allows one");
         }
-
         return dataSets;
     }
 
@@ -67,14 +63,16 @@ public class PieData extends ChartData<IPieDataSet> {
      * @return
      */
     @Override
+    @Nullable
+    @NullUnmarked
     public IPieDataSet getDataSetByIndex(int index) {
         return index == 0 ? getDataSet() : null;
     }
 
     @Override
+    @Nullable
     public IPieDataSet getDataSetByLabel(String label, boolean ignorecase) {
-        return ignorecase ? label.equalsIgnoreCase(mDataSets.get(0).getLabel()) ? mDataSets.get(0)
-                : null : label.equals(mDataSets.get(0).getLabel()) ? mDataSets.get(0) : null;
+        return ignorecase ? label.equalsIgnoreCase(mDataSets.get(0).getLabel()) ? mDataSets.get(0) : null : label.equals(mDataSets.get(0).getLabel()) ? mDataSets.get(0) : null;
     }
 
     @Override
@@ -88,13 +86,8 @@ public class PieData extends ChartData<IPieDataSet> {
      * @return
      */
     public float getYValueSum() {
-
         float sum = 0;
-
-        for (int i = 0; i < getDataSet().getEntryCount(); i++)
-            sum += getDataSet().getEntryForIndex(i).getY();
-
-
+        for (int i = 0; i < getDataSet().getEntryCount(); i++) sum += getDataSet().getEntryForIndex(i).getY();
         return sum;
     }
 }

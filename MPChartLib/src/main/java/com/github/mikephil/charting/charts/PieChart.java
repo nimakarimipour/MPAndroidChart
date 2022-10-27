@@ -1,13 +1,12 @@
-
 package com.github.mikephil.charting.charts;
 
+import com.github.mikephil.charting.NullUnmarked;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.highlight.Highlight;
@@ -16,7 +15,6 @@ import com.github.mikephil.charting.interfaces.datasets.IPieDataSet;
 import com.github.mikephil.charting.renderer.PieChartRenderer;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
-
 import java.util.List;
 
 /**
@@ -113,60 +111,42 @@ public class PieChart extends PieRadarChartBase<PieData> {
     }
 
     @Override
+    @NullUnmarked
     protected void init() {
         super.init();
-
         mRenderer = new PieChartRenderer(this, mAnimator, mViewPortHandler);
         mXAxis = null;
-
         mHighlighter = new PieHighlighter(this);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
         if (mData == null)
             return;
-
         mRenderer.drawData(canvas);
-
         if (valuesToHighlight())
             mRenderer.drawHighlighted(canvas, mIndicesToHighlight);
-
         mRenderer.drawExtras(canvas);
-
         mRenderer.drawValues(canvas);
-
         mLegendRenderer.renderLegend(canvas);
-
         drawDescription(canvas);
-
         drawMarkers(canvas);
     }
 
     @Override
     public void calculateOffsets() {
         super.calculateOffsets();
-
         // prevent nullpointer when no data set
         if (mData == null)
             return;
-
         float diameter = getDiameter();
         float radius = diameter / 2f;
-
         MPPointF c = getCenterOffsets();
-
         float shift = mData.getDataSet().getSelectionShift();
-
         // create the circle box that will contain the pie-chart (the bounds of
         // the pie-chart)
-        mCircleBox.set(c.x - radius + shift,
-                c.y - radius + shift,
-                c.x + radius - shift,
-                c.y + radius - shift);
-
+        mCircleBox.set(c.x - radius + shift, c.y - radius + shift, c.x + radius - shift, c.y + radius - shift);
         MPPointF.recycleInstance(c);
     }
 
@@ -177,44 +157,30 @@ public class PieChart extends PieRadarChartBase<PieData> {
 
     @Override
     protected float[] getMarkerPosition(Highlight highlight) {
-
         MPPointF center = getCenterCircleBox();
         float r = getRadius();
-
         float off = r / 10f * 3.6f;
-
         if (isDrawHoleEnabled()) {
             off = (r - (r / 100f * getHoleRadius())) / 2f;
         }
-
-        r -= off; // offset to keep things inside the chart
-
+        // offset to keep things inside the chart
+        r -= off;
         float rotationAngle = getRotationAngle();
-
         int entryIndex = (int) highlight.getX();
-
         // offset needed to center the drawn text in the slice
         float offset = mDrawAngles[entryIndex] / 2;
-
         // calculate the text position
-        float x = (float) (r
-                * Math.cos(Math.toRadians((rotationAngle + mAbsoluteAngles[entryIndex] - offset)
-                * mAnimator.getPhaseY())) + center.x);
-        float y = (float) (r
-                * Math.sin(Math.toRadians((rotationAngle + mAbsoluteAngles[entryIndex] - offset)
-                * mAnimator.getPhaseY())) + center.y);
-
+        float x = (float) (r * Math.cos(Math.toRadians((rotationAngle + mAbsoluteAngles[entryIndex] - offset) * mAnimator.getPhaseY())) + center.x);
+        float y = (float) (r * Math.sin(Math.toRadians((rotationAngle + mAbsoluteAngles[entryIndex] - offset) * mAnimator.getPhaseY())) + center.y);
         MPPointF.recycleInstance(center);
-        return new float[]{x, y};
+        return new float[] { x, y };
     }
 
     /**
      * calculates the needed angles for the chart slices
      */
     private void calcAngles() {
-
         int entryCount = mData.getEntryCount();
-
         if (mDrawAngles.length != entryCount) {
             mDrawAngles = new float[entryCount];
         } else {
@@ -229,26 +195,17 @@ public class PieChart extends PieRadarChartBase<PieData> {
                 mAbsoluteAngles[i] = 0;
             }
         }
-
         float yValueSum = mData.getYValueSum();
-
         List<IPieDataSet> dataSets = mData.getDataSets();
-
         boolean hasMinAngle = mMinAngleForSlices != 0f && entryCount * mMinAngleForSlices <= mMaxAngle;
         float[] minAngles = new float[entryCount];
-
         int cnt = 0;
         float offset = 0f;
         float diff = 0f;
-
         for (int i = 0; i < mData.getDataSetCount(); i++) {
-
             IPieDataSet set = dataSets.get(i);
-
             for (int j = 0; j < set.getEntryCount(); j++) {
-
                 float drawAngle = calcAngle(Math.abs(set.getEntryForIndex(j).getY()), yValueSum);
-
                 if (hasMinAngle) {
                     float temp = drawAngle - mMinAngleForSlices;
                     if (temp <= 0) {
@@ -259,19 +216,15 @@ public class PieChart extends PieRadarChartBase<PieData> {
                         diff += temp;
                     }
                 }
-
                 mDrawAngles[cnt] = drawAngle;
-
                 if (cnt == 0) {
                     mAbsoluteAngles[cnt] = mDrawAngles[cnt];
                 } else {
                     mAbsoluteAngles[cnt] = mAbsoluteAngles[cnt - 1] + mDrawAngles[cnt];
                 }
-
                 cnt++;
             }
         }
-
         if (hasMinAngle) {
             // Correct bigger slices by relatively reducing their angles based on the total angle needed to subtract
             // This requires that `entryCount * mMinAngleForSlices <= mMaxAngle` be true to properly work!
@@ -283,7 +236,6 @@ public class PieChart extends PieRadarChartBase<PieData> {
                     mAbsoluteAngles[i] = mAbsoluteAngles[i - 1] + minAngles[i];
                 }
             }
-
             mDrawAngles = minAngles;
         }
     }
@@ -295,17 +247,12 @@ public class PieChart extends PieRadarChartBase<PieData> {
      * @return
      */
     public boolean needsHighlight(int index) {
-
         // no highlight
         if (!valuesToHighlight())
             return false;
-
-        for (int i = 0; i < mIndicesToHighlight.length; i++)
-
-            // check if the xvalue for the given dataset needs highlight
-            if ((int) mIndicesToHighlight[i].getX() == index)
-                return true;
-
+        for (int i = 0; i < mIndicesToHighlight.length; i++) // check if the xvalue for the given dataset needs highlight
+        if ((int) mIndicesToHighlight[i].getX() == index)
+            return true;
         return false;
     }
 
@@ -343,16 +290,14 @@ public class PieChart extends PieRadarChartBase<PieData> {
 
     @Override
     public int getIndexForAngle(float angle) {
-
         // take the current angle of the chart into consideration
         float a = Utils.getNormalizedAngle(angle - getRotationAngle());
-
         for (int i = 0; i < mAbsoluteAngles.length; i++) {
             if (mAbsoluteAngles[i] > a)
                 return i;
         }
-
-        return -1; // return -1 if no index found
+        // return -1 if no index found
+        return -1;
     }
 
     /**
@@ -362,14 +307,11 @@ public class PieChart extends PieRadarChartBase<PieData> {
      * @return
      */
     public int getDataSetIndexForIndex(int xIndex) {
-
         List<IPieDataSet> dataSets = mData.getDataSets();
-
         for (int i = 0; i < dataSets.size(); i++) {
             if (dataSets.get(i).getEntryForXValue(xIndex, Float.NaN) != null)
                 return i;
         }
-
         return -1;
     }
 
@@ -531,8 +473,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
      * @param sizeDp
      */
     public void setCenterTextSize(float sizeDp) {
-        ((PieChartRenderer) mRenderer).getPaintCenterText().setTextSize(
-                Utils.convertDpToPixel(sizeDp));
+        ((PieChartRenderer) mRenderer).getPaintCenterText().setTextSize(Utils.convertDpToPixel(sizeDp));
     }
 
     /**
@@ -598,7 +539,6 @@ public class PieChart extends PieRadarChartBase<PieData> {
      * @param color
      */
     public void setTransparentCircleColor(int color) {
-
         Paint p = ((PieChartRenderer) mRenderer).getPaintTransparentCircle();
         int alpha = p.getAlpha();
         p.setColor(color);
@@ -757,13 +697,10 @@ public class PieChart extends PieRadarChartBase<PieData> {
      * @param maxangle min 90, max 360
      */
     public void setMaxAngle(float maxangle) {
-
         if (maxangle > 360)
             maxangle = 360f;
-
         if (maxangle < 90)
             maxangle = 90f;
-
         this.mMaxAngle = maxangle;
     }
 
@@ -784,12 +721,10 @@ public class PieChart extends PieRadarChartBase<PieData> {
      * @param minAngle minimum 0, maximum is half of {@link #setMaxAngle(float)}
      */
     public void setMinAngleForSlices(float minAngle) {
-
         if (minAngle > (mMaxAngle / 2f))
             minAngle = mMaxAngle / 2f;
         else if (minAngle < 0)
             minAngle = 0f;
-
         this.mMinAngleForSlices = minAngle;
     }
 

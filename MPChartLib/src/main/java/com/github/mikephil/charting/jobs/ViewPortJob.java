@@ -1,8 +1,8 @@
-
 package com.github.mikephil.charting.jobs;
 
+import com.github.mikephil.charting.NullUnmarked;
+import androidx.annotation.Nullable;
 import android.view.View;
-
 import com.github.mikephil.charting.utils.ObjectPool;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.ViewPortHandler;
@@ -13,28 +13,33 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
  * modifications until the onSizeChanged(...) method of the chart-view is called.
  * This is especially important if viewport modifying methods are called on the chart
  * directly after initialization.
- * 
+ *
  * @author Philipp Jahoda
  */
 public abstract class ViewPortJob extends ObjectPool.Poolable implements Runnable {
 
     protected float[] pts = new float[2];
 
+    @SuppressWarnings("NullAway.Init")
     protected ViewPortHandler mViewPortHandler;
+
     protected float xValue = 0f;
+
     protected float yValue = 0f;
+
+    @SuppressWarnings("NullAway.Init")
     protected Transformer mTrans;
+
+    @SuppressWarnings("NullAway.Init")
     protected View view;
 
-    public ViewPortJob(ViewPortHandler viewPortHandler, float xValue, float yValue,
-                       Transformer trans, View v) {
-
+    @NullUnmarked
+    public ViewPortJob(@Nullable ViewPortHandler viewPortHandler, float xValue, float yValue, @Nullable Transformer trans, @Nullable View v) {
         this.mViewPortHandler = viewPortHandler;
         this.xValue = xValue;
         this.yValue = yValue;
         this.mTrans = trans;
         this.view = v;
-
     }
 
     public float getXValue() {
