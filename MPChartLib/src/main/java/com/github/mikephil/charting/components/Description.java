@@ -1,7 +1,6 @@
 package com.github.mikephil.charting.components;
 
 import android.graphics.Paint;
-
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 
@@ -18,6 +17,7 @@ public class Description extends ComponentBase {
     /**
      * the custom position of the description text
      */
+    @SuppressWarnings("NullAway.Init")
     private MPPointF mPosition;
 
     /**
@@ -27,7 +27,6 @@ public class Description extends ComponentBase {
 
     public Description() {
         super();
-
         // default size
         mTextSize = Utils.convertDpToPixel(8f);
     }

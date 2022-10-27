@@ -1,9 +1,7 @@
-
 package com.github.mikephil.charting.data;
 
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,6 +13,7 @@ import java.util.List;
  */
 public class RadarData extends ChartData<IRadarDataSet> {
 
+    @SuppressWarnings("NullAway.Init")
     private List<String> mLabels;
 
     public RadarData() {

@@ -1,9 +1,8 @@
-
 package com.github.mikephil.charting.jobs;
 
+import com.github.mikephil.charting.NullUnmarked;
 import android.graphics.Matrix;
 import android.view.View;
-
 import com.github.mikephil.charting.charts.BarLineChartBase;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.utils.ObjectPool;
@@ -22,8 +21,7 @@ public class ZoomJob extends ViewPortJob {
         pool.setReplenishPercentage(0.5f);
     }
 
-    public static ZoomJob getInstance(ViewPortHandler viewPortHandler, float scaleX, float scaleY, float xValue, float yValue,
-                                      Transformer trans, YAxis.AxisDependency axis, View v) {
+    public static ZoomJob getInstance(ViewPortHandler viewPortHandler, float scaleX, float scaleY, float xValue, float yValue, Transformer trans, YAxis.AxisDependency axis, View v) {
         ZoomJob result = pool.get();
         result.xValue = xValue;
         result.yValue = yValue;
@@ -41,14 +39,13 @@ public class ZoomJob extends ViewPortJob {
     }
 
     protected float scaleX;
+
     protected float scaleY;
 
     protected YAxis.AxisDependency axisDependency;
 
-    public ZoomJob(ViewPortHandler viewPortHandler, float scaleX, float scaleY, float xValue, float yValue, Transformer trans,
-                   YAxis.AxisDependency axis, View v) {
+    public ZoomJob(ViewPortHandler viewPortHandler, float scaleX, float scaleY, float xValue, float yValue, Transformer trans, YAxis.AxisDependency axis, View v) {
         super(viewPortHandler, xValue, yValue, trans, v);
-
         this.scaleX = scaleX;
         this.scaleY = scaleY;
         this.axisDependency = axis;
@@ -58,29 +55,23 @@ public class ZoomJob extends ViewPortJob {
 
     @Override
     public void run() {
-
         Matrix save = mRunMatrixBuffer;
         mViewPortHandler.zoom(scaleX, scaleY, save);
         mViewPortHandler.refresh(save, view, false);
-
         float yValsInView = ((BarLineChartBase) view).getAxis(axisDependency).mAxisRange / mViewPortHandler.getScaleY();
         float xValsInView = ((BarLineChartBase) view).getXAxis().mAxisRange / mViewPortHandler.getScaleX();
-
         pts[0] = xValue - xValsInView / 2f;
         pts[1] = yValue + yValsInView / 2f;
-
         mTrans.pointValuesToPixel(pts);
-
         mViewPortHandler.translate(pts, save);
         mViewPortHandler.refresh(save, view, false);
-
         ((BarLineChartBase) view).calculateOffsets();
         view.postInvalidate();
-
         recycleInstance(this);
     }
 
     @Override
+    @NullUnmarked
     protected ObjectPool.Poolable instantiate() {
         return new ZoomJob(null, 0, 0, 0, 0, null, null, null);
     }
