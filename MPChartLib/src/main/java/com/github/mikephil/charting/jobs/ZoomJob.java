@@ -9,6 +9,7 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.utils.ObjectPool;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Created by Philipp Jahoda on 19/02/16.
@@ -45,7 +46,7 @@ public class ZoomJob extends ViewPortJob {
 
     protected YAxis.AxisDependency axisDependency;
 
-    public ZoomJob(ViewPortHandler viewPortHandler, float scaleX, float scaleY, float xValue, float yValue, Transformer trans,
+    @NullUnmarked public ZoomJob(ViewPortHandler viewPortHandler, float scaleX, float scaleY, float xValue, float yValue, Transformer trans,
                    YAxis.AxisDependency axis, View v) {
         super(viewPortHandler, xValue, yValue, trans, v);
 
@@ -80,7 +81,7 @@ public class ZoomJob extends ViewPortJob {
         recycleInstance(this);
     }
 
-    @Override
+    @NullUnmarked @Override
     protected ObjectPool.Poolable instantiate() {
         return new ZoomJob(null, 0, 0, 0, 0, null, null, null);
     }

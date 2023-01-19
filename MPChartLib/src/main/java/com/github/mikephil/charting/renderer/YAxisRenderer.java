@@ -17,14 +17,15 @@ import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class YAxisRenderer extends AxisRenderer {
 
     protected YAxis mYAxis;
 
-    protected Paint mZeroLinePaint;
+    @SuppressWarnings("NullAway.Init") protected Paint mZeroLinePaint;
 
-    public YAxisRenderer(ViewPortHandler viewPortHandler, YAxis yAxis, Transformer trans) {
+    @NullUnmarked public YAxisRenderer(ViewPortHandler viewPortHandler, YAxis yAxis, Transformer trans) {
         super(viewPortHandler, trans, yAxis);
 
         this.mYAxis = yAxis;

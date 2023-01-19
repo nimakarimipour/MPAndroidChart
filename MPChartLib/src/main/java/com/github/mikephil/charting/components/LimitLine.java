@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 
 import com.github.mikephil.charting.utils.Utils;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * The limit line is an additional feature for all Line-, Bar- and
@@ -33,7 +34,7 @@ public class LimitLine extends ComponentBase {
     private String mLabel = "";
 
     /** the path effect of this LimitLine that makes dashed lines possible */
-    private DashPathEffect mDashPathEffect = null;
+    @SuppressWarnings("NullAway") private DashPathEffect mDashPathEffect = null;
 
     /** indicates the position of the LimitLine label */
     private LimitLabelPosition mLabelPosition = LimitLabelPosition.RIGHT_TOP;
@@ -133,7 +134,7 @@ public class LimitLine extends ComponentBase {
     /**
      * Disables the line to be drawn in dashed mode.
      */
-    public void disableDashedLine() {
+    @NullUnmarked public void disableDashedLine() {
         mDashPathEffect = null;
     }
 

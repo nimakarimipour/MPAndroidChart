@@ -18,6 +18,7 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.dataprovider.CombinedDataProvider;
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.renderer.CombinedChartRenderer;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * This chart class allows the combination of lines, bars, scatter and candle
@@ -45,7 +46,7 @@ public class CombinedChart extends BarLineChartBase<CombinedData> implements Com
      */
     private boolean mDrawBarShadow = false;
 
-    protected DrawOrder[] mDrawOrder;
+    @SuppressWarnings("NullAway.Init") protected DrawOrder[] mDrawOrder;
 
     /**
      * enum that allows to specify the order in which the different data objects
@@ -106,7 +107,7 @@ public class CombinedChart extends BarLineChartBase<CombinedData> implements Com
      * @param y
      * @return
      */
-    @Override
+    @NullUnmarked @Override
     public Highlight getHighlightByTouchPoint(float x, float y) {
 
         if (mData == null) {
@@ -123,35 +124,35 @@ public class CombinedChart extends BarLineChartBase<CombinedData> implements Com
         }
     }
 
-    @Override
+    @NullUnmarked @Override
     public LineData getLineData() {
         if (mData == null)
             return null;
         return mData.getLineData();
     }
 
-    @Override
+    @NullUnmarked @Override
     public BarData getBarData() {
         if (mData == null)
             return null;
         return mData.getBarData();
     }
 
-    @Override
+    @NullUnmarked @Override
     public ScatterData getScatterData() {
         if (mData == null)
             return null;
         return mData.getScatterData();
     }
 
-    @Override
+    @NullUnmarked @Override
     public CandleData getCandleData() {
         if (mData == null)
             return null;
         return mData.getCandleData();
     }
 
-    @Override
+    @NullUnmarked @Override
     public BubbleData getBubbleData() {
         if (mData == null)
             return null;

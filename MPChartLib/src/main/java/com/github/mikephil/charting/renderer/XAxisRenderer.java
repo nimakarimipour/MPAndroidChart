@@ -19,12 +19,13 @@ import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class XAxisRenderer extends AxisRenderer {
 
     protected XAxis mXAxis;
 
-    public XAxisRenderer(ViewPortHandler viewPortHandler, XAxis xAxis, Transformer trans) {
+    @NullUnmarked public XAxisRenderer(ViewPortHandler viewPortHandler, XAxis xAxis, Transformer trans) {
         super(viewPortHandler, trans, xAxis);
 
         this.mXAxis = xAxis;
