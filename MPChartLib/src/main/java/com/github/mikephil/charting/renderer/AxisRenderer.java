@@ -11,6 +11,7 @@ import com.github.mikephil.charting.utils.MPPointD;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import androidx.annotation.Nullable;
 
 /**
  * Baseclass of all axis renderers.
@@ -20,32 +21,32 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 public abstract class AxisRenderer extends Renderer {
 
     /** base axis this axis renderer works with */
-    protected AxisBase mAxis;
+    @Nullable protected AxisBase mAxis;
 
     /** transformer to transform values to screen pixels and return */
-    protected Transformer mTrans;
+    @Nullable protected Transformer mTrans;
 
     /**
      * paint object for the grid lines
      */
-    protected Paint mGridPaint;
+    @Nullable protected Paint mGridPaint;
 
     /**
      * paint for the x-label values
      */
-    protected Paint mAxisLabelPaint;
+    @Nullable protected Paint mAxisLabelPaint;
 
     /**
      * paint for the line surrounding the chart
      */
-    protected Paint mAxisLinePaint;
+    @Nullable protected Paint mAxisLinePaint;
 
     /**
      * paint used for the limit lines
      */
-    protected Paint mLimitLinePaint;
+    @Nullable protected Paint mLimitLinePaint;
 
-    public AxisRenderer(ViewPortHandler viewPortHandler, Transformer trans, AxisBase axis) {
+    public AxisRenderer(ViewPortHandler viewPortHandler, @Nullable Transformer trans, @Nullable AxisBase axis) {
         super(viewPortHandler);
 
         this.mTrans = trans;
@@ -76,7 +77,7 @@ public abstract class AxisRenderer extends Renderer {
      *
      * @return
      */
-    public Paint getPaintAxisLabels() {
+    @Nullable public Paint getPaintAxisLabels() {
         return mAxisLabelPaint;
     }
 
@@ -86,7 +87,7 @@ public abstract class AxisRenderer extends Renderer {
      *
      * @return
      */
-    public Paint getPaintGrid() {
+    @Nullable public Paint getPaintGrid() {
         return mGridPaint;
     }
 
@@ -96,7 +97,7 @@ public abstract class AxisRenderer extends Renderer {
      *
      * @return
      */
-    public Paint getPaintAxisLine() {
+    @Nullable public Paint getPaintAxisLine() {
         return mAxisLinePaint;
     }
 
@@ -105,7 +106,7 @@ public abstract class AxisRenderer extends Renderer {
      *
      * @return
      */
-    public Transformer getTransformer() {
+    @Nullable public Transformer getTransformer() {
         return mTrans;
     }
 

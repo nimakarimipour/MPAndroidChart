@@ -7,6 +7,7 @@ import android.view.View;
 import com.github.mikephil.charting.utils.ObjectPool;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import androidx.annotation.Nullable;
 
 /**
  * Created by Philipp Jahoda on 19/02/16.
@@ -21,7 +22,7 @@ public class AnimatedMoveViewJob extends AnimatedViewPortJob {
         pool.setReplenishPercentage(0.5f);
     }
 
-    public static AnimatedMoveViewJob getInstance(ViewPortHandler viewPortHandler, float xValue, float yValue, Transformer trans, View v, float xOrigin, float yOrigin, long duration){
+    public static AnimatedMoveViewJob getInstance(ViewPortHandler viewPortHandler, float xValue, float yValue, @Nullable Transformer trans, View v, float xOrigin, float yOrigin, long duration){
         AnimatedMoveViewJob result = pool.get();
         result.mViewPortHandler = viewPortHandler;
         result.xValue = xValue;
@@ -40,7 +41,7 @@ public class AnimatedMoveViewJob extends AnimatedViewPortJob {
     }
 
 
-    public AnimatedMoveViewJob(ViewPortHandler viewPortHandler, float xValue, float yValue, Transformer trans, View v, float xOrigin, float yOrigin, long duration) {
+    public AnimatedMoveViewJob(@Nullable ViewPortHandler viewPortHandler, float xValue, float yValue, @Nullable Transformer trans, @Nullable View v, float xOrigin, float yOrigin, long duration) {
         super(viewPortHandler, xValue, yValue, trans, v, xOrigin, yOrigin, duration);
     }
 

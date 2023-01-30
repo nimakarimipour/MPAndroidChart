@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 
 import com.github.mikephil.charting.utils.Utils;
+import androidx.annotation.Nullable;
 
 /**
  * Class representing the y-axis labels settings and its entries. Only use the setter methods to
@@ -340,7 +341,7 @@ public class YAxis extends AxisBase {
      * @param p
      * @return
      */
-    public float getRequiredWidthSpace(Paint p) {
+    public float getRequiredWidthSpace(@Nullable Paint p) {
 
         p.setTextSize(mTextSize);
 
@@ -367,7 +368,7 @@ public class YAxis extends AxisBase {
      * @param p
      * @return
      */
-    public float getRequiredHeightSpace(Paint p) {
+    public float getRequiredHeightSpace(@Nullable Paint p) {
 
         p.setTextSize(mTextSize);
 

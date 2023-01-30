@@ -22,6 +22,7 @@ import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
+import androidx.annotation.Nullable;
 
 public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
 
@@ -32,12 +33,12 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
      */
     protected RectF mBarRect = new RectF();
 
-    protected BarBuffer[] mBarBuffers;
+    @Nullable protected BarBuffer[] mBarBuffers;
 
     protected Paint mShadowPaint;
     protected Paint mBarBorderPaint;
 
-    public BarChartRenderer(BarDataProvider chart, ChartAnimator animator,
+    public BarChartRenderer(BarDataProvider chart, @Nullable ChartAnimator animator,
                             ViewPortHandler viewPortHandler) {
         super(animator, viewPortHandler);
         this.mChart = chart;
@@ -188,7 +189,7 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
         }
     }
 
-    protected void prepareBarHighlight(float x, float y1, float y2, float barWidthHalf, Transformer trans) {
+    protected void prepareBarHighlight(float x, float y1, float y2, float barWidthHalf, @Nullable Transformer trans) {
 
         float left = x - barWidthHalf;
         float right = x + barWidthHalf;
@@ -430,7 +431,7 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
     }
 
     @Override
-    public void drawHighlighted(Canvas c, Highlight[] indices) {
+    public void drawHighlighted(Canvas c, @Nullable Highlight[] indices) {
 
         BarData barData = mChart.getBarData();
 

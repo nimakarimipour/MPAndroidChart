@@ -19,12 +19,13 @@ import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
+import androidx.annotation.Nullable;
 
 public class ScatterChartRenderer extends LineScatterCandleRadarRenderer {
 
     protected ScatterDataProvider mChart;
 
-    public ScatterChartRenderer(ScatterDataProvider chart, ChartAnimator animator, ViewPortHandler viewPortHandler) {
+    public ScatterChartRenderer(ScatterDataProvider chart, @Nullable ChartAnimator animator, ViewPortHandler viewPortHandler) {
         super(animator, viewPortHandler);
         mChart = chart;
     }
@@ -169,7 +170,7 @@ public class ScatterChartRenderer extends LineScatterCandleRadarRenderer {
     }
 
     @Override
-    public void drawHighlighted(Canvas c, Highlight[] indices) {
+    public void drawHighlighted(Canvas c, @Nullable Highlight[] indices) {
 
         ScatterData scatterData = mChart.getScatterData();
 

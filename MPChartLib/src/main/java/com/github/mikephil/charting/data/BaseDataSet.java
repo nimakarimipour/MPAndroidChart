@@ -15,6 +15,7 @@ import com.github.mikephil.charting.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import androidx.annotation.Nullable;
 
 /**
  * Created by Philipp Jahoda on 21/10/15.
@@ -26,12 +27,12 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     /**
      * List representing all colors that are used for this DataSet
      */
-    protected List<Integer> mColors = null;
+    @Nullable protected List<Integer> mColors = null;
 
     /**
      * List representing all colors that are used for drawing the actual values for this DataSet
      */
-    protected List<Integer> mValueColors = null;
+    @Nullable protected List<Integer> mValueColors = null;
 
     /**
      * label that describes the DataSet or the data the DataSet represents
@@ -51,17 +52,17 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     /**
      * custom formatter that is used instead of the auto-formatter if set
      */
-    protected transient IValueFormatter mValueFormatter;
+    @Nullable protected transient IValueFormatter mValueFormatter;
 
     /**
      * the typeface used for the value text
      */
-    protected Typeface mValueTypeface;
+    @Nullable protected Typeface mValueTypeface;
 
     private Legend.LegendForm mForm = Legend.LegendForm.DEFAULT;
     private float mFormSize = Float.NaN;
     private float mFormLineWidth = Float.NaN;
-    private DashPathEffect mFormLineDashEffect = null;
+    @Nullable private DashPathEffect mFormLineDashEffect = null;
 
     /**
      * if true, y-values are drawn on the chart
@@ -122,12 +123,12 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
      * ###### ###### COLOR GETTING RELATED METHODS ##### ######
      */
 
-    @Override
+    @Nullable @Override
     public List<Integer> getColors() {
         return mColors;
     }
 
-    public List<Integer> getValueColors() {
+    @Nullable public List<Integer> getValueColors() {
         return mValueColors;
     }
 
@@ -282,7 +283,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
             mValueFormatter = f;
     }
 
-    @Override
+    @Nullable @Override
     public IValueFormatter getValueFormatter() {
         if (needsFormatter())
             return Utils.getDefaultValueFormatter();
@@ -325,7 +326,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
         return mValueColors.get(index % mValueColors.size());
     }
 
-    @Override
+    @Nullable @Override
     public Typeface getValueTypeface() {
         return mValueTypeface;
     }
@@ -366,7 +367,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
         mFormLineDashEffect = dashPathEffect;
     }
 
-    @Override
+    @Nullable @Override
     public DashPathEffect getFormLineDashEffect() {
         return mFormLineDashEffect;
     }

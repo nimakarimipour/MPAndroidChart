@@ -9,12 +9,13 @@ import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import androidx.annotation.Nullable;
 
 public class XAxisRendererRadarChart extends XAxisRenderer {
 
     private RadarChart mChart;
 
-    public XAxisRendererRadarChart(ViewPortHandler viewPortHandler, XAxis xAxis, RadarChart chart) {
+    public XAxisRendererRadarChart(ViewPortHandler viewPortHandler, @Nullable XAxis xAxis, RadarChart chart) {
         super(viewPortHandler, xAxis, null);
 
         mChart = chart;

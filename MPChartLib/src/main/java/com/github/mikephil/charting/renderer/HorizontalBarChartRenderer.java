@@ -23,6 +23,7 @@ import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
+import androidx.annotation.Nullable;
 
 /**
  * Renderer for the HorizontalBarChart.
@@ -31,7 +32,7 @@ import java.util.List;
  */
 public class HorizontalBarChartRenderer extends BarChartRenderer {
 
-    public HorizontalBarChartRenderer(BarDataProvider chart, ChartAnimator animator,
+    public HorizontalBarChartRenderer(BarDataProvider chart, @Nullable ChartAnimator animator,
                                       ViewPortHandler viewPortHandler) {
         super(chart, animator, viewPortHandler);
 
@@ -418,7 +419,7 @@ public class HorizontalBarChartRenderer extends BarChartRenderer {
     }
 
     @Override
-    protected void prepareBarHighlight(float x, float y1, float y2, float barWidthHalf, Transformer trans) {
+    protected void prepareBarHighlight(float x, float y1, float y2, float barWidthHalf, @Nullable Transformer trans) {
 
         float top = x - barWidthHalf;
         float bottom = x + barWidthHalf;

@@ -15,6 +15,7 @@ import com.github.mikephil.charting.renderer.RadarChartRenderer;
 import com.github.mikephil.charting.renderer.XAxisRendererRadarChart;
 import com.github.mikephil.charting.renderer.YAxisRendererRadarChart;
 import com.github.mikephil.charting.utils.Utils;
+import androidx.annotation.Nullable;
 
 /**
  * Implementation of the RadarChart, a "spidernet"-like chart. It works best
@@ -62,10 +63,10 @@ public class RadarChart extends PieRadarChartBase<RadarData> {
     /**
      * the object reprsenting the y-axis labels
      */
-    private YAxis mYAxis;
+    @Nullable private YAxis mYAxis;
 
-    protected YAxisRendererRadarChart mYAxisRenderer;
-    protected XAxisRendererRadarChart mXAxisRenderer;
+    @Nullable protected YAxisRendererRadarChart mYAxisRenderer;
+    @Nullable protected XAxisRendererRadarChart mXAxisRenderer;
 
     public RadarChart(Context context) {
         super(context);
@@ -209,7 +210,7 @@ public class RadarChart extends PieRadarChartBase<RadarData> {
      *
      * @return
      */
-    public YAxis getYAxis() {
+    @Nullable public YAxis getYAxis() {
         return mYAxis;
     }
 

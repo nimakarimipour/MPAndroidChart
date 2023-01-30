@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import com.github.mikephil.charting.data.BubbleData;
 import com.github.mikephil.charting.interfaces.dataprovider.BubbleDataProvider;
 import com.github.mikephil.charting.renderer.BubbleChartRenderer;
+import androidx.annotation.Nullable;
 
 /**
  * The BubbleChart. Draws bubbles. Bubble chart implementation: Copyright 2015
@@ -37,7 +38,7 @@ public class BubbleChart extends BarLineChartBase<BubbleData> implements BubbleD
         mRenderer = new BubbleChartRenderer(this, mAnimator, mViewPortHandler);
     }
 
-    public BubbleData getBubbleData() {
+    @Nullable public BubbleData getBubbleData() {
         return mData;
     }
 }

@@ -17,6 +17,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import androidx.annotation.Nullable;
 
 public class RadarChartRenderer extends LineRadarRenderer {
 
@@ -28,7 +29,7 @@ public class RadarChartRenderer extends LineRadarRenderer {
     protected Paint mWebPaint;
     protected Paint mHighlightCirclePaint;
 
-    public RadarChartRenderer(RadarChart chart, ChartAnimator animator,
+    public RadarChartRenderer(RadarChart chart, @Nullable ChartAnimator animator,
                               ViewPortHandler viewPortHandler) {
         super(animator, viewPortHandler);
         mChart = chart;
@@ -296,7 +297,7 @@ public class RadarChartRenderer extends LineRadarRenderer {
     }
 
     @Override
-    public void drawHighlighted(Canvas c, Highlight[] indices) {
+    public void drawHighlighted(Canvas c, @Nullable Highlight[] indices) {
 
         float sliceangle = mChart.getSliceAngle();
 

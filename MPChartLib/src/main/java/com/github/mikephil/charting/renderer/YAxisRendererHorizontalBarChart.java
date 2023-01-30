@@ -17,10 +17,11 @@ import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
+import androidx.annotation.Nullable;
 
 public class YAxisRendererHorizontalBarChart extends YAxisRenderer {
 
-    public YAxisRendererHorizontalBarChart(ViewPortHandler viewPortHandler, YAxis yAxis,
+    public YAxisRendererHorizontalBarChart(ViewPortHandler viewPortHandler, @Nullable YAxis yAxis,
                                            Transformer trans) {
         super(viewPortHandler, yAxis, trans);
 
