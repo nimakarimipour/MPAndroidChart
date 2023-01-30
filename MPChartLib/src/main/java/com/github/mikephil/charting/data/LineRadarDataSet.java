@@ -9,6 +9,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineRadarDataSet;
 import com.github.mikephil.charting.utils.Utils;
 
 import java.util.List;
+import androidx.annotation.Nullable;
 
 /**
  * Base dataset for line and radar DataSets.
@@ -26,7 +27,7 @@ public abstract class LineRadarDataSet<T extends Entry> extends LineScatterCandl
     /**
      * the drawable to be used for filling the line surface
      */
-    protected Drawable mFillDrawable;
+    @Nullable protected Drawable mFillDrawable;
 
     /**
      * transparency used for filling line surface
@@ -64,7 +65,7 @@ public abstract class LineRadarDataSet<T extends Entry> extends LineScatterCandl
         mFillDrawable = null;
     }
 
-    @Override
+    @Nullable @Override
     public Drawable getFillDrawable() {
         return mFillDrawable;
     }

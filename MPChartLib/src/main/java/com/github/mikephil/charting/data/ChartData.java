@@ -11,6 +11,7 @@ import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 
 import java.util.ArrayList;
 import java.util.List;
+import androidx.annotation.Nullable;
 
 /**
  * Class that holds all relevant data that represents the chart. That involves
@@ -334,7 +335,7 @@ public abstract class ChartData<T extends IDataSet<? extends Entry>> {
      * @param highlight
      * @return the entry that is highlighted
      */
-    public Entry getEntryForHighlight(Highlight highlight) {
+    @Nullable public Entry getEntryForHighlight(Highlight highlight) {
         if (highlight.getDataSetIndex() >= mDataSets.size())
             return null;
         else {
@@ -351,7 +352,7 @@ public abstract class ChartData<T extends IDataSet<? extends Entry>> {
      * @param ignorecase
      * @return
      */
-    public T getDataSetByLabel(String label, boolean ignorecase) {
+    @Nullable public T getDataSetByLabel(String label, boolean ignorecase) {
 
         int index = getDataSetIndexByLabel(mDataSets, label, ignorecase);
 
@@ -565,7 +566,7 @@ public abstract class ChartData<T extends IDataSet<? extends Entry>> {
      * @param e
      * @return
      */
-    public T getDataSetForEntry(Entry e) {
+    @Nullable public T getDataSetForEntry(Entry e) {
 
         if (e == null)
             return null;
@@ -589,7 +590,7 @@ public abstract class ChartData<T extends IDataSet<? extends Entry>> {
      *
      * @return
      */
-    public int[] getColors() {
+    @Nullable public int[] getColors() {
 
         if (mDataSets == null)
             return null;
@@ -632,7 +633,7 @@ public abstract class ChartData<T extends IDataSet<? extends Entry>> {
      *
      * @return
      */
-    protected T getFirstLeft(List<T> sets) {
+    @Nullable protected T getFirstLeft(List<T> sets) {
         for (T dataSet : sets) {
             if (dataSet.getAxisDependency() == AxisDependency.LEFT)
                 return dataSet;
@@ -646,7 +647,7 @@ public abstract class ChartData<T extends IDataSet<? extends Entry>> {
      *
      * @return
      */
-    public T getFirstRight(List<T> sets) {
+    @Nullable public T getFirstRight(List<T> sets) {
         for (T dataSet : sets) {
             if (dataSet.getAxisDependency() == AxisDependency.RIGHT)
                 return dataSet;

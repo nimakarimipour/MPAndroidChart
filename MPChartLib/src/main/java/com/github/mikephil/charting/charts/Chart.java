@@ -55,6 +55,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import androidx.annotation.Nullable;
 
 /**
  * Baseclass of all Chart-Views.
@@ -105,7 +106,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * paint object used for drawing the description text in the bottom right
      * corner of the chart
      */
-    protected Paint mDescPaint;
+    @Nullable protected Paint mDescPaint;
 
     /**
      * paint object for drawing the information text when there are no values in
@@ -126,17 +127,17 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * the object responsible for representing the description text
      */
-    protected Description mDescription;
+    @Nullable protected Description mDescription;
 
     /**
      * the legend object containing all data associated with the legend
      */
-    protected Legend mLegend;
+    @Nullable protected Legend mLegend;
 
     /**
      * listener that is called when a value on the chart is selected
      */
-    protected OnChartValueSelectedListener mSelectionListener;
+    @Nullable protected OnChartValueSelectedListener mSelectionListener;
 
     protected ChartTouchListener mChartTouchListener;
 
@@ -148,7 +149,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * Gesture listener for custom callbacks when making gestures on the chart.
      */
-    private OnChartGestureListener mGestureListener;
+    @Nullable private OnChartGestureListener mGestureListener;
 
     protected LegendRenderer mLegendRenderer;
 
@@ -683,7 +684,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param high         - the highlight object
      * @param callListener - call the listener
      */
-    public void highlightValue(Highlight high, boolean callListener) {
+    public void highlightValue(@Nullable Highlight high, boolean callListener) {
 
         Entry e = null;
 
@@ -732,7 +733,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param y
      * @return
      */
-    public Highlight getHighlightByTouchPoint(float x, float y) {
+    @Nullable public Highlight getHighlightByTouchPoint(float x, float y) {
 
         if (mData == null) {
             Log.e(LOG_TAG, "Can't select by touch. No data set.");
@@ -773,7 +774,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * the view that represents the marker
      */
-    protected IMarker mMarker;
+    @Nullable protected IMarker mMarker;
 
     /**
      * draws all MarkerViews on the highlighted positions
@@ -1050,7 +1051,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
-    public OnChartGestureListener getOnChartGestureListener() {
+    @Nullable public OnChartGestureListener getOnChartGestureListener() {
         return mGestureListener;
     }
 
@@ -1261,7 +1262,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
-    public IMarker getMarker() {
+    @Nullable public IMarker getMarker() {
         return mMarker;
     }
 
@@ -1270,7 +1271,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
         setMarker(v);
     }
 
-    @Deprecated
+    @Nullable @Deprecated
     public IMarker getMarkerView() {
         return getMarker();
     }
@@ -1290,7 +1291,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
-    public Description getDescription() {
+    @Nullable public Description getDescription() {
         return mDescription;
     }
 
@@ -1301,7 +1302,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
-    public Legend getLegend() {
+    @Nullable public Legend getLegend() {
         return mLegend;
     }
 
@@ -1401,7 +1402,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param which e.g. Chart.PAINT_LEGEND_LABEL
      * @return
      */
-    public Paint getPaint(int which) {
+    @Nullable public Paint getPaint(int which) {
         switch (which) {
             case PAINT_INFO:
                 return mInfoPaint;
