@@ -5,6 +5,7 @@ import android.animation.ValueAnimator.AnimatorUpdateListener;
 import androidx.annotation.RequiresApi;
 
 import com.github.mikephil.charting.animation.Easing.EasingFunction;
+import androidx.annotation.Nullable;
 
 /**
  * Object responsible for all animations in the Chart. Animations require API level 11.
@@ -15,7 +16,7 @@ import com.github.mikephil.charting.animation.Easing.EasingFunction;
 public class ChartAnimator {
 
     /** object that is updated upon animation update */
-    private AnimatorUpdateListener mListener;
+    @Nullable private AnimatorUpdateListener mListener;
 
     /** The phase of drawn values on the y-axis. 0 - 1 */
     @SuppressWarnings("WeakerAccess")

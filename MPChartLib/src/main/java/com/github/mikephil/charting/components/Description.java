@@ -4,6 +4,7 @@ import android.graphics.Paint;
 
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
+import androidx.annotation.Nullable;
 
 /**
  * Created by Philipp Jahoda on 17/09/16.
@@ -18,7 +19,7 @@ public class Description extends ComponentBase {
     /**
      * the custom position of the description text
      */
-    private MPPointF mPosition;
+    @Nullable private MPPointF mPosition;
 
     /**
      * the alignment of the description text
@@ -71,7 +72,7 @@ public class Description extends ComponentBase {
      *
      * @return
      */
-    public MPPointF getPosition() {
+    @Nullable public MPPointF getPosition() {
         return mPosition;
     }
 

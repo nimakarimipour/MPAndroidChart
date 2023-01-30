@@ -14,6 +14,7 @@ import com.github.mikephil.charting.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import androidx.annotation.Nullable;
 
 public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet {
 
@@ -50,7 +51,7 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
     /**
      * the path effect of this DataSet that makes dashed lines possible
      */
-    private DashPathEffect mDashPathEffect = null;
+    @Nullable private DashPathEffect mDashPathEffect = null;
 
     /**
      * formatter for customizing the position of the fill-line
@@ -236,7 +237,7 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
         return mDashPathEffect == null ? false : true;
     }
 
-    @Override
+    @Nullable @Override
     public DashPathEffect getDashPathEffect() {
         return mDashPathEffect;
     }
