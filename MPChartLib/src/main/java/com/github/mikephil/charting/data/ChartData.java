@@ -12,6 +12,7 @@ import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import java.util.ArrayList;
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Class that holds all relevant data that represents the chart. That involves
@@ -362,7 +363,7 @@ public abstract class ChartData<T extends IDataSet<? extends Entry>> {
             return mDataSets.get(index);
     }
 
-    public T getDataSetByIndex(int index) {
+    @NullUnmarked public T getDataSetByIndex(int index) {
 
         if (mDataSets == null || index < 0 || index >= mDataSets.size())
             return null;
@@ -804,7 +805,7 @@ public abstract class ChartData<T extends IDataSet<? extends Entry>> {
      *
      * @return
      */
-    public T getMaxEntryCountSet() {
+    @NullUnmarked public T getMaxEntryCountSet() {
 
         if (mDataSets == null || mDataSets.isEmpty())
             return null;

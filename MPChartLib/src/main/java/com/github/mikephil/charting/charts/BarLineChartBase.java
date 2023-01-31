@@ -36,6 +36,7 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Base-class of LineChart, BarChart, ScatterChart and CandleStickChart.
@@ -90,7 +91,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      */
     @Nullable protected Paint mGridBackgroundPaint;
 
-    protected Paint mBorderPaint;
+    @SuppressWarnings("NullAway.Init") protected Paint mBorderPaint;
 
     /**
      * flag indicating if the grid background should be drawn or not
@@ -121,20 +122,20 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
     /**
      * the object representing the labels on the left y-axis
      */
-    protected YAxis mAxisLeft;
+    @SuppressWarnings("NullAway.Init") protected YAxis mAxisLeft;
 
     /**
      * the object representing the labels on the right y-axis
      */
-    protected YAxis mAxisRight;
+    @SuppressWarnings("NullAway.Init") protected YAxis mAxisRight;
 
-    protected YAxisRenderer mAxisRendererLeft;
-    protected YAxisRenderer mAxisRendererRight;
+    @SuppressWarnings("NullAway.Init") protected YAxisRenderer mAxisRendererLeft;
+    @SuppressWarnings("NullAway.Init") protected YAxisRenderer mAxisRendererRight;
 
-    protected Transformer mLeftAxisTransformer;
-    protected Transformer mRightAxisTransformer;
+    @SuppressWarnings("NullAway.Init") protected Transformer mLeftAxisTransformer;
+    @SuppressWarnings("NullAway.Init") protected Transformer mRightAxisTransformer;
 
-    protected XAxisRenderer mXAxisRenderer;
+    @SuppressWarnings("NullAway.Init") protected XAxisRenderer mXAxisRenderer;
 
     // /** the approximator object used for data filtering */
     // private Approximator mApproximator;
@@ -1089,7 +1090,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      *
      * @param color
      */
-    public void setGridBackgroundColor(int color) {
+    @NullUnmarked public void setGridBackgroundColor(int color) {
         mGridBackgroundPaint.setColor(color);
     }
 

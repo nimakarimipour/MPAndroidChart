@@ -27,6 +27,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class LineChartRenderer extends LineRadarRenderer {
 
@@ -47,7 +48,7 @@ public class LineChartRenderer extends LineRadarRenderer {
      * on this canvas, the paths are rendered, it is initialized with the
      * pathBitmap
      */
-    protected Canvas mBitmapCanvas;
+    @SuppressWarnings("NullAway.Init") protected Canvas mBitmapCanvas;
 
     /**
      * the bitmap configuration to be used
@@ -748,7 +749,7 @@ public class LineChartRenderer extends LineRadarRenderer {
     /**
      * Releases the drawing bitmap. This should be called when {@link LineChart#onDetachedFromWindow()}.
      */
-    public void releaseBitmap() {
+    @NullUnmarked public void releaseBitmap() {
         if (mBitmapCanvas != null) {
             mBitmapCanvas.setBitmap(null);
             mBitmapCanvas = null;
@@ -767,7 +768,7 @@ public class LineChartRenderer extends LineRadarRenderer {
 
         private Path mCirclePathBuffer = new Path();
 
-        private Bitmap[] circleBitmaps;
+        @SuppressWarnings("NullAway.Init") private Bitmap[] circleBitmaps;
 
         /**
          * Sets up the cache, returns true if a change of cache was required.

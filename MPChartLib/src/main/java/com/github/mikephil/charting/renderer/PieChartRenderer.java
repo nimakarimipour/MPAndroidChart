@@ -33,6 +33,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class PieChartRenderer extends DataRenderer {
 
@@ -57,7 +58,7 @@ public class PieChartRenderer extends DataRenderer {
      */
     private Paint mEntryLabelsPaint;
 
-    private StaticLayout mCenterTextLayout;
+    @SuppressWarnings("NullAway.Init") private StaticLayout mCenterTextLayout;
     @Nullable private CharSequence mCenterTextLastValue;
     private RectF mCenterTextLastBounds = new RectF();
     private RectF[] mRectBuffer = {new RectF(), new RectF(), new RectF()};
@@ -67,7 +68,7 @@ public class PieChartRenderer extends DataRenderer {
      */
     @Nullable protected WeakReference<Bitmap> mDrawBitmap;
 
-    protected Canvas mBitmapCanvas;
+    @SuppressWarnings("NullAway.Init") protected Canvas mBitmapCanvas;
 
     public PieChartRenderer(PieChart chart, ChartAnimator animator,
                             ViewPortHandler viewPortHandler) {
@@ -672,7 +673,7 @@ public class PieChartRenderer extends DataRenderer {
         c.drawText(label, x, y, mEntryLabelsPaint);
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawExtras(Canvas c) {
         drawHole(c);
         c.drawBitmap(mDrawBitmap.get(), 0, 0, null);
@@ -1054,7 +1055,7 @@ public class PieChartRenderer extends DataRenderer {
     /**
      * Releases the drawing bitmap. This should be called when {@link LineChart#onDetachedFromWindow()}.
      */
-    public void releaseBitmap() {
+    @NullUnmarked public void releaseBitmap() {
         if (mBitmapCanvas != null) {
             mBitmapCanvas.setBitmap(null);
             mBitmapCanvas = null;

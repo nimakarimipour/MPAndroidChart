@@ -26,6 +26,7 @@ import com.github.mikephil.charting.formatter.IValueFormatter;
 
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Utilities class that has some helper methods. Needs to be initialized by
@@ -468,7 +469,7 @@ public abstract class Utils {
         outputPoint.y = (float) (center.y + dist * Math.sin(Math.toRadians(angle)));
     }
 
-    public static void velocityTrackerPointerUpCleanUpIfNecessary(MotionEvent ev,
+    @NullUnmarked public static void velocityTrackerPointerUpCleanUpIfNecessary(MotionEvent ev,
                                                                   @Nullable VelocityTracker tracker) {
 
         // Check the dot product of current velocities.

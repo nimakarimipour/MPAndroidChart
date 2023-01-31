@@ -6,6 +6,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.text.DecimalFormat;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Default formatter used for formatting values inside the chart. Uses a DecimalFormat with
@@ -52,7 +53,7 @@ public class DefaultValueFormatter implements IValueFormatter
         mFormat = new DecimalFormat("###,###,###,##0" + b.toString());
     }
 
-    @Override
+    @NullUnmarked @Override
     public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
 
         // put more logic here ...

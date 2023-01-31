@@ -16,6 +16,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Renderer class that is responsible for rendering multiple different data-types.
@@ -39,7 +40,7 @@ public class CombinedChartRenderer extends DataRenderer {
      * Creates the renderers needed for this combined-renderer in the required order. Also takes the DrawOrder into
      * consideration.
      */
-    public void createRenderers() {
+    @NullUnmarked public void createRenderers() {
 
         mRenderers.clear();
 

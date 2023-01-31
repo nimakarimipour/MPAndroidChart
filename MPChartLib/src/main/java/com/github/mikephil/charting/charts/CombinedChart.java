@@ -19,6 +19,7 @@ import com.github.mikephil.charting.interfaces.dataprovider.CombinedDataProvider
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.renderer.CombinedChartRenderer;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * This chart class allows the combination of lines, bars, scatter and candle
@@ -124,35 +125,35 @@ public class CombinedChart extends BarLineChartBase<CombinedData> implements Com
         }
     }
 
-    @Nullable @Override
+    @NullUnmarked @Nullable @Override
     public LineData getLineData() {
         if (mData == null)
             return null;
         return mData.getLineData();
     }
 
-    @Nullable @Override
+    @NullUnmarked @Nullable @Override
     public BarData getBarData() {
         if (mData == null)
             return null;
         return mData.getBarData();
     }
 
-    @Nullable @Override
+    @NullUnmarked @Nullable @Override
     public ScatterData getScatterData() {
         if (mData == null)
             return null;
         return mData.getScatterData();
     }
 
-    @Nullable @Override
+    @NullUnmarked @Nullable @Override
     public CandleData getCandleData() {
         if (mData == null)
             return null;
         return mData.getCandleData();
     }
 
-    @Nullable @Override
+    @NullUnmarked @Nullable @Override
     public BubbleData getBubbleData() {
         if (mData == null)
             return null;
@@ -234,7 +235,7 @@ public class CombinedChart extends BarLineChartBase<CombinedData> implements Com
     /**
      * draws all MarkerViews on the highlighted positions
      */
-    protected void drawMarkers(Canvas canvas) {
+    @NullUnmarked protected void drawMarkers(Canvas canvas) {
 
         // if there is no marker view or drawing marker is disabled
         if (mMarker == null || !isDrawMarkersEnabled() || !valuesToHighlight())

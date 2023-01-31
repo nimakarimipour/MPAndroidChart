@@ -9,6 +9,7 @@ import com.github.mikephil.charting.interfaces.datasets.IPieDataSet;
 import java.util.ArrayList;
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * A PieData object can only represent one DataSet. Unlike all other charts, the
@@ -67,7 +68,7 @@ public class PieData extends ChartData<IPieDataSet> {
      * @param index
      * @return
      */
-    @Nullable @Override
+    @NullUnmarked @Nullable @Override
     public IPieDataSet getDataSetByIndex(int index) {
         return index == 0 ? getDataSet() : null;
     }

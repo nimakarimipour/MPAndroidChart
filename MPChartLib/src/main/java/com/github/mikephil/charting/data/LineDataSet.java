@@ -26,7 +26,7 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
     /**
      * List representing all colors that are used for the circles
      */
-    private List<Integer> mCircleColors = null;
+    @SuppressWarnings("NullAway") private List<Integer> mCircleColors = null;
 
     /**
      * the color of the inner circles

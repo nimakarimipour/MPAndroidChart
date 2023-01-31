@@ -16,6 +16,7 @@ import com.github.mikephil.charting.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Created by Philipp Jahoda on 21/10/15.
@@ -27,12 +28,12 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     /**
      * List representing all colors that are used for this DataSet
      */
-    protected List<Integer> mColors = null;
+    @SuppressWarnings("NullAway") protected List<Integer> mColors = null;
 
     /**
      * List representing all colors that are used for drawing the actual values for this DataSet
      */
-    protected List<Integer> mValueColors = null;
+    @SuppressWarnings("NullAway") protected List<Integer> mValueColors = null;
 
     /**
      * label that describes the DataSet or the data the DataSet represents
@@ -283,7 +284,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
             mValueFormatter = f;
     }
 
-    @Override
+    @NullUnmarked @Override
     public IValueFormatter getValueFormatter() {
         if (needsFormatter())
             return Utils.getDefaultValueFormatter();

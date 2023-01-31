@@ -56,6 +56,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Baseclass of all Chart-Views.
@@ -77,7 +78,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * object that holds all data that was originally set for the chart, before
      * it was modified or any filtering algorithms had been applied
      */
-    protected T mData = null;
+    @SuppressWarnings("NullAway") protected T mData = null;
 
     /**
      * Flag that indicates if highlighting per tap (touch) is enabled
@@ -112,12 +113,12 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * paint object for drawing the information text when there are no values in
      * the chart
      */
-    protected Paint mInfoPaint;
+    @SuppressWarnings("NullAway.Init") protected Paint mInfoPaint;
 
     /**
      * the object representing the labels on the x-axis
      */
-    protected XAxis mXAxis;
+    @SuppressWarnings("NullAway.Init") protected XAxis mXAxis;
 
     /**
      * if true, touch gestures are enabled on the chart
@@ -139,7 +140,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      */
     @Nullable protected OnChartValueSelectedListener mSelectionListener;
 
-    protected ChartTouchListener mChartTouchListener;
+    @SuppressWarnings("NullAway.Init") protected ChartTouchListener mChartTouchListener;
 
     /**
      * text that is displayed when the chart is empty
@@ -151,14 +152,14 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      */
     @Nullable private OnChartGestureListener mGestureListener;
 
-    protected LegendRenderer mLegendRenderer;
+    @SuppressWarnings("NullAway.Init") protected LegendRenderer mLegendRenderer;
 
     /**
      * object responsible for rendering the data
      */
-    protected DataRenderer mRenderer;
+    @SuppressWarnings("NullAway.Init") protected DataRenderer mRenderer;
 
-    protected IHighlighter mHighlighter;
+    @SuppressWarnings("NullAway.Init") protected IHighlighter mHighlighter;
 
     /**
      * object that manages the bounds and drawing constraints of the chart
@@ -168,7 +169,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * object responsible for animations
      */
-    protected ChartAnimator mAnimator;
+    @SuppressWarnings("NullAway.Init") protected ChartAnimator mAnimator;
 
     /**
      * Extra offsets to be appended to the viewport
@@ -309,7 +310,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * Clears the chart from all data (sets it to null) and refreshes it (by
      * calling invalidate()).
      */
-    public void clear() {
+    @NullUnmarked public void clear() {
         mData = null;
         mOffsetsCalculated = false;
         mIndicesToHighlight = null;
@@ -432,7 +433,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * Draws the description text in the bottom right corner of the chart (per default)
      */
-    protected void drawDescription(Canvas c) {
+    @NullUnmarked protected void drawDescription(Canvas c) {
 
         // check if description should be drawn
         if (mDescription != null && mDescription.isEnabled()) {
@@ -468,7 +469,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * array of Highlight objects that reference the highlighted slices in the
      * chart
      */
-    protected Highlight[] mIndicesToHighlight;
+    @SuppressWarnings("NullAway.Init") protected Highlight[] mIndicesToHighlight;
 
     /**
      * The maximum distance in dp away from an entry causing it to highlight.
@@ -684,7 +685,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param high         - the highlight object
      * @param callListener - call the listener
      */
-    public void highlightValue(@Nullable Highlight high, boolean callListener) {
+    @NullUnmarked public void highlightValue(@Nullable Highlight high, boolean callListener) {
 
         Entry e = null;
 

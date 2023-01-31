@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 
 import com.github.mikephil.charting.highlight.Range;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Entry class for the BarChart. (especially stacked bars)
@@ -185,7 +186,7 @@ public class BarEntry extends Entry {
      *
      * @return
      */
-    public Range[] getRanges() {
+    @NullUnmarked public Range[] getRanges() {
         return mRanges;
     }
 

@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class Fill
 {
@@ -110,7 +111,7 @@ public class Fill
         calculateFinalColor();
     }
 
-    public int[] getGradientColors()
+    @NullUnmarked public int[] getGradientColors()
     {
         return mGradientColors;
     }
