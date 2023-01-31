@@ -19,6 +19,7 @@ import com.github.mikephil.charting.utils.HorizontalViewPortHandler;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.TransformerHorizontalBarChart;
 import com.github.mikephil.charting.utils.Utils;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * BarChart with horizontal bar orientation. In this implementation, x- and y-axis are switched, meaning the YAxis class
@@ -252,7 +253,7 @@ public class HorizontalBarChart extends BarChart {
      * @param axis
      * @return
      */
-    @Override
+    @NullUnmarked @Override
     public MPPointF getPosition(Entry e, AxisDependency axis) {
 
         if (e == null)
@@ -275,7 +276,7 @@ public class HorizontalBarChart extends BarChart {
      * @param y
      * @return
      */
-    @Override
+    @NullUnmarked @Override
     public Highlight getHighlightByTouchPoint(float x, float y) {
 
         if (mData == null) {

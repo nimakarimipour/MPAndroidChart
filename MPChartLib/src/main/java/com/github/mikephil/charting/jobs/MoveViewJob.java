@@ -6,11 +6,12 @@ import android.view.View;
 import com.github.mikephil.charting.utils.ObjectPool;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Created by Philipp Jahoda on 19/02/16.
  */
-public class MoveViewJob extends ViewPortJob {
+@NullUnmarked public class MoveViewJob extends ViewPortJob {
 
     private static ObjectPool<MoveViewJob> pool;
 
@@ -33,7 +34,7 @@ public class MoveViewJob extends ViewPortJob {
         pool.recycle(instance);
     }
 
-    public MoveViewJob(ViewPortHandler viewPortHandler, float xValue, float yValue, Transformer trans, View v) {
+    @NullUnmarked public MoveViewJob(ViewPortHandler viewPortHandler, float xValue, float yValue, Transformer trans, View v) {
         super(viewPortHandler, xValue, yValue, trans, v);
     }
 

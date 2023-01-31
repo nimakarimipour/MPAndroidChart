@@ -18,6 +18,7 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 
 import java.util.List;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * View that represents a pie chart. Draws cake like slices.
@@ -112,7 +113,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
         super(context, attrs, defStyle);
     }
 
-    @Override
+    @NullUnmarked @Override
     protected void init() {
         super.init();
 

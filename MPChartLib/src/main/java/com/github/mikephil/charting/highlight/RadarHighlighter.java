@@ -7,6 +7,7 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 
 import java.util.List;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Created by philipp on 12/06/16.
@@ -17,7 +18,7 @@ public class RadarHighlighter extends PieRadarHighlighter<RadarChart> {
         super(chart);
     }
 
-    @Override
+    @NullUnmarked @Override
     protected Highlight getClosestHighlight(int index, float x, float y) {
 
         List<Highlight> highlights = getHighlightsAtIndex(index);

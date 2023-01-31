@@ -1,0 +1,5 @@
+kind	class	method	param	index	uri
+PARAMETER	com.github.mikephil.charting.utils.Fill	Fill(int[])	gradientColors	0	/Users/nima/Developer/NullAwayFixer/Projects/MPAndroidChart/MPChartLib/src/main/java/com/github/mikephil/charting/utils/Fill.java
+PARAMETER	com.github.mikephil.charting.utils.Fill	Fill(int[],float[])	gradientColors	0	/Users/nima/Developer/NullAwayFixer/Projects/MPAndroidChart/MPChartLib/src/main/java/com/github/mikephil/charting/utils/Fill.java
+PARAMETER	com.github.mikephil.charting.utils.Fill	Fill(int[],float[])	gradientPositions	1	/Users/nima/Developer/NullAwayFixer/Projects/MPAndroidChart/MPChartLib/src/main/java/com/github/mikephil/charting/utils/Fill.java
+PARAMETER	com.github.mikephil.charting.utils.Fill	Fill(android.graphics.drawable.Drawable)	drawable	0	/Users/nima/Developer/NullAwayFixer/Projects/MPAndroidChart/MPChartLib/src/main/java/com/github/mikephil/charting/utils/Fill.java

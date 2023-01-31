@@ -31,7 +31,7 @@ public abstract class ComponentBase {
     /**
      * the typeface used for the labels
      */
-    protected Typeface mTypeface = null;
+    @SuppressWarnings("NullAway") protected Typeface mTypeface = null;
 
     /**
      * the text size of the labels

@@ -15,7 +15,7 @@ import com.github.mikephil.charting.animation.Easing.EasingFunction;
 public class ChartAnimator {
 
     /** object that is updated upon animation update */
-    private AnimatorUpdateListener mListener;
+    @SuppressWarnings("NullAway.Init") private AnimatorUpdateListener mListener;
 
     /** The phase of drawn values on the y-axis. 0 - 1 */
     @SuppressWarnings("WeakerAccess")

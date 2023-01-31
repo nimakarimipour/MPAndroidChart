@@ -11,11 +11,12 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.utils.ObjectPool;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Created by Philipp Jahoda on 19/02/16.
  */
-@SuppressLint("NewApi")
+@NullUnmarked @SuppressLint("NewApi")
 public class AnimatedZoomJob extends AnimatedViewPortJob implements Animator.AnimatorListener {
 
     private static ObjectPool<AnimatedZoomJob> pool;
@@ -50,7 +51,7 @@ public class AnimatedZoomJob extends AnimatedViewPortJob implements Animator.Ani
 
     protected float xAxisRange;
 
-    @SuppressLint("NewApi")
+    @NullUnmarked @SuppressLint("NewApi")
     public AnimatedZoomJob(ViewPortHandler viewPortHandler, View v, Transformer trans, YAxis axis, float xAxisRange, float scaleX, float scaleY, float xOrigin, float yOrigin, float zoomCenterX, float zoomCenterY, float zoomOriginX, float zoomOriginY, long duration) {
         super(viewPortHandler, scaleX, scaleY, trans, v, xOrigin, yOrigin, duration);
 
@@ -112,7 +113,7 @@ public class AnimatedZoomJob extends AnimatedViewPortJob implements Animator.Ani
 
     }
 
-    @Override
+    @NullUnmarked @Override
     protected ObjectPool.Poolable instantiate() {
         return new AnimatedZoomJob(null,null,null,null,0,0,0,0,0,0,0,0,0,0);
     }

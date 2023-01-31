@@ -48,7 +48,7 @@ public class Highlight {
     /**
      * the axis the highlighted value belongs to
      */
-    private YAxis.AxisDependency axis;
+    @SuppressWarnings("NullAway.Init") private YAxis.AxisDependency axis;
 
     /**
      * the x-position (pixels) on which this highlight object was last drawn
