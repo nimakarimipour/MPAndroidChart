@@ -17,6 +17,7 @@ import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
+import androidx.annotation.Nullable;
 
 public class YAxisRenderer extends AxisRenderer {
 
@@ -24,7 +25,7 @@ public class YAxisRenderer extends AxisRenderer {
 
     protected Paint mZeroLinePaint;
 
-    public YAxisRenderer(ViewPortHandler viewPortHandler, YAxis yAxis, Transformer trans) {
+    public YAxisRenderer(ViewPortHandler viewPortHandler, YAxis yAxis, @Nullable Transformer trans) {
         super(viewPortHandler, trans, yAxis);
 
         this.mYAxis = yAxis;

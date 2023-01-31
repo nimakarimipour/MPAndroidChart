@@ -35,6 +35,7 @@ import com.github.mikephil.charting.utils.MPPointD;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
+import androidx.annotation.Nullable;
 
 /**
  * Base-class of LineChart, BarChart, ScatterChart and CandleStickChart.
@@ -1041,7 +1042,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      * @param e
      * @return
      */
-    public MPPointF getPosition(Entry e, AxisDependency axis) {
+    @Nullable public MPPointF getPosition(Entry e, AxisDependency axis) {
 
         if (e == null)
             return null;
@@ -1352,7 +1353,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      * @param y
      * @return
      */
-    public Entry getEntryByTouchPoint(float x, float y) {
+    @Nullable public Entry getEntryByTouchPoint(float x, float y) {
         Highlight h = getHighlightByTouchPoint(x, y);
         if (h != null) {
             return mData.getEntryForHighlight(h);
@@ -1367,7 +1368,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      * @param y
      * @return
      */
-    public IBarLineScatterCandleBubbleDataSet getDataSetByTouchPoint(float x, float y) {
+    @Nullable public IBarLineScatterCandleBubbleDataSet getDataSetByTouchPoint(float x, float y) {
         Highlight h = getHighlightByTouchPoint(x, y);
         if (h != null) {
             return mData.getDataSetByIndex(h.getDataSetIndex());
@@ -1478,7 +1479,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      * @param axis
      * @return
      */
-    public YAxis getAxis(AxisDependency axis) {
+    public YAxis getAxis(@Nullable AxisDependency axis) {
         if (axis == AxisDependency.LEFT)
             return mAxisLeft;
         else
@@ -1631,7 +1632,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
         }
     }
 
-    @Override
+    @Nullable @Override
     public Paint getPaint(int which) {
         Paint p = super.getPaint(which);
         if (p != null)

@@ -25,6 +25,7 @@ import com.github.mikephil.charting.formatter.DefaultValueFormatter;
 import com.github.mikephil.charting.formatter.IValueFormatter;
 
 import java.util.List;
+import androidx.annotation.Nullable;
 
 /**
  * Utilities class that has some helper methods. Needs to be initialized by
@@ -36,7 +37,7 @@ import java.util.List;
  */
 public abstract class Utils {
 
-    private static DisplayMetrics mMetrics;
+    @Nullable private static DisplayMetrics mMetrics;
     private static int mMinimumFlingVelocity = 50;
     private static int mMaximumFlingVelocity = 8000;
     public final static double DEG2RAD = (Math.PI / 180.0);
@@ -468,7 +469,7 @@ public abstract class Utils {
     }
 
     public static void velocityTrackerPointerUpCleanUpIfNecessary(MotionEvent ev,
-                                                                  VelocityTracker tracker) {
+                                                                  @Nullable VelocityTracker tracker) {
 
         // Check the dot product of current velocities.
         // If the pointer that left was opposing another velocity vector, clear.

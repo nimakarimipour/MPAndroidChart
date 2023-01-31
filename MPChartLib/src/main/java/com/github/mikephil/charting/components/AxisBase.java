@@ -11,6 +11,7 @@ import com.github.mikephil.charting.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import androidx.annotation.Nullable;
 
 /**
  * Base-class of all axes (previously called labels).
@@ -22,7 +23,7 @@ public abstract class AxisBase extends ComponentBase {
     /**
      * custom formatter that is used instead of the auto-formatter if set
      */
-    protected IAxisValueFormatter mAxisValueFormatter;
+    @Nullable protected IAxisValueFormatter mAxisValueFormatter;
 
     private int mGridColor = Color.GRAY;
 
@@ -95,12 +96,12 @@ public abstract class AxisBase extends ComponentBase {
     /**
      * the path effect of the axis line that makes dashed lines possible
      */
-    private DashPathEffect mAxisLineDashPathEffect = null;
+    @Nullable private DashPathEffect mAxisLineDashPathEffect = null;
 
     /**
      * the path effect of the grid lines that makes dashed lines possible
      */
-    private DashPathEffect mGridDashPathEffect = null;
+    @Nullable private DashPathEffect mGridDashPathEffect = null;
 
     /**
      * array of limit lines that can be set for the axis
@@ -601,7 +602,7 @@ public abstract class AxisBase extends ComponentBase {
      *
      * @return
      */
-    public DashPathEffect getGridDashPathEffect() {
+    @Nullable public DashPathEffect getGridDashPathEffect() {
         return mGridDashPathEffect;
     }
 
@@ -653,7 +654,7 @@ public abstract class AxisBase extends ComponentBase {
      *
      * @return
      */
-    public DashPathEffect getAxisLineDashPathEffect() {
+    @Nullable public DashPathEffect getAxisLineDashPathEffect() {
         return mAxisLineDashPathEffect;
     }
 

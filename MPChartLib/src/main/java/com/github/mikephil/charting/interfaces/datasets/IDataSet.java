@@ -12,6 +12,7 @@ import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.utils.MPPointF;
 
 import java.util.List;
+import androidx.annotation.Nullable;
 
 /**
  * Created by Philipp Jahoda on 21/10/15.
@@ -418,7 +419,7 @@ public interface IDataSet<T extends Entry> {
      * <p/>
      * Return `null` to use the default legend form line dash effect.
      */
-    DashPathEffect getFormLineDashEffect();
+    @Nullable DashPathEffect getFormLineDashEffect();
 
     /**
      * set this to true to draw y-values on the chart.

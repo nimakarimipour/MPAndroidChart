@@ -9,6 +9,7 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.utils.ObjectPool;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import androidx.annotation.Nullable;
 
 /**
  * Created by Philipp Jahoda on 19/02/16.
@@ -43,10 +44,10 @@ public class ZoomJob extends ViewPortJob {
     protected float scaleX;
     protected float scaleY;
 
-    protected YAxis.AxisDependency axisDependency;
+    @Nullable protected YAxis.AxisDependency axisDependency;
 
-    public ZoomJob(ViewPortHandler viewPortHandler, float scaleX, float scaleY, float xValue, float yValue, Transformer trans,
-                   YAxis.AxisDependency axis, View v) {
+    public ZoomJob(@Nullable ViewPortHandler viewPortHandler, float scaleX, float scaleY, float xValue, float yValue, @Nullable Transformer trans,
+                   @Nullable YAxis.AxisDependency axis, @Nullable View v) {
         super(viewPortHandler, xValue, yValue, trans, v);
 
         this.scaleX = scaleX;

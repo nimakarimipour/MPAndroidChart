@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.highlight.Highlight;
+import androidx.annotation.Nullable;
 
 /**
  * Created by philipp on 12/06/15.
@@ -38,7 +39,7 @@ public abstract class ChartTouchListener<T extends Chart<?>> extends GestureDete
     /**
      * the last highlighted object (via touch)
      */
-    protected Highlight mLastHighlighted;
+    @Nullable protected Highlight mLastHighlighted;
 
     /**
      * the gesturedetector used for detecting taps and longpresses, ...
@@ -87,7 +88,7 @@ public abstract class ChartTouchListener<T extends Chart<?>> extends GestureDete
      *
      * @param high
      */
-    public void setLastHighlighted(Highlight high) {
+    public void setLastHighlighted(@Nullable Highlight high) {
         mLastHighlighted = high;
     }
 

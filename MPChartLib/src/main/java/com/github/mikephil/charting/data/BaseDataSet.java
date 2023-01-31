@@ -15,6 +15,7 @@ import com.github.mikephil.charting.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import androidx.annotation.Nullable;
 
 /**
  * Created by Philipp Jahoda on 21/10/15.
@@ -61,7 +62,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     private Legend.LegendForm mForm = Legend.LegendForm.DEFAULT;
     private float mFormSize = Float.NaN;
     private float mFormLineWidth = Float.NaN;
-    private DashPathEffect mFormLineDashEffect = null;
+    @Nullable private DashPathEffect mFormLineDashEffect = null;
 
     /**
      * if true, y-values are drawn on the chart
@@ -366,7 +367,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
         mFormLineDashEffect = dashPathEffect;
     }
 
-    @Override
+    @Nullable @Override
     public DashPathEffect getFormLineDashEffect() {
         return mFormLineDashEffect;
     }
