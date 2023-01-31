@@ -16,6 +16,7 @@ import com.github.mikephil.charting.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Created by Philipp Jahoda on 21/10/15.
@@ -132,12 +133,12 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
         return mValueColors;
     }
 
-    @Override
+    @NullUnmarked @Override
     public int getColor() {
         return mColors.get(0);
     }
 
-    @Override
+    @NullUnmarked @Override
     public int getColor(int index) {
         return mColors.get(index % mColors.size());
     }
@@ -212,7 +213,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
      *
      * @param color
      */
-    public void setColor(int color) {
+    @NullUnmarked public void setColor(int color) {
         resetColors();
         mColors.add(color);
     }
@@ -295,7 +296,7 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
         return mValueFormatter == null;
     }
 
-    @Override
+    @NullUnmarked @Override
     public void setValueTextColor(int color) {
         mValueColors.clear();
         mValueColors.add(color);
@@ -316,12 +317,12 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
         mValueTextSize = Utils.convertDpToPixel(size);
     }
 
-    @Override
+    @NullUnmarked @Override
     public int getValueTextColor() {
         return mValueColors.get(0);
     }
 
-    @Override
+    @NullUnmarked @Override
     public int getValueTextColor(int index) {
         return mValueColors.get(index % mValueColors.size());
     }

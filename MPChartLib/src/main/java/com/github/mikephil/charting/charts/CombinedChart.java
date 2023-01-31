@@ -19,6 +19,7 @@ import com.github.mikephil.charting.interfaces.dataprovider.CombinedDataProvider
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.renderer.CombinedChartRenderer;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * This chart class allows the combination of lines, bars, scatter and candle
@@ -90,7 +91,7 @@ public class CombinedChart extends BarLineChartBase<CombinedData> implements Com
         return mData;
     }
 
-    @Override
+    @NullUnmarked @Override
     public void setData(CombinedData data) {
         super.setData(data);
         setHighlighter(new CombinedHighlighter(this, this));
@@ -107,7 +108,7 @@ public class CombinedChart extends BarLineChartBase<CombinedData> implements Com
      * @param y
      * @return
      */
-    @Nullable @Override
+    @NullUnmarked @Nullable @Override
     public Highlight getHighlightByTouchPoint(float x, float y) {
 
         if (mData == null) {
@@ -234,7 +235,7 @@ public class CombinedChart extends BarLineChartBase<CombinedData> implements Com
     /**
      * draws all MarkerViews on the highlighted positions
      */
-    protected void drawMarkers(Canvas canvas) {
+    @NullUnmarked protected void drawMarkers(Canvas canvas) {
 
         // if there is no marker view or drawing marker is disabled
         if (mMarker == null || !isDrawMarkersEnabled() || !valuesToHighlight())

@@ -8,6 +8,7 @@ import com.github.mikephil.charting.data.ScatterData;
 import com.github.mikephil.charting.interfaces.dataprovider.ScatterDataProvider;
 import com.github.mikephil.charting.renderer.ScatterChartRenderer;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * The ScatterChart. Draws dots, triangles, squares and custom shapes into the
@@ -31,7 +32,7 @@ public class ScatterChart extends BarLineChartBase<ScatterData> implements Scatt
     }
 
 
-    @Override
+    @NullUnmarked @Override
     protected void init() {
         super.init();
 

@@ -12,6 +12,7 @@ import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import java.util.ArrayList;
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Class that holds all relevant data that represents the chart. That involves
@@ -590,7 +591,7 @@ public abstract class ChartData<T extends IDataSet<? extends Entry>> {
      *
      * @return
      */
-    @Nullable public int[] getColors() {
+    @NullUnmarked @Nullable public int[] getColors() {
 
         if (mDataSets == null)
             return null;

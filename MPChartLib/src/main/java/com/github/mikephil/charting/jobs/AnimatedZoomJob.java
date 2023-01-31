@@ -12,6 +12,7 @@ import com.github.mikephil.charting.utils.ObjectPool;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Created by Philipp Jahoda on 19/02/16.
@@ -65,7 +66,7 @@ public class AnimatedZoomJob extends AnimatedViewPortJob implements Animator.Ani
     }
 
     protected Matrix mOnAnimationUpdateMatrixBuffer = new Matrix();
-    @Override
+    @NullUnmarked @Override
     public void onAnimationUpdate(ValueAnimator animation) {
 
         float scaleX = xOrigin + (xValue - xOrigin) * phase;
@@ -87,7 +88,7 @@ public class AnimatedZoomJob extends AnimatedViewPortJob implements Animator.Ani
         mViewPortHandler.refresh(save, view, true);
     }
 
-    @Override
+    @NullUnmarked @Override
     public void onAnimationEnd(Animator animation) {
         ((BarLineChartBase) view).calculateOffsets();
         view.postInvalidate();

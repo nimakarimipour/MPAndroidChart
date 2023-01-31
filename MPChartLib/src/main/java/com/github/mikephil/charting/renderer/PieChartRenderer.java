@@ -33,6 +33,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class PieChartRenderer extends DataRenderer {
 
@@ -121,7 +122,7 @@ public class PieChartRenderer extends DataRenderer {
         // TODO Auto-generated method stub
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawData(Canvas c) {
 
         int width = (int) mViewPortHandler.getChartWidth();
@@ -201,7 +202,7 @@ public class PieChartRenderer extends DataRenderer {
      * @param dataSet
      * @return
      */
-    protected float getSliceSpace(IPieDataSet dataSet) {
+    @NullUnmarked protected float getSliceSpace(IPieDataSet dataSet) {
 
         if (!dataSet.isAutomaticallyDisableSliceSpacingEnabled())
             return dataSet.getSliceSpace();
@@ -214,7 +215,7 @@ public class PieChartRenderer extends DataRenderer {
         return sliceSpace;
     }
 
-    protected void drawDataSet(Canvas c, IPieDataSet dataSet) {
+    @NullUnmarked protected void drawDataSet(Canvas c, IPieDataSet dataSet) {
 
         float angle = 0;
         float rotationAngle = mChart.getRotationAngle();
@@ -405,7 +406,7 @@ public class PieChartRenderer extends DataRenderer {
         MPPointF.recycleInstance(center);
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawValues(Canvas c) {
 
         MPPointF center = mChart.getCenterCircleBox();
@@ -672,7 +673,7 @@ public class PieChartRenderer extends DataRenderer {
         c.drawText(label, x, y, mEntryLabelsPaint);
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawExtras(Canvas c) {
         drawHole(c);
         c.drawBitmap(mDrawBitmap.get(), 0, 0, null);
@@ -685,7 +686,7 @@ public class PieChartRenderer extends DataRenderer {
      * draws the hole in the center of the chart and the transparent circle /
      * hole
      */
-    protected void drawHole(Canvas c) {
+    @NullUnmarked protected void drawHole(Canvas c) {
 
         if (mChart.isDrawHoleEnabled() && mBitmapCanvas != null) {
 
@@ -727,7 +728,7 @@ public class PieChartRenderer extends DataRenderer {
      * draws the description text in the center of the pie chart makes most
      * sense when center-hole is enabled
      */
-    protected void drawCenterText(Canvas c) {
+    @NullUnmarked protected void drawCenterText(Canvas c) {
 
         CharSequence centerText = mChart.getCenterText();
 
@@ -796,7 +797,7 @@ public class PieChartRenderer extends DataRenderer {
     }
 
     protected RectF mDrawHighlightedRectF = new RectF();
-    @Override
+    @NullUnmarked @Override
     public void drawHighlighted(Canvas c, @Nullable Highlight[] indices) {
 
         /* Skip entirely if using rounded circle slices, because it doesn't make sense to highlight
@@ -1004,7 +1005,7 @@ public class PieChartRenderer extends DataRenderer {
      *
      * @param c
      */
-    protected void drawRoundedSlices(Canvas c) {
+    @NullUnmarked protected void drawRoundedSlices(Canvas c) {
 
         if (!mChart.isDrawRoundedSlicesEnabled())
             return;

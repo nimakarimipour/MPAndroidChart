@@ -8,6 +8,7 @@ import com.github.mikephil.charting.data.CandleData;
 import com.github.mikephil.charting.interfaces.dataprovider.CandleDataProvider;
 import com.github.mikephil.charting.renderer.CandleStickChartRenderer;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Financial chart type that draws candle-sticks (OHCL chart).
@@ -28,7 +29,7 @@ public class CandleStickChart extends BarLineChartBase<CandleData> implements Ca
         super(context, attrs, defStyle);
     }
 
-    @Override
+    @NullUnmarked @Override
     protected void init() {
         super.init();
 

@@ -8,6 +8,7 @@ import com.github.mikephil.charting.utils.Utils;
 
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Created by philipp on 12/06/16.
@@ -50,7 +51,7 @@ public class RadarHighlighter extends PieRadarHighlighter<RadarChart> {
      * @param index
      * @return
      */
-    protected List<Highlight> getHighlightsAtIndex(int index) {
+    @NullUnmarked protected List<Highlight> getHighlightsAtIndex(int index) {
 
         mHighlightBuffer.clear();
 

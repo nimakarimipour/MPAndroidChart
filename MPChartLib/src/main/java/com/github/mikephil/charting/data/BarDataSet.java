@@ -9,6 +9,7 @@ import com.github.mikephil.charting.utils.Fill;
 import java.util.ArrayList;
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> implements IBarDataSet {
 
@@ -78,7 +79,7 @@ public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> impl
         return mFills;
     }
 
-    @Override
+    @NullUnmarked @Override
     public Fill getFill(int index) {
         return mFills.get(index % mFills.size());
     }
@@ -109,7 +110,7 @@ public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> impl
      * @param startColor
      * @param endColor
      */
-    public void setGradientColor(int startColor, int endColor) {
+    @NullUnmarked public void setGradientColor(int startColor, int endColor) {
         mFills.clear();
         mFills.add(new Fill(startColor, endColor));
     }

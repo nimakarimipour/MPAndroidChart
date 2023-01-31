@@ -20,6 +20,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class ScatterChartRenderer extends LineScatterCandleRadarRenderer {
 
@@ -34,7 +35,7 @@ public class ScatterChartRenderer extends LineScatterCandleRadarRenderer {
     public void initBuffers() {
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawData(Canvas c) {
 
         ScatterData scatterData = mChart.getScatterData();
@@ -48,7 +49,7 @@ public class ScatterChartRenderer extends LineScatterCandleRadarRenderer {
 
     float[] mPixelBuffer = new float[2];
 
-    protected void drawDataSet(Canvas c, IScatterDataSet dataSet) {
+    @NullUnmarked protected void drawDataSet(Canvas c, IScatterDataSet dataSet) {
 
         if (dataSet.getEntryCount() < 1)
             return;
@@ -93,7 +94,7 @@ public class ScatterChartRenderer extends LineScatterCandleRadarRenderer {
         }
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawValues(Canvas c) {
 
         // if values are drawn
@@ -169,7 +170,7 @@ public class ScatterChartRenderer extends LineScatterCandleRadarRenderer {
     public void drawExtras(Canvas c) {
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawHighlighted(Canvas c, @Nullable Highlight[] indices) {
 
         ScatterData scatterData = mChart.getScatterData();

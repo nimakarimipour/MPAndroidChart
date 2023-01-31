@@ -20,6 +20,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class CandleStickChartRenderer extends LineScatterCandleRadarRenderer {
 
@@ -42,7 +43,7 @@ public class CandleStickChartRenderer extends LineScatterCandleRadarRenderer {
 
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawData(Canvas c) {
 
         CandleData candleData = mChart.getCandleData();
@@ -54,7 +55,7 @@ public class CandleStickChartRenderer extends LineScatterCandleRadarRenderer {
         }
     }
 
-    @SuppressWarnings("ResourceAsColor")
+    @NullUnmarked @SuppressWarnings("ResourceAsColor")
     protected void drawDataSet(Canvas c, ICandleDataSet dataSet) {
 
         Transformer trans = mChart.getTransformer(dataSet.getAxisDependency());
@@ -253,7 +254,7 @@ public class CandleStickChartRenderer extends LineScatterCandleRadarRenderer {
         }
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawValues(Canvas c) {
 
         // if values are drawn
@@ -332,7 +333,7 @@ public class CandleStickChartRenderer extends LineScatterCandleRadarRenderer {
     public void drawExtras(Canvas c) {
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawHighlighted(Canvas c, @Nullable Highlight[] indices) {
 
         CandleData candleData = mChart.getCandleData();

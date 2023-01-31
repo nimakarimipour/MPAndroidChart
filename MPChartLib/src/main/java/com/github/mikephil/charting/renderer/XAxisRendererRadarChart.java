@@ -10,6 +10,7 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class XAxisRendererRadarChart extends XAxisRenderer {
 
@@ -21,7 +22,7 @@ public class XAxisRendererRadarChart extends XAxisRenderer {
         mChart = chart;
     }
 
-    @Override
+    @NullUnmarked @Override
     public void renderAxisLabels(Canvas c) {
 
         if (!mXAxis.isEnabled() || !mXAxis.isDrawLabelsEnabled())

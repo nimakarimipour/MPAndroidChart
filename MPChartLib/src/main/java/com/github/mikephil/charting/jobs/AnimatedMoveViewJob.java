@@ -8,6 +8,7 @@ import com.github.mikephil.charting.utils.ObjectPool;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Created by Philipp Jahoda on 19/02/16.
@@ -45,7 +46,7 @@ public class AnimatedMoveViewJob extends AnimatedViewPortJob {
         super(viewPortHandler, xValue, yValue, trans, v, xOrigin, yOrigin, duration);
     }
 
-    @Override
+    @NullUnmarked @Override
     public void onAnimationUpdate(ValueAnimator animation) {
 
         pts[0] = xOrigin + (xValue - xOrigin) * phase;

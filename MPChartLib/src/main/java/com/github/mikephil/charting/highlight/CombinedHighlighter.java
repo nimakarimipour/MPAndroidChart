@@ -10,6 +10,7 @@ import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Created by Philipp Jahoda on 12/09/15.
@@ -29,7 +30,7 @@ public class CombinedHighlighter extends ChartHighlighter<CombinedDataProvider> 
         barHighlighter = barChart.getBarData() == null ? null : new BarHighlighter(barChart);
     }
 
-    @Override
+    @NullUnmarked @Override
     protected List<Highlight> getHighlightsAtXValue(float xVal, float x, float y) {
 
         mHighlightBuffer.clear();

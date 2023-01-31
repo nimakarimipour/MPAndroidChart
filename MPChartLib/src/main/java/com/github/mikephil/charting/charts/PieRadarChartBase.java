@@ -21,6 +21,7 @@ import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.listener.PieRadarChartTouchListener;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Baseclass of PieChart and RadarChart.
@@ -74,7 +75,7 @@ public abstract class PieRadarChartBase<T extends ChartData<? extends IDataSet<?
         //mXAxis.mAxisRange = mData.getXVals().size() - 1;
     }
 
-    @Override
+    @NullUnmarked @Override
     public int getMaxVisibleCount() {
         return mData.getEntryCount();
     }
@@ -95,7 +96,7 @@ public abstract class PieRadarChartBase<T extends ChartData<? extends IDataSet<?
             ((PieRadarChartTouchListener) mChartTouchListener).computeScroll();
     }
 
-    @Override
+    @NullUnmarked @Override
     public void notifyDataSetChanged() {
         if (mData == null)
             return;
@@ -108,7 +109,7 @@ public abstract class PieRadarChartBase<T extends ChartData<? extends IDataSet<?
         calculateOffsets();
     }
 
-    @Override
+    @NullUnmarked @Override
     public void calculateOffsets() {
 
         float legendLeft = 0f, legendRight = 0f, legendBottom = 0f, legendTop = 0f;

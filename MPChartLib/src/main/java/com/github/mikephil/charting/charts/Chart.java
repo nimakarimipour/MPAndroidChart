@@ -56,6 +56,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Baseclass of all Chart-Views.
@@ -309,7 +310,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * Clears the chart from all data (sets it to null) and refreshes it (by
      * calling invalidate()).
      */
-    public void clear() {
+    @NullUnmarked public void clear() {
         mData = null;
         mOffsetsCalculated = false;
         mIndicesToHighlight = null;
@@ -321,7 +322,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * Removes all DataSets (and thereby Entries) from the chart. Does not set the data object to null. Also refreshes the
      * chart by calling invalidate().
      */
-    public void clearValues() {
+    @NullUnmarked public void clearValues() {
         mData.clearValues();
         invalidate();
     }
@@ -391,7 +392,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      */
     private boolean mOffsetsCalculated = false;
 
-    @Override
+    @NullUnmarked @Override
     protected void onDraw(Canvas canvas) {
         // super.onDraw(canvas);
 
@@ -432,7 +433,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * Draws the description text in the bottom right corner of the chart (per default)
      */
-    protected void drawDescription(Canvas c) {
+    @NullUnmarked protected void drawDescription(Canvas c) {
 
         // check if description should be drawn
         if (mDescription != null && mDescription.isEnabled()) {
@@ -537,7 +538,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @param highs
      */
-    protected void setLastHighlighted(@Nullable Highlight[] highs) {
+    @NullUnmarked protected void setLastHighlighted(@Nullable Highlight[] highs) {
 
         if (highs == null || highs.length <= 0 || highs[0] == null) {
             mChartTouchListener.setLastHighlighted(null);
@@ -645,7 +646,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param dataIndex The data index to search in (only used in CombinedChartView currently)
      * @param callListener Should the listener be called for this change
      */
-    public void highlightValue(float x, float y, int dataSetIndex, int dataIndex, boolean callListener) {
+    @NullUnmarked public void highlightValue(float x, float y, int dataSetIndex, int dataIndex, boolean callListener) {
 
         if (dataSetIndex < 0 || dataSetIndex >= mData.getDataSetCount()) {
             highlightValue(null, callListener);
@@ -684,7 +685,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param high         - the highlight object
      * @param callListener - call the listener
      */
-    public void highlightValue(@Nullable Highlight high, boolean callListener) {
+    @NullUnmarked public void highlightValue(@Nullable Highlight high, boolean callListener) {
 
         Entry e = null;
 
@@ -733,7 +734,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param y
      * @return
      */
-    @Nullable public Highlight getHighlightByTouchPoint(float x, float y) {
+    @NullUnmarked @Nullable public Highlight getHighlightByTouchPoint(float x, float y) {
 
         if (mData == null) {
             Log.e(LOG_TAG, "Can't select by touch. No data set.");
@@ -779,7 +780,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * draws all MarkerViews on the highlighted positions
      */
-    protected void drawMarkers(Canvas canvas) {
+    @NullUnmarked protected void drawMarkers(Canvas canvas) {
 
         // if there is no marker view or drawing marker is disabled
         if (mMarker == null || !isDrawMarkersEnabled() || !valuesToHighlight())
@@ -899,7 +900,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param easingX         a custom easing function to be used on the animation phase
      * @param easingY         a custom easing function to be used on the animation phase
      */
-    @RequiresApi(11)
+    @NullUnmarked @RequiresApi(11)
     public void animateXY(int durationMillisX, int durationMillisY, EasingFunction easingX,
                           EasingFunction easingY) {
         mAnimator.animateXY(durationMillisX, durationMillisY, easingX, easingY);
@@ -915,7 +916,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param durationMillisY
      * @param easing         a custom easing function to be used on the animation phase
      */
-    @RequiresApi(11)
+    @NullUnmarked @RequiresApi(11)
     public void animateXY(int durationMillisX, int durationMillisY, EasingFunction easing) {
         mAnimator.animateXY(durationMillisX, durationMillisY, easing);
     }
@@ -929,7 +930,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param durationMillis
      * @param easing         a custom easing function to be used on the animation phase
      */
-    @RequiresApi(11)
+    @NullUnmarked @RequiresApi(11)
     public void animateX(int durationMillis, EasingFunction easing) {
         mAnimator.animateX(durationMillis, easing);
     }
@@ -943,7 +944,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param durationMillis
      * @param easing         a custom easing function to be used on the animation phase
      */
-    @RequiresApi(11)
+    @NullUnmarked @RequiresApi(11)
     public void animateY(int durationMillis, EasingFunction easing) {
         mAnimator.animateY(durationMillis, easing);
     }
@@ -968,7 +969,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @param durationMillis
      */
-    @RequiresApi(11)
+    @NullUnmarked @RequiresApi(11)
     public void animateX(int durationMillis) {
         mAnimator.animateX(durationMillis);
     }
@@ -981,7 +982,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @param durationMillis
      */
-    @RequiresApi(11)
+    @NullUnmarked @RequiresApi(11)
     public void animateY(int durationMillis) {
         mAnimator.animateY(durationMillis);
     }
@@ -995,7 +996,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param durationMillisX
      * @param durationMillisY
      */
-    @RequiresApi(11)
+    @NullUnmarked @RequiresApi(11)
     public void animateXY(int durationMillisX, int durationMillisY) {
         mAnimator.animateXY(durationMillisX, durationMillisY);
     }
@@ -1060,7 +1061,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
-    public float getYMax() {
+    @NullUnmarked public float getYMax() {
         return mData.getYMax();
     }
 
@@ -1069,21 +1070,21 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
-    public float getYMin() {
+    @NullUnmarked public float getYMin() {
         return mData.getYMin();
     }
 
-    @Override
+    @NullUnmarked @Override
     public float getXChartMax() {
         return mXAxis.mAxisMaximum;
     }
 
-    @Override
+    @NullUnmarked @Override
     public float getXChartMin() {
         return mXAxis.mAxisMinimum;
     }
 
-    @Override
+    @NullUnmarked @Override
     public float getXRange() {
         return mXAxis.mAxisRange;
     }
@@ -1216,7 +1217,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @param color
      */
-    public void setNoDataTextColor(int color) {
+    @NullUnmarked public void setNoDataTextColor(int color) {
         mInfoPaint.setColor(color);
     }
 
@@ -1225,7 +1226,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @param tf
      */
-    public void setNoDataTextTypeface(Typeface tf) {
+    @NullUnmarked public void setNoDataTextTypeface(Typeface tf) {
         mInfoPaint.setTypeface(tf);
     }
 
@@ -1234,7 +1235,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @param align
      */
-    public void setNoDataTextAlignment(Align align) {
+    @NullUnmarked public void setNoDataTextAlignment(Align align) {
         mInfoPaint.setTextAlign(align);
     }
 

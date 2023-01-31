@@ -20,6 +20,7 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.TransformerHorizontalBarChart;
 import com.github.mikephil.charting.utils.Utils;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * BarChart with horizontal bar orientation. In this implementation, x- and y-axis are switched, meaning the YAxis class
@@ -61,7 +62,7 @@ public class HorizontalBarChart extends BarChart {
 
     private RectF mOffsetsBuffer = new RectF();
 
-    protected void calculateLegendOffsets(RectF offsets) {
+    @NullUnmarked protected void calculateLegendOffsets(RectF offsets) {
 
         offsets.left = 0.f;
         offsets.right = 0.f;
@@ -139,7 +140,7 @@ public class HorizontalBarChart extends BarChart {
         }
     }
 
-    @Override
+    @NullUnmarked @Override
     public void calculateOffsets() {
 
         float offsetLeft = 0f, offsetRight = 0f, offsetTop = 0f, offsetBottom = 0f;
@@ -204,7 +205,7 @@ public class HorizontalBarChart extends BarChart {
         prepareValuePxMatrix();
     }
 
-    @Override
+    @NullUnmarked @Override
     protected void prepareValuePxMatrix() {
         mRightAxisTransformer.prepareMatrixValuePx(mAxisRight.mAxisMinimum, mAxisRight.mAxisRange, mXAxis.mAxisRange,
                 mXAxis.mAxisMinimum);
@@ -217,7 +218,7 @@ public class HorizontalBarChart extends BarChart {
         return new float[]{high.getDrawY(), high.getDrawX()};
     }
 
-    @Override
+    @NullUnmarked @Override
     public void getBarBounds(BarEntry e, RectF outputRect) {
 
         RectF bounds = outputRect;
@@ -253,7 +254,7 @@ public class HorizontalBarChart extends BarChart {
      * @param axis
      * @return
      */
-    @Nullable @Override
+    @NullUnmarked @Nullable @Override
     public MPPointF getPosition(Entry e, AxisDependency axis) {
 
         if (e == null)
@@ -276,7 +277,7 @@ public class HorizontalBarChart extends BarChart {
      * @param y
      * @return
      */
-    @Nullable @Override
+    @NullUnmarked @Nullable @Override
     public Highlight getHighlightByTouchPoint(float x, float y) {
 
         if (mData == null) {
@@ -287,7 +288,7 @@ public class HorizontalBarChart extends BarChart {
             return getHighlighter().getHighlight(y, x); // switch x and y
     }
 
-    @Override
+    @NullUnmarked @Override
     public float getLowestVisibleX() {
         getTransformer(AxisDependency.LEFT).getValuesByTouchPoint(mViewPortHandler.contentLeft(),
                 mViewPortHandler.contentBottom(), posForGetLowestVisibleX);
@@ -295,7 +296,7 @@ public class HorizontalBarChart extends BarChart {
         return result;
     }
 
-    @Override
+    @NullUnmarked @Override
     public float getHighestVisibleX() {
         getTransformer(AxisDependency.LEFT).getValuesByTouchPoint(mViewPortHandler.contentLeft(),
                 mViewPortHandler.contentTop(), posForGetHighestVisibleX);
@@ -307,19 +308,19 @@ public class HorizontalBarChart extends BarChart {
      * ###### VIEWPORT METHODS BELOW THIS ######
      */
 
-    @Override
+    @NullUnmarked @Override
     public void setVisibleXRangeMaximum(float maxXRange) {
         float xScale = mXAxis.mAxisRange / (maxXRange);
         mViewPortHandler.setMinimumScaleY(xScale);
     }
 
-    @Override
+    @NullUnmarked @Override
     public void setVisibleXRangeMinimum(float minXRange) {
         float xScale = mXAxis.mAxisRange / (minXRange);
         mViewPortHandler.setMaximumScaleY(xScale);
     }
 
-    @Override
+    @NullUnmarked @Override
     public void setVisibleXRange(float minXRange, float maxXRange) {
         float minScale = mXAxis.mAxisRange / minXRange;
         float maxScale = mXAxis.mAxisRange / maxXRange;

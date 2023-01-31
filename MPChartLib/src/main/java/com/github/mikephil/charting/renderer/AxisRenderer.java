@@ -12,6 +12,7 @@ import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Baseclass of all axis renderers.
@@ -116,7 +117,7 @@ public abstract class AxisRenderer extends Renderer {
      * @param min - the minimum value in the data object for this axis
      * @param max - the maximum value in the data object for this axis
      */
-    public void computeAxis(float min, float max, boolean inverted) {
+    @NullUnmarked public void computeAxis(float min, float max, boolean inverted) {
 
         // calculate the starting and entry point of the y-labels (depending on
         // zoom / contentrect bounds)
@@ -147,7 +148,7 @@ public abstract class AxisRenderer extends Renderer {
      *
      * @return
      */
-    protected void computeAxisValues(float min, float max) {
+    @NullUnmarked protected void computeAxisValues(float min, float max) {
 
         float yMin = min;
         float yMax = max;

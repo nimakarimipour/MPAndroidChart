@@ -18,6 +18,7 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class RadarChartRenderer extends LineRadarRenderer {
 
@@ -55,7 +56,7 @@ public class RadarChartRenderer extends LineRadarRenderer {
 
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawData(Canvas c) {
 
         RadarData radarData = mChart.getData();
@@ -78,7 +79,7 @@ public class RadarChartRenderer extends LineRadarRenderer {
      * @param dataSet
      * @param mostEntries the entry count of the dataset with the most entries
      */
-    protected void drawDataSet(Canvas c, IRadarDataSet dataSet, int mostEntries) {
+    @NullUnmarked protected void drawDataSet(Canvas c, IRadarDataSet dataSet, int mostEntries) {
 
         float phaseX = mAnimator.getPhaseX();
         float phaseY = mAnimator.getPhaseY();
@@ -147,7 +148,7 @@ public class RadarChartRenderer extends LineRadarRenderer {
         MPPointF.recycleInstance(pOut);
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawValues(Canvas c) {
 
         float phaseX = mAnimator.getPhaseX();
@@ -237,7 +238,7 @@ public class RadarChartRenderer extends LineRadarRenderer {
         drawWeb(c);
     }
 
-    protected void drawWeb(Canvas c) {
+    @NullUnmarked protected void drawWeb(Canvas c) {
 
         float sliceangle = mChart.getSliceAngle();
 
@@ -296,7 +297,7 @@ public class RadarChartRenderer extends LineRadarRenderer {
         MPPointF.recycleInstance(p2out);
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawHighlighted(Canvas c, @Nullable Highlight[] indices) {
 
         float sliceangle = mChart.getSliceAngle();

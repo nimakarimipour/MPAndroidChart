@@ -20,6 +20,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class XAxisRendererHorizontalBarChart extends XAxisRenderer {
 
@@ -32,7 +33,7 @@ public class XAxisRendererHorizontalBarChart extends XAxisRenderer {
         this.mChart = chart;
     }
 
-    @Override
+    @NullUnmarked @Override
     public void computeAxis(float min, float max, boolean inverted) {
 
         // calculate the starting and entry point of the y-labels (depending on
@@ -59,7 +60,7 @@ public class XAxisRendererHorizontalBarChart extends XAxisRenderer {
         computeAxisValues(min, max);
     }
     
-    @Override
+    @NullUnmarked @Override
     protected void computeSize() {
         
         mAxisLabelPaint.setTypeface(mXAxis.getTypeface());
@@ -85,7 +86,7 @@ public class XAxisRendererHorizontalBarChart extends XAxisRenderer {
         FSize.recycleInstance(labelRotatedSize);
     }
 
-    @Override
+    @NullUnmarked @Override
     public void renderAxisLabels(Canvas c) {
 
         if (!mXAxis.isEnabled() || !mXAxis.isDrawLabelsEnabled())
@@ -131,7 +132,7 @@ public class XAxisRendererHorizontalBarChart extends XAxisRenderer {
         MPPointF.recycleInstance(pointF);
     }
 
-    @Override
+    @NullUnmarked @Override
     protected void drawLabels(Canvas c, float pos, MPPointF anchor) {
 
         final float labelRotationAngleDegrees = mXAxis.getLabelRotationAngle();
@@ -163,7 +164,7 @@ public class XAxisRendererHorizontalBarChart extends XAxisRenderer {
         }
     }
 
-    @Override
+    @NullUnmarked @Override
     public RectF getGridClippingRect() {
         mGridClippingRect.set(mViewPortHandler.getContentRect());
         mGridClippingRect.inset(0.f, -mAxis.getGridLineWidth());
@@ -182,7 +183,7 @@ public class XAxisRendererHorizontalBarChart extends XAxisRenderer {
         gridLinePath.reset();
     }
 
-    @Override
+    @NullUnmarked @Override
     public void renderAxisLine(Canvas c) {
 
         if (!mXAxis.isDrawAxisLineEnabled() || !mXAxis.isEnabled())
@@ -215,7 +216,7 @@ public class XAxisRendererHorizontalBarChart extends XAxisRenderer {
 	 *
 	 * @param c
 	 */
-	@Override
+	@NullUnmarked @Override
 	public void renderLimitLines(Canvas c) {
 
 		List<LimitLine> limitLines = mXAxis.getLimitLines();

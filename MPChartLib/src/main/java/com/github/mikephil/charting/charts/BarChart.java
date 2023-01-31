@@ -14,6 +14,7 @@ import com.github.mikephil.charting.interfaces.dataprovider.BarDataProvider;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.renderer.BarChartRenderer;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Chart that draws bars.
@@ -51,7 +52,7 @@ public class BarChart extends BarLineChartBase<BarData> implements BarDataProvid
         super(context, attrs, defStyle);
     }
 
-    @Override
+    @NullUnmarked @Override
     protected void init() {
         super.init();
 
@@ -63,7 +64,7 @@ public class BarChart extends BarLineChartBase<BarData> implements BarDataProvid
         getXAxis().setSpaceMax(0.5f);
     }
 
-    @Override
+    @NullUnmarked @Override
     protected void calcMinMax() {
 
         if (mFitBars) {
@@ -87,7 +88,7 @@ public class BarChart extends BarLineChartBase<BarData> implements BarDataProvid
      * @param y
      * @return
      */
-    @Nullable @Override
+    @NullUnmarked @Nullable @Override
     public Highlight getHighlightByTouchPoint(float x, float y) {
 
         if (mData == null) {
@@ -126,7 +127,7 @@ public class BarChart extends BarLineChartBase<BarData> implements BarDataProvid
      * @param e
      * @return
      */
-    public void getBarBounds(BarEntry e, RectF outputRect) {
+    @NullUnmarked public void getBarBounds(BarEntry e, RectF outputRect) {
 
         RectF bounds = outputRect;
 

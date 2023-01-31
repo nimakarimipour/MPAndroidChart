@@ -27,6 +27,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class LineChartRenderer extends LineRadarRenderer {
 
@@ -71,7 +72,7 @@ public class LineChartRenderer extends LineRadarRenderer {
     public void initBuffers() {
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawData(Canvas c) {
 
         int width = (int) mViewPortHandler.getChartWidth();
@@ -131,7 +132,7 @@ public class LineChartRenderer extends LineRadarRenderer {
         mRenderPaint.setPathEffect(null);
     }
 
-    protected void drawHorizontalBezier(ILineDataSet dataSet) {
+    @NullUnmarked protected void drawHorizontalBezier(ILineDataSet dataSet) {
 
         float phaseY = mAnimator.getPhaseY();
 
@@ -184,7 +185,7 @@ public class LineChartRenderer extends LineRadarRenderer {
         mRenderPaint.setPathEffect(null);
     }
 
-    protected void drawCubicBezier(ILineDataSet dataSet) {
+    @NullUnmarked protected void drawCubicBezier(ILineDataSet dataSet) {
 
         float phaseY = mAnimator.getPhaseY();
 
@@ -262,7 +263,7 @@ public class LineChartRenderer extends LineRadarRenderer {
         mRenderPaint.setPathEffect(null);
     }
 
-    protected void drawCubicFill(@Nullable Canvas c, ILineDataSet dataSet, Path spline, @Nullable Transformer trans, XBounds bounds) {
+    @NullUnmarked protected void drawCubicFill(@Nullable Canvas c, ILineDataSet dataSet, Path spline, @Nullable Transformer trans, XBounds bounds) {
 
         float fillMin = dataSet.getFillFormatter()
                 .getFillLinePosition(dataSet, mChart);
@@ -291,7 +292,7 @@ public class LineChartRenderer extends LineRadarRenderer {
      * @param c
      * @param dataSet
      */
-    protected void drawLinear(Canvas c, ILineDataSet dataSet) {
+    @NullUnmarked protected void drawLinear(Canvas c, ILineDataSet dataSet) {
 
         int entryCount = dataSet.getEntryCount();
 
@@ -447,7 +448,7 @@ public class LineChartRenderer extends LineRadarRenderer {
      * @param trans
      * @param bounds
      */
-    protected void drawLinearFill(Canvas c, ILineDataSet dataSet, @Nullable Transformer trans, XBounds bounds) {
+    @NullUnmarked protected void drawLinearFill(Canvas c, ILineDataSet dataSet, @Nullable Transformer trans, XBounds bounds) {
 
         final Path filled = mGenerateFilledPathBuffer;
 
@@ -495,7 +496,7 @@ public class LineChartRenderer extends LineRadarRenderer {
      * @param outputPath The path object that will be assigned the chart data.
      * @return
      */
-    private void generateFilledPath(final ILineDataSet dataSet, final int startIndex, final int endIndex, final Path outputPath) {
+    @NullUnmarked private void generateFilledPath(final ILineDataSet dataSet, final int startIndex, final int endIndex, final Path outputPath) {
 
         final float fillMin = dataSet.getFillFormatter().getFillLinePosition(dataSet, mChart);
         final float phaseY = mAnimator.getPhaseY();
@@ -533,7 +534,7 @@ public class LineChartRenderer extends LineRadarRenderer {
         filled.close();
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawValues(Canvas c) {
 
         if (isDrawingValuesAllowed(mChart)) {
@@ -619,7 +620,7 @@ public class LineChartRenderer extends LineRadarRenderer {
      */
     private float[] mCirclesBuffer = new float[2];
 
-    protected void drawCircles(Canvas c) {
+    @NullUnmarked protected void drawCircles(Canvas c) {
 
         mRenderPaint.setStyle(Paint.Style.FILL);
 
@@ -697,7 +698,7 @@ public class LineChartRenderer extends LineRadarRenderer {
         }
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawHighlighted(Canvas c, @Nullable Highlight[] indices) {
 
         LineData lineData = mChart.getLineData();
@@ -798,7 +799,7 @@ public class LineChartRenderer extends LineRadarRenderer {
          * @param drawCircleHole
          * @param drawTransparentCircleHole
          */
-        protected void fill(ILineDataSet set, boolean drawCircleHole, boolean drawTransparentCircleHole) {
+        @NullUnmarked protected void fill(ILineDataSet set, boolean drawCircleHole, boolean drawTransparentCircleHole) {
 
             int colorCount = set.getCircleColorCount();
             float circleRadius = set.getCircleRadius();
@@ -857,7 +858,7 @@ public class LineChartRenderer extends LineRadarRenderer {
          * @param index
          * @return
          */
-        protected Bitmap getBitmap(int index) {
+        @NullUnmarked protected Bitmap getBitmap(int index) {
             return circleBitmaps[index % circleBitmaps.length];
         }
     }

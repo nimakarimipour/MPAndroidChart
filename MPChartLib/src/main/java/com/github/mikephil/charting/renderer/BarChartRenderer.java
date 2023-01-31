@@ -23,6 +23,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
 
@@ -56,7 +57,7 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
         mBarBorderPaint.setStyle(Paint.Style.STROKE);
     }
 
-    @Override
+    @NullUnmarked @Override
     public void initBuffers() {
 
         BarData barData = mChart.getBarData();
@@ -69,7 +70,7 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
         }
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawData(Canvas c) {
 
         BarData barData = mChart.getBarData();
@@ -86,7 +87,7 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
 
     private RectF mBarShadowRectBuffer = new RectF();
 
-    protected void drawDataSet(Canvas c, IBarDataSet dataSet, int index) {
+    @NullUnmarked protected void drawDataSet(Canvas c, IBarDataSet dataSet, int index) {
 
         Transformer trans = mChart.getTransformer(dataSet.getAxisDependency());
 
@@ -189,7 +190,7 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
         }
     }
 
-    protected void prepareBarHighlight(float x, float y1, float y2, float barWidthHalf, @Nullable Transformer trans) {
+    @NullUnmarked protected void prepareBarHighlight(float x, float y1, float y2, float barWidthHalf, @Nullable Transformer trans) {
 
         float left = x - barWidthHalf;
         float right = x + barWidthHalf;
@@ -201,7 +202,7 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
         trans.rectToPixelPhase(mBarRect, mAnimator.getPhaseY());
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawValues(Canvas c) {
 
         // if values are drawn
@@ -430,7 +431,7 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
         }
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawHighlighted(Canvas c, @Nullable Highlight[] indices) {
 
         BarData barData = mChart.getBarData();

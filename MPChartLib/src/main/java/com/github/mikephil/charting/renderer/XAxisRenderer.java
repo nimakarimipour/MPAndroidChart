@@ -20,12 +20,13 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class XAxisRenderer extends AxisRenderer {
 
     @Nullable protected XAxis mXAxis;
 
-    public XAxisRenderer(ViewPortHandler viewPortHandler, @Nullable XAxis xAxis, @Nullable Transformer trans) {
+    @NullUnmarked public XAxisRenderer(ViewPortHandler viewPortHandler, @Nullable XAxis xAxis, @Nullable Transformer trans) {
         super(viewPortHandler, trans, xAxis);
 
         this.mXAxis = xAxis;
@@ -35,13 +36,13 @@ public class XAxisRenderer extends AxisRenderer {
         mAxisLabelPaint.setTextSize(Utils.convertDpToPixel(10f));
     }
 
-    protected void setupGridPaint() {
+    @NullUnmarked protected void setupGridPaint() {
         mGridPaint.setColor(mXAxis.getGridColor());
         mGridPaint.setStrokeWidth(mXAxis.getGridLineWidth());
         mGridPaint.setPathEffect(mXAxis.getGridDashPathEffect());
     }
 
-    @Override
+    @NullUnmarked @Override
     public void computeAxis(float min, float max, boolean inverted) {
 
         // calculate the starting and entry point of the y-labels (depending on
@@ -75,7 +76,7 @@ public class XAxisRenderer extends AxisRenderer {
         computeSize();
     }
 
-    protected void computeSize() {
+    @NullUnmarked protected void computeSize() {
 
         String longest = mXAxis.getLongestLabel();
 
@@ -102,7 +103,7 @@ public class XAxisRenderer extends AxisRenderer {
         FSize.recycleInstance(labelSize);
     }
 
-    @Override
+    @NullUnmarked @Override
     public void renderAxisLabels(Canvas c) {
 
         if (!mXAxis.isEnabled() || !mXAxis.isDrawLabelsEnabled())
@@ -146,7 +147,7 @@ public class XAxisRenderer extends AxisRenderer {
         MPPointF.recycleInstance(pointF);
     }
 
-    @Override
+    @NullUnmarked @Override
     public void renderAxisLine(Canvas c) {
 
         if (!mXAxis.isDrawAxisLineEnabled() || !mXAxis.isEnabled())
@@ -178,7 +179,7 @@ public class XAxisRenderer extends AxisRenderer {
      *
      * @param pos
      */
-    protected void drawLabels(Canvas c, float pos, MPPointF anchor) {
+    @NullUnmarked protected void drawLabels(Canvas c, float pos, MPPointF anchor) {
 
         final float labelRotationAngleDegrees = mXAxis.getLabelRotationAngle();
         boolean centeringEnabled = mXAxis.isCenterAxisLabelsEnabled();
@@ -233,7 +234,7 @@ public class XAxisRenderer extends AxisRenderer {
     }
     protected Path mRenderGridLinesPath = new Path();
     protected float[] mRenderGridLinesBuffer = new float[2];
-    @Override
+    @NullUnmarked @Override
     public void renderGridLines(Canvas c) {
 
         if (!mXAxis.isDrawGridLinesEnabled() || !mXAxis.isEnabled())
@@ -269,7 +270,7 @@ public class XAxisRenderer extends AxisRenderer {
 
     protected RectF mGridClippingRect = new RectF();
 
-    public RectF getGridClippingRect() {
+    @NullUnmarked public RectF getGridClippingRect() {
         mGridClippingRect.set(mViewPortHandler.getContentRect());
         mGridClippingRect.inset(-mAxis.getGridLineWidth(), 0.f);
         return mGridClippingRect;
@@ -302,7 +303,7 @@ public class XAxisRenderer extends AxisRenderer {
      *
      * @param c
      */
-    @Override
+    @NullUnmarked @Override
     public void renderLimitLines(Canvas c) {
 
         List<LimitLine> limitLines = mXAxis.getLimitLines();
@@ -341,7 +342,7 @@ public class XAxisRenderer extends AxisRenderer {
     float[] mLimitLineSegmentsBuffer = new float[4];
     private Path mLimitLinePath = new Path();
 
-    public void renderLimitLineLine(Canvas c, LimitLine limitLine, float[] position) {
+    @NullUnmarked public void renderLimitLineLine(Canvas c, LimitLine limitLine, float[] position) {
         mLimitLineSegmentsBuffer[0] = position[0];
         mLimitLineSegmentsBuffer[1] = mViewPortHandler.contentTop();
         mLimitLineSegmentsBuffer[2] = position[0];
@@ -359,7 +360,7 @@ public class XAxisRenderer extends AxisRenderer {
         c.drawPath(mLimitLinePath, mLimitLinePaint);
     }
 
-    public void renderLimitLineLabel(Canvas c, LimitLine limitLine, float[] position, float yOffset) {
+    @NullUnmarked public void renderLimitLineLabel(Canvas c, LimitLine limitLine, float[] position, float yOffset) {
         String label = limitLine.getLabel();
 
         // if drawing the limit-value label is enabled

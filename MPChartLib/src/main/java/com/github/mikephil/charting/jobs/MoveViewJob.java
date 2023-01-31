@@ -7,6 +7,7 @@ import com.github.mikephil.charting.utils.ObjectPool;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Created by Philipp Jahoda on 19/02/16.
@@ -38,7 +39,7 @@ public class MoveViewJob extends ViewPortJob {
         super(viewPortHandler, xValue, yValue, trans, v);
     }
 
-    @Override
+    @NullUnmarked @Override
     public void run() {
 
         pts[0] = xValue;

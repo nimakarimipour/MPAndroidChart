@@ -15,6 +15,7 @@ import com.github.mikephil.charting.utils.Utils;
 import java.util.ArrayList;
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet {
 
@@ -280,12 +281,12 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
         return mCircleColors;
     }
 
-    @Override
+    @NullUnmarked @Override
     public int getCircleColor(int index) {
         return mCircleColors.get(index);
     }
 
-    @Override
+    @NullUnmarked @Override
     public int getCircleColorCount() {
         return mCircleColors.size();
     }
@@ -347,7 +348,7 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
      *
      * @param color
      */
-    public void setCircleColor(int color) {
+    @NullUnmarked public void setCircleColor(int color) {
         resetCircleColors();
         mCircleColors.add(color);
     }

@@ -18,10 +18,11 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class YAxisRendererHorizontalBarChart extends YAxisRenderer {
 
-    public YAxisRendererHorizontalBarChart(ViewPortHandler viewPortHandler, @Nullable YAxis yAxis,
+    @NullUnmarked public YAxisRendererHorizontalBarChart(ViewPortHandler viewPortHandler, @Nullable YAxis yAxis,
                                            Transformer trans) {
         super(viewPortHandler, yAxis, trans);
 
@@ -34,7 +35,7 @@ public class YAxisRendererHorizontalBarChart extends YAxisRenderer {
      * @param yMin - the minimum y-value in the data object for this axis
      * @param yMax - the maximum y-value in the data object for this axis
      */
-    @Override
+    @NullUnmarked @Override
     public void computeAxis(float yMin, float yMax, boolean inverted) {
 
         // calculate the starting and entry point of the y-labels (depending on
@@ -64,7 +65,7 @@ public class YAxisRendererHorizontalBarChart extends YAxisRenderer {
     /**
      * draws the y-axis labels to the screen
      */
-    @Override
+    @NullUnmarked @Override
     public void renderAxisLabels(Canvas c) {
 
         if (!mYAxis.isEnabled() || !mYAxis.isDrawLabelsEnabled())
@@ -105,7 +106,7 @@ public class YAxisRendererHorizontalBarChart extends YAxisRenderer {
         drawYLabels(c, yPos, positions, mYAxis.getYOffset());
     }
 
-    @Override
+    @NullUnmarked @Override
     public void renderAxisLine(Canvas c) {
 
         if (!mYAxis.isEnabled() || !mYAxis.isDrawAxisLineEnabled())
@@ -131,7 +132,7 @@ public class YAxisRendererHorizontalBarChart extends YAxisRenderer {
      * @param fixedPosition
      * @param positions
      */
-    @Override
+    @NullUnmarked @Override
     protected void drawYLabels(Canvas c, float fixedPosition, float[] positions, float offset) {
 
         mAxisLabelPaint.setTypeface(mYAxis.getTypeface());
@@ -156,7 +157,7 @@ public class YAxisRendererHorizontalBarChart extends YAxisRenderer {
         }
     }
 
-    @Override
+    @NullUnmarked @Override
     protected float[] getTransformedPositions() {
 
         if(mGetTransformedPositionsBuffer.length != mYAxis.mEntryCount * 2) {
@@ -173,7 +174,7 @@ public class YAxisRendererHorizontalBarChart extends YAxisRenderer {
         return positions;
     }
 
-    @Override
+    @NullUnmarked @Override
     public RectF getGridClippingRect() {
         mGridClippingRect.set(mViewPortHandler.getContentRect());
         mGridClippingRect.inset(-mAxis.getGridLineWidth(), 0.f);
@@ -191,7 +192,7 @@ public class YAxisRendererHorizontalBarChart extends YAxisRenderer {
 
     protected Path mDrawZeroLinePathBuffer = new Path();
 
-    @Override
+    @NullUnmarked @Override
     protected void drawZeroLine(Canvas c) {
 
         int clipRestoreCount = c.save();
@@ -225,7 +226,7 @@ public class YAxisRendererHorizontalBarChart extends YAxisRenderer {
      *
      * @param c
      */
-    @Override
+    @NullUnmarked @Override
     public void renderLimitLines(Canvas c) {
 
         List<LimitLine> limitLines = mYAxis.getLimitLines();

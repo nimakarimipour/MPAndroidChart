@@ -19,6 +19,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Bubble chart implementation: Copyright 2015 Pierre-Marc Airoldi Licensed
@@ -44,7 +45,7 @@ public class BubbleChartRenderer extends BarLineScatterCandleBubbleRenderer {
 
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawData(Canvas c) {
 
         BubbleData bubbleData = mChart.getBubbleData();
@@ -66,7 +67,7 @@ public class BubbleChartRenderer extends BarLineScatterCandleBubbleRenderer {
         return shapeSize;
     }
 
-    protected void drawDataSet(Canvas c, IBubbleDataSet dataSet) {
+    @NullUnmarked protected void drawDataSet(Canvas c, IBubbleDataSet dataSet) {
 
         if (dataSet.getEntryCount() < 1)
             return;
@@ -116,7 +117,7 @@ public class BubbleChartRenderer extends BarLineScatterCandleBubbleRenderer {
         }
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawValues(Canvas c) {
 
         BubbleData bubbleData = mChart.getBubbleData();
@@ -202,7 +203,7 @@ public class BubbleChartRenderer extends BarLineScatterCandleBubbleRenderer {
 
     private float[] _hsvBuffer = new float[3];
 
-    @Override
+    @NullUnmarked @Override
     public void drawHighlighted(Canvas c, @Nullable Highlight[] indices) {
 
         BubbleData bubbleData = mChart.getBubbleData();

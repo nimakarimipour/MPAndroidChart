@@ -3,6 +3,7 @@ package com.github.mikephil.charting.highlight;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.interfaces.datasets.IPieDataSet;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Created by philipp on 12/06/16.
@@ -13,7 +14,7 @@ public class PieHighlighter extends PieRadarHighlighter<PieChart> {
         super(chart);
     }
 
-    @Override
+    @NullUnmarked @Override
     protected Highlight getClosestHighlight(int index, float x, float y) {
 
         IPieDataSet set = mChart.getData().getDataSet();

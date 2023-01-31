@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Data container for the RadarChart.
@@ -52,7 +53,7 @@ public class RadarData extends ChartData<IRadarDataSet> {
         return mLabels;
     }
 
-    @Override
+    @NullUnmarked @Override
     public Entry getEntryForHighlight(Highlight highlight) {
         return getDataSetByIndex(highlight.getDataSetIndex()).getEntryForIndex((int) highlight.getX());
     }

@@ -18,6 +18,7 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 
 import java.util.List;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * View that represents a pie chart. Draws cake like slices.
@@ -122,7 +123,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
         mHighlighter = new PieHighlighter(this);
     }
 
-    @Override
+    @NullUnmarked @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
@@ -175,7 +176,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
         calcAngles();
     }
 
-    @Override
+    @NullUnmarked @Override
     protected float[] getMarkerPosition(Highlight highlight) {
 
         MPPointF center = getCenterCircleBox();
@@ -211,7 +212,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
     /**
      * calculates the needed angles for the chart slices
      */
-    private void calcAngles() {
+    @NullUnmarked private void calcAngles() {
 
         int entryCount = mData.getEntryCount();
 
@@ -294,7 +295,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
      * @param index
      * @return
      */
-    public boolean needsHighlight(int index) {
+    @NullUnmarked public boolean needsHighlight(int index) {
 
         // no highlight
         if (!valuesToHighlight())
@@ -315,7 +316,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
      * @param value
      * @return
      */
-    private float calcAngle(float value) {
+    @NullUnmarked private float calcAngle(float value) {
         return calcAngle(value, mData.getYValueSum());
     }
 
@@ -361,7 +362,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
      * @param xIndex
      * @return
      */
-    public int getDataSetIndexForIndex(int xIndex) {
+    @NullUnmarked public int getDataSetIndexForIndex(int xIndex) {
 
         List<IPieDataSet> dataSets = mData.getDataSets();
 
@@ -400,7 +401,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
      *
      * @param color
      */
-    public void setHoleColor(int color) {
+    @NullUnmarked public void setHoleColor(int color) {
         ((PieChartRenderer) mRenderer).getPaintHole().setColor(color);
     }
 
@@ -480,7 +481,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
         return mDrawCenterText;
     }
 
-    @Override
+    @NullUnmarked @Override
     protected float getRequiredLegendOffset() {
         return mLegendRenderer.getLabelPaint().getTextSize() * 2.f;
     }
@@ -521,7 +522,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
      *
      * @param t
      */
-    public void setCenterTextTypeface(Typeface t) {
+    @NullUnmarked public void setCenterTextTypeface(Typeface t) {
         ((PieChartRenderer) mRenderer).getPaintCenterText().setTypeface(t);
     }
 
@@ -530,7 +531,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
      *
      * @param sizeDp
      */
-    public void setCenterTextSize(float sizeDp) {
+    @NullUnmarked public void setCenterTextSize(float sizeDp) {
         ((PieChartRenderer) mRenderer).getPaintCenterText().setTextSize(
                 Utils.convertDpToPixel(sizeDp));
     }
@@ -540,7 +541,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
      *
      * @param sizePixels
      */
-    public void setCenterTextSizePixels(float sizePixels) {
+    @NullUnmarked public void setCenterTextSizePixels(float sizePixels) {
         ((PieChartRenderer) mRenderer).getPaintCenterText().setTextSize(sizePixels);
     }
 
@@ -569,7 +570,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
      *
      * @param color
      */
-    public void setCenterTextColor(int color) {
+    @NullUnmarked public void setCenterTextColor(int color) {
         ((PieChartRenderer) mRenderer).getPaintCenterText().setColor(color);
     }
 
@@ -597,7 +598,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
      *
      * @param color
      */
-    public void setTransparentCircleColor(int color) {
+    @NullUnmarked public void setTransparentCircleColor(int color) {
 
         Paint p = ((PieChartRenderer) mRenderer).getPaintTransparentCircle();
         int alpha = p.getAlpha();
@@ -628,7 +629,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
      *
      * @param alpha 0-255
      */
-    public void setTransparentCircleAlpha(int alpha) {
+    @NullUnmarked public void setTransparentCircleAlpha(int alpha) {
         ((PieChartRenderer) mRenderer).getPaintTransparentCircle().setAlpha(alpha);
     }
 
@@ -666,7 +667,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
      *
      * @param color
      */
-    public void setEntryLabelColor(int color) {
+    @NullUnmarked public void setEntryLabelColor(int color) {
         ((PieChartRenderer) mRenderer).getPaintEntryLabels().setColor(color);
     }
 
@@ -675,7 +676,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
      *
      * @param tf
      */
-    public void setEntryLabelTypeface(Typeface tf) {
+    @NullUnmarked public void setEntryLabelTypeface(Typeface tf) {
         ((PieChartRenderer) mRenderer).getPaintEntryLabels().setTypeface(tf);
     }
 
@@ -684,7 +685,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
      *
      * @param size
      */
-    public void setEntryLabelTextSize(float size) {
+    @NullUnmarked public void setEntryLabelTextSize(float size) {
         ((PieChartRenderer) mRenderer).getPaintEntryLabels().setTextSize(Utils.convertDpToPixel(size));
     }
 

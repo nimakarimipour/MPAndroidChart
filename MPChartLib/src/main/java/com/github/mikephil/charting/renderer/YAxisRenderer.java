@@ -18,6 +18,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class YAxisRenderer extends AxisRenderer {
 
@@ -25,7 +26,7 @@ public class YAxisRenderer extends AxisRenderer {
 
     @Nullable protected Paint mZeroLinePaint;
 
-    public YAxisRenderer(ViewPortHandler viewPortHandler, @Nullable YAxis yAxis, @Nullable Transformer trans) {
+    @NullUnmarked public YAxisRenderer(ViewPortHandler viewPortHandler, @Nullable YAxis yAxis, @Nullable Transformer trans) {
         super(viewPortHandler, trans, yAxis);
 
         this.mYAxis = yAxis;
@@ -45,7 +46,7 @@ public class YAxisRenderer extends AxisRenderer {
     /**
      * draws the y-axis labels to the screen
      */
-    @Override
+    @NullUnmarked @Override
     public void renderAxisLabels(Canvas c) {
 
         if (!mYAxis.isEnabled() || !mYAxis.isDrawLabelsEnabled())
@@ -89,7 +90,7 @@ public class YAxisRenderer extends AxisRenderer {
         drawYLabels(c, xPos, positions, yoffset);
     }
 
-    @Override
+    @NullUnmarked @Override
     public void renderAxisLine(Canvas c) {
 
         if (!mYAxis.isEnabled() || !mYAxis.isDrawAxisLineEnabled())
@@ -113,7 +114,7 @@ public class YAxisRenderer extends AxisRenderer {
      * @param fixedPosition
      * @param positions
      */
-    protected void drawYLabels(Canvas c, float fixedPosition, float[] positions, float offset) {
+    @NullUnmarked protected void drawYLabels(Canvas c, float fixedPosition, float[] positions, float offset) {
 
         final int from = mYAxis.isDrawBottomYLabelEntryEnabled() ? 0 : 1;
         final int to = mYAxis.isDrawTopYLabelEntryEnabled()
@@ -135,7 +136,7 @@ public class YAxisRenderer extends AxisRenderer {
     }
 
     protected Path mRenderGridLinesPath = new Path();
-    @Override
+    @NullUnmarked @Override
     public void renderGridLines(Canvas c) {
 
         if (!mYAxis.isEnabled())
@@ -173,7 +174,7 @@ public class YAxisRenderer extends AxisRenderer {
 
     protected RectF mGridClippingRect = new RectF();
 
-    public RectF getGridClippingRect() {
+    @NullUnmarked public RectF getGridClippingRect() {
         mGridClippingRect.set(mViewPortHandler.getContentRect());
         mGridClippingRect.inset(0.f, -mAxis.getGridLineWidth());
         return mGridClippingRect;
@@ -202,7 +203,7 @@ public class YAxisRenderer extends AxisRenderer {
      *
      * @return
      */
-    protected float[] getTransformedPositions() {
+    @NullUnmarked protected float[] getTransformedPositions() {
 
         if(mGetTransformedPositionsBuffer.length != mYAxis.mEntryCount * 2){
             mGetTransformedPositionsBuffer = new float[mYAxis.mEntryCount * 2];
@@ -224,7 +225,7 @@ public class YAxisRenderer extends AxisRenderer {
     /**
      * Draws the zero line.
      */
-    protected void drawZeroLine(Canvas c) {
+    @NullUnmarked protected void drawZeroLine(Canvas c) {
 
         int clipRestoreCount = c.save();
         mZeroLineClippingRect.set(mViewPortHandler.getContentRect());
@@ -257,7 +258,7 @@ public class YAxisRenderer extends AxisRenderer {
      *
      * @param c
      */
-    @Override
+    @NullUnmarked @Override
     public void renderLimitLines(Canvas c) {
 
         List<LimitLine> limitLines = mYAxis.getLimitLines();

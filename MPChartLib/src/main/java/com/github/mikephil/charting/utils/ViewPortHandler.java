@@ -5,6 +5,7 @@ import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.view.View;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Class that contains information about the charts current viewport settings, including offsets, scale & translation
@@ -418,7 +419,7 @@ public class ViewPortHandler {
      * @param newMatrix
      * @return
      */
-    public Matrix refresh(Matrix newMatrix, @Nullable View chart, boolean invalidate) {
+    @NullUnmarked public Matrix refresh(Matrix newMatrix, @Nullable View chart, boolean invalidate) {
 
         mMatrixTouch.set(newMatrix);
 

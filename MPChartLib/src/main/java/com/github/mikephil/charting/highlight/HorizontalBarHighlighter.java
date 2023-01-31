@@ -11,6 +11,7 @@ import com.github.mikephil.charting.utils.MPPointD;
 import java.util.ArrayList;
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Created by Philipp Jahoda on 22/07/15.
@@ -21,7 +22,7 @@ public class HorizontalBarHighlighter extends BarHighlighter {
 		super(chart);
 	}
 
-	@Nullable @Override
+	@NullUnmarked @Nullable @Override
 	public Highlight getHighlight(float x, float y) {
 
 		BarData barData = mChart.getBarData();
@@ -46,7 +47,7 @@ public class HorizontalBarHighlighter extends BarHighlighter {
 		return high;
 	}
 
-	@Override
+	@NullUnmarked @Override
 	protected List<Highlight> buildHighlights(IDataSet set, int dataSetIndex, float xVal, DataSet.Rounding rounding) {
 
 		ArrayList<Highlight> highlights = new ArrayList<>();

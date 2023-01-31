@@ -12,6 +12,7 @@ import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
+import com.github.mikephil.charting.NullUnmarked;
 
 public class YAxisRendererRadarChart extends YAxisRenderer {
 
@@ -23,7 +24,7 @@ public class YAxisRendererRadarChart extends YAxisRenderer {
         this.mChart = chart;
     }
 
-    @Override
+    @NullUnmarked @Override
     protected void computeAxisValues(float min, float max) {
 
         float yMin = min;
@@ -144,7 +145,7 @@ public class YAxisRendererRadarChart extends YAxisRenderer {
         mAxis.mAxisRange = Math.abs(mAxis.mAxisMaximum - mAxis.mAxisMinimum);
     }
 
-    @Override
+    @NullUnmarked @Override
     public void renderAxisLabels(Canvas c) {
 
         if (!mYAxis.isEnabled() || !mYAxis.isDrawLabelsEnabled())
@@ -180,7 +181,7 @@ public class YAxisRendererRadarChart extends YAxisRenderer {
     }
 
     private Path mRenderLimitLinesPathBuffer = new Path();
-    @Override
+    @NullUnmarked @Override
     public void renderLimitLines(Canvas c) {
 
         List<LimitLine> limitLines = mYAxis.getLimitLines();

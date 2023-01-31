@@ -24,6 +24,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Renderer for the HorizontalBarChart.
@@ -39,7 +40,7 @@ public class HorizontalBarChartRenderer extends BarChartRenderer {
         mValuePaint.setTextAlign(Align.LEFT);
     }
 
-    @Override
+    @NullUnmarked @Override
     public void initBuffers() {
 
         BarData barData = mChart.getBarData();
@@ -54,7 +55,7 @@ public class HorizontalBarChartRenderer extends BarChartRenderer {
 
     private RectF mBarShadowRectBuffer = new RectF();
 
-    @Override
+    @NullUnmarked @Override
     protected void drawDataSet(Canvas c, IBarDataSet dataSet, int index) {
 
         Transformer trans = mChart.getTransformer(dataSet.getAxisDependency());
@@ -158,7 +159,7 @@ public class HorizontalBarChartRenderer extends BarChartRenderer {
         }
     }
 
-    @Override
+    @NullUnmarked @Override
     public void drawValues(Canvas c) {
         // if values are drawn
         if (isDrawingValuesAllowed(mChart)) {
@@ -418,7 +419,7 @@ public class HorizontalBarChartRenderer extends BarChartRenderer {
         c.drawText(valueText, x, y, mValuePaint);
     }
 
-    @Override
+    @NullUnmarked @Override
     protected void prepareBarHighlight(float x, float y1, float y2, float barWidthHalf, @Nullable Transformer trans) {
 
         float top = x - barWidthHalf;
@@ -436,7 +437,7 @@ public class HorizontalBarChartRenderer extends BarChartRenderer {
         high.setDraw(bar.centerY(), bar.right);
     }
 
-    @Override
+    @NullUnmarked @Override
     protected boolean isDrawingValuesAllowed(ChartInterface chart) {
         return chart.getData().getEntryCount() < chart.getMaxVisibleCount()
                 * mViewPortHandler.getScaleY();

@@ -4,6 +4,7 @@ package com.github.mikephil.charting.formatter;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.interfaces.dataprovider.LineDataProvider;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Default formatter that calculates the position of the filled line.
@@ -13,7 +14,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 public class DefaultFillFormatter implements IFillFormatter
 {
 
-    @Override
+    @NullUnmarked @Override
     public float getFillLinePosition(ILineDataSet dataSet, LineDataProvider dataProvider) {
 
         float fillMin = 0f;

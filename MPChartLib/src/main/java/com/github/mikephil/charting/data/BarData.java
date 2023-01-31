@@ -4,6 +4,7 @@ package com.github.mikephil.charting.data;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 
 import java.util.List;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Data object that represents all data for the BarChart.
@@ -53,7 +54,7 @@ public class BarData extends BarLineScatterCandleBubbleData<IBarDataSet> {
      * @param groupSpace the space between groups of bars in values (not pixels) e.g. 0.8f for bar width 1f
      * @param barSpace   the space between individual bars in values (not pixels) e.g. 0.1f for bar width 1f
      */
-    public void groupBars(float fromX, float groupSpace, float barSpace) {
+    @NullUnmarked public void groupBars(float fromX, float groupSpace, float barSpace) {
 
         int setCount = mDataSets.size();
         if (setCount <= 1) {

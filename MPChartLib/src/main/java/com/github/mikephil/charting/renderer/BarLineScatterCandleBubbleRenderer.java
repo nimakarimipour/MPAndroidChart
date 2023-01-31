@@ -8,6 +8,7 @@ import com.github.mikephil.charting.interfaces.datasets.IBarLineScatterCandleBub
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Created by Philipp Jahoda on 09/06/16.
@@ -29,7 +30,7 @@ public abstract class BarLineScatterCandleBubbleRenderer extends DataRenderer {
      * @param set
      * @return
      */
-    protected boolean shouldDrawValues(@Nullable IDataSet set) {
+    @NullUnmarked protected boolean shouldDrawValues(@Nullable IDataSet set) {
         return set.isVisible() && (set.isDrawValuesEnabled() || set.isDrawIconsEnabled());
     }
 
@@ -40,7 +41,7 @@ public abstract class BarLineScatterCandleBubbleRenderer extends DataRenderer {
      * @param set
      * @return
      */
-    protected boolean isInBoundsX(@Nullable Entry e, IBarLineScatterCandleBubbleDataSet set) {
+    @NullUnmarked protected boolean isInBoundsX(@Nullable Entry e, IBarLineScatterCandleBubbleDataSet set) {
 
         if (e == null)
             return false;
@@ -80,7 +81,7 @@ public abstract class BarLineScatterCandleBubbleRenderer extends DataRenderer {
          * @param chart
          * @param dataSet
          */
-        public void set(BarLineScatterCandleBubbleDataProvider chart, IBarLineScatterCandleBubbleDataSet dataSet) {
+        @NullUnmarked public void set(BarLineScatterCandleBubbleDataProvider chart, IBarLineScatterCandleBubbleDataSet dataSet) {
             float phaseX = Math.max(0.f, Math.min(1.f, mAnimator.getPhaseX()));
 
             float low = chart.getLowestVisibleX();

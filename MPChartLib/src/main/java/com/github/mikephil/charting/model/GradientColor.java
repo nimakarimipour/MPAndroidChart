@@ -1,6 +1,7 @@
 package com.github.mikephil.charting.model;
 
 import com.github.mikephil.charting.utils.Fill;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Deprecated. Use `Fill`
@@ -11,7 +12,7 @@ public class GradientColor extends Fill
     /**
      * Deprecated. Use `Fill.getGradientColors()`
      */
-    @Deprecated
+    @NullUnmarked @Deprecated
     public int getStartColor()
     {
         return getGradientColors()[0];
@@ -40,7 +41,7 @@ public class GradientColor extends Fill
     /**
      * Deprecated. Use `Fill.getGradientColors()`
      */
-    @Deprecated
+    @NullUnmarked @Deprecated
     public int getEndColor()
     {
         return getGradientColors()[1];

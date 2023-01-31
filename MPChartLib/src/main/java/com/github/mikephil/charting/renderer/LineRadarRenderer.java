@@ -9,6 +9,7 @@ import com.github.mikephil.charting.animation.ChartAnimator;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * Created by Philipp Jahoda on 25/01/16.
@@ -26,7 +27,7 @@ public abstract class LineRadarRenderer extends LineScatterCandleRadarRenderer {
      * @param filledPath
      * @param drawable
      */
-    protected void drawFilledPath(@Nullable Canvas c, Path filledPath, Drawable drawable) {
+    @NullUnmarked protected void drawFilledPath(@Nullable Canvas c, Path filledPath, Drawable drawable) {
 
         if (clipPathSupported()) {
 
@@ -55,7 +56,7 @@ public abstract class LineRadarRenderer extends LineScatterCandleRadarRenderer {
      * @param fillColor
      * @param fillAlpha
      */
-    protected void drawFilledPath(@Nullable Canvas c, Path filledPath, int fillColor, int fillAlpha) {
+    @NullUnmarked protected void drawFilledPath(@Nullable Canvas c, Path filledPath, int fillColor, int fillAlpha) {
 
         int color = (fillAlpha << 24) | (fillColor & 0xffffff);
 

@@ -20,6 +20,7 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import androidx.annotation.Nullable;
+import com.github.mikephil.charting.NullUnmarked;
 
 /**
  * TouchListener for Bar-, Line-, Scatter- and CandleStickChart with handles all
@@ -93,7 +94,7 @@ public class BarLineChartTouchListener extends ChartTouchListener<BarLineChartBa
         this.mMinScalePointerDistance = Utils.convertDpToPixel(3.5f);
     }
 
-    @SuppressLint("ClickableViewAccessibility")
+    @NullUnmarked @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouch(View v, MotionEvent event) {
 
@@ -565,7 +566,7 @@ public class BarLineChartTouchListener extends ChartTouchListener<BarLineChartBa
         this.mDragTriggerDist = Utils.convertDpToPixel(dragTriggerDistance);
     }
 
-    @Override
+    @NullUnmarked @Override
     public boolean onDoubleTap(MotionEvent e) {
 
         mLastGesture = ChartGesture.DOUBLE_TAP;
