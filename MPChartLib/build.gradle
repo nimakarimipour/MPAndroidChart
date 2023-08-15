@@ -60,10 +60,10 @@ tasks.withType(JavaCompile) {
 //        options.errorprone.disableAllWarnings = true
         options.errorprone {
             check("NullAway", CheckSeverity.ERROR)
-            check("AnnotatorScanner", CheckSeverity.OFF)
+            check("AnnotatorScanner", CheckSeverity.ERROR)
             option("NullAway:AnnotatedPackages", "com.github.mikephil.charting")
-            option("NullAway:SerializeFixMetadata", "false")
-            option("NullAway:FixSerializationConfigPath", "/tmp/annotator/nullaway.xml")
+            option("NullAway:SerializeFixMetadata", "true")
+            option("NullAway:FixSerializationConfigPath", "/tmp/annotator/checker.xml")
             option("AnnotatorScanner:ConfigPath", "/tmp/annotator/scanner.xml")
         }
     }
