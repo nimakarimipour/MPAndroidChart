@@ -20,7 +20,7 @@ def run_annotator():
     commands = []
     commands += ["java", "-jar", ANNOTATOR_JAR]
     commands += ['-d', '/tmp/annotator']
-    commands += ['-bc', 'cd {} && ./gradlew compileJava'.format(REPO)]
+    commands += ['-bc', 'cd {} && ./gradlew :MPChartLib:compileDebugJavaWithJavac'.format(REPO)]
     commands += ['-cp', '/tmp/annotator/paths.tsv']
     commands += ['-i', 'com.uber.nullaway.annotations.Initializer']
     commands += ['-n', 'javax.annotation.Nullable']
