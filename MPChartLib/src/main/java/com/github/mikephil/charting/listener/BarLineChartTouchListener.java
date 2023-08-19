@@ -19,7 +19,7 @@ import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
-import com.github.mikephil.charting.NullUnmarked;
+
 
 /**
  * TouchListener for Bar-, Line-, Scatter- and CandleStickChart with handles all
@@ -54,12 +54,12 @@ public class BarLineChartTouchListener extends ChartTouchListener<BarLineChartBa
     private float mSavedYDist = 1f;
     private float mSavedDist = 1f;
 
-    @SuppressWarnings("NullAway.Init") private IDataSet mClosestDataSetToTouch;
+     private IDataSet mClosestDataSetToTouch;
 
     /**
      * used for tracking velocity of dragging
      */
-    @SuppressWarnings("NullAway.Init") private VelocityTracker mVelocityTracker;
+     private VelocityTracker mVelocityTracker;
 
     private long mDecelerationLastTime = 0;
     private MPPointF mDecelerationCurrentPoint = MPPointF.getInstance(0,0);
@@ -93,7 +93,7 @@ public class BarLineChartTouchListener extends ChartTouchListener<BarLineChartBa
         this.mMinScalePointerDistance = Utils.convertDpToPixel(3.5f);
     }
 
-    @NullUnmarked @SuppressLint("ClickableViewAccessibility")
+     @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouch(View v, MotionEvent event) {
 

@@ -10,7 +10,7 @@ import com.github.mikephil.charting.utils.MPPointD;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.github.mikephil.charting.NullUnmarked;
+
 
 /**
  * Created by Philipp Jahoda on 21/07/15.
@@ -66,7 +66,7 @@ public class ChartHighlighter<T extends BarLineScatterCandleBubbleDataProvider> 
      * @param y
      * @return
      */
-    @NullUnmarked protected Highlight getHighlightForX(float xVal, float x, float y) {
+     protected Highlight getHighlightForX(float xVal, float x, float y) {
 
         List<Highlight> closestValues = getHighlightsAtXValue(xVal, x, y);
 
@@ -202,7 +202,7 @@ public class ChartHighlighter<T extends BarLineScatterCandleBubbleDataProvider> 
      * @param minSelectionDistance
      * @return
      */
-    @NullUnmarked public Highlight getClosestHighlightByPixel(List<Highlight> closestValues, float x, float y,
+     public Highlight getClosestHighlightByPixel(List<Highlight> closestValues, float x, float y,
                                                 YAxis.AxisDependency axis, float minSelectionDistance) {
 
         Highlight closest = null;

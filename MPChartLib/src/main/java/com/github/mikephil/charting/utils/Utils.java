@@ -36,7 +36,7 @@ import java.util.List;
  */
 public abstract class Utils {
 
-    @SuppressWarnings("NullAway.Init") private static DisplayMetrics mMetrics;
+     private static DisplayMetrics mMetrics;
     private static int mMinimumFlingVelocity = 50;
     private static int mMaximumFlingVelocity = 8000;
     public final static double DEG2RAD = (Math.PI / 180.0);

@@ -10,7 +10,7 @@ import android.util.Log;
 @SuppressLint("ParcelCreator")
 public class PieEntry extends Entry {
 
-    @SuppressWarnings("NullAway.Init") private String label;
+     private String label;
 
     public PieEntry(float value) {
         super(0f, value);

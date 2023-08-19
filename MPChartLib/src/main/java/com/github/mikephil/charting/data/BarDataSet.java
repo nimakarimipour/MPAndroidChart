@@ -41,7 +41,7 @@ public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> impl
      */
     private String[] mStackLabels = new String[]{};
 
-    @SuppressWarnings("NullAway") protected List<Fill> mFills = null;
+     protected List<Fill> mFills = null;
 
     public BarDataSet(List<BarEntry> yVals, String label) {
         super(yVals, label);

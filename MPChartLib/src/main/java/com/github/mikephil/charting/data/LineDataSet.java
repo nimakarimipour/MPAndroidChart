@@ -14,7 +14,7 @@ import com.github.mikephil.charting.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.github.mikephil.charting.NullUnmarked;
+
 
 public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet {
 
@@ -26,7 +26,7 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
     /**
      * List representing all colors that are used for the circles
      */
-    @SuppressWarnings("NullAway") private List<Integer> mCircleColors = null;
+     private List<Integer> mCircleColors = null;
 
     /**
      * the color of the inner circles
@@ -51,7 +51,7 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
     /**
      * the path effect of this DataSet that makes dashed lines possible
      */
-    @SuppressWarnings("NullAway") private DashPathEffect mDashPathEffect = null;
+     private DashPathEffect mDashPathEffect = null;
 
     /**
      * formatter for customizing the position of the fill-line
@@ -228,7 +228,7 @@ public class LineDataSet extends LineRadarDataSet<Entry> implements ILineDataSet
     /**
      * Disables the line to be drawn in dashed mode.
      */
-    @NullUnmarked public void disableDashedLine() {
+     public void disableDashedLine() {
         mDashPathEffect = null;
     }
 

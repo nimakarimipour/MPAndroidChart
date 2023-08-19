@@ -77,7 +77,7 @@ public class Legend extends ComponentBase {
      * Entries that will be appended to the end of the auto calculated entries after calculating the legend.
      * (if the legend has already been calculated, you will need to call notifyDataSetChanged() to let the changes take effect)
      */
-    @SuppressWarnings("NullAway.Init") private LegendEntry[] mExtraEntries;
+     private LegendEntry[] mExtraEntries;
 
     /**
      * Are the legend labels/colors a custom value or auto calculated? If false,
@@ -113,7 +113,7 @@ public class Legend extends ComponentBase {
     /**
      * Line dash path effect used for shapes that consist of lines.
      */
-    @SuppressWarnings("NullAway") private DashPathEffect mFormLineDashEffect = null;
+     private DashPathEffect mFormLineDashEffect = null;
 
     /**
      * the space between the legend entries on a horizontal axis, default 6f

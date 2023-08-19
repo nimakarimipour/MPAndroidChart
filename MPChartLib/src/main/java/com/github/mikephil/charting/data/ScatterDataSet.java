@@ -15,7 +15,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.github.mikephil.charting.NullUnmarked;
+
 
 public class ScatterDataSet extends LineScatterCandleRadarDataSet<Entry> implements IScatterDataSet {
 
@@ -134,7 +134,7 @@ public class ScatterDataSet extends LineScatterCandleRadarDataSet<Entry> impleme
         return mScatterShapeHoleColor;
     }
 
-    @NullUnmarked public static IShapeRenderer getRendererForShape(ScatterChart.ScatterShape shape) {
+     public static IShapeRenderer getRendererForShape(ScatterChart.ScatterShape shape) {
 
         switch (shape) {
             case SQUARE:

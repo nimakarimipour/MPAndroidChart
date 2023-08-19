@@ -18,7 +18,7 @@ public class Description extends ComponentBase {
     /**
      * the custom position of the description text
      */
-    @SuppressWarnings("NullAway.Init") private MPPointF mPosition;
+     private MPPointF mPosition;
 
     /**
      * the alignment of the description text

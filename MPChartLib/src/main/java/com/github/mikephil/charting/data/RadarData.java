@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class RadarData extends ChartData<IRadarDataSet> {
 
-    @SuppressWarnings("NullAway.Init") private List<String> mLabels;
+     private List<String> mLabels;
 
     public RadarData() {
         super();

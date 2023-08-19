@@ -32,7 +32,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
-import com.github.mikephil.charting.NullUnmarked;
+
 
 public class PieChartRenderer extends DataRenderer {
 
@@ -57,17 +57,17 @@ public class PieChartRenderer extends DataRenderer {
      */
     private Paint mEntryLabelsPaint;
 
-    @SuppressWarnings("NullAway.Init") private StaticLayout mCenterTextLayout;
-    @SuppressWarnings("NullAway.Init") private CharSequence mCenterTextLastValue;
+     private StaticLayout mCenterTextLayout;
+     private CharSequence mCenterTextLastValue;
     private RectF mCenterTextLastBounds = new RectF();
     private RectF[] mRectBuffer = {new RectF(), new RectF(), new RectF()};
 
     /**
      * Bitmap for drawing the center hole
      */
-    @SuppressWarnings("NullAway.Init") protected WeakReference<Bitmap> mDrawBitmap;
+     protected WeakReference<Bitmap> mDrawBitmap;
 
-    @SuppressWarnings("NullAway.Init") protected Canvas mBitmapCanvas;
+     protected Canvas mBitmapCanvas;
 
     public PieChartRenderer(PieChart chart, ChartAnimator animator,
                             ViewPortHandler viewPortHandler) {
@@ -1054,7 +1054,7 @@ public class PieChartRenderer extends DataRenderer {
     /**
      * Releases the drawing bitmap. This should be called when {@link LineChart#onDetachedFromWindow()}.
      */
-    @NullUnmarked public void releaseBitmap() {
+     public void releaseBitmap() {
         if (mBitmapCanvas != null) {
             mBitmapCanvas.setBitmap(null);
             mBitmapCanvas = null;

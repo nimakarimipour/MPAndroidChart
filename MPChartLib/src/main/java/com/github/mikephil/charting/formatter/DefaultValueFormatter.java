@@ -18,7 +18,7 @@ public class DefaultValueFormatter implements IValueFormatter
     /**
      * DecimalFormat for formatting
      */
-    @SuppressWarnings("NullAway.Init") protected DecimalFormat mFormat;
+     protected DecimalFormat mFormat;
 
     protected int mDecimalDigits;
 

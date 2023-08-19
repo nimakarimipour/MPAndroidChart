@@ -35,7 +35,7 @@ import com.github.mikephil.charting.utils.MPPointD;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
-import com.github.mikephil.charting.NullUnmarked;
+
 
 /**
  * Base-class of LineChart, BarChart, ScatterChart and CandleStickChart.
@@ -88,9 +88,9 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
     /**
      * paint object for the (by default) lightgrey background of the grid
      */
-    @SuppressWarnings("NullAway.Init") protected Paint mGridBackgroundPaint;
+     protected Paint mGridBackgroundPaint;
 
-    @SuppressWarnings("NullAway.Init") protected Paint mBorderPaint;
+     protected Paint mBorderPaint;
 
     /**
      * flag indicating if the grid background should be drawn or not
@@ -116,25 +116,25 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
     /**
      * the listener for user drawing on the chart
      */
-    @SuppressWarnings("NullAway.Init") protected OnDrawListener mDrawListener;
+     protected OnDrawListener mDrawListener;
 
     /**
      * the object representing the labels on the left y-axis
      */
-    @SuppressWarnings("NullAway.Init") protected YAxis mAxisLeft;
+     protected YAxis mAxisLeft;
 
     /**
      * the object representing the labels on the right y-axis
      */
-    @SuppressWarnings("NullAway.Init") protected YAxis mAxisRight;
+     protected YAxis mAxisRight;
 
-    @SuppressWarnings("NullAway.Init") protected YAxisRenderer mAxisRendererLeft;
-    @SuppressWarnings("NullAway.Init") protected YAxisRenderer mAxisRendererRight;
+     protected YAxisRenderer mAxisRendererLeft;
+     protected YAxisRenderer mAxisRendererRight;
 
-    @SuppressWarnings("NullAway.Init") protected Transformer mLeftAxisTransformer;
-    @SuppressWarnings("NullAway.Init") protected Transformer mRightAxisTransformer;
+     protected Transformer mLeftAxisTransformer;
+     protected Transformer mRightAxisTransformer;
 
-    @SuppressWarnings("NullAway.Init") protected XAxisRenderer mXAxisRenderer;
+     protected XAxisRenderer mXAxisRenderer;
 
     // /** the approximator object used for data filtering */
     // private Approximator mApproximator;
@@ -1042,7 +1042,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      * @param e
      * @return
      */
-    @NullUnmarked public MPPointF getPosition(Entry e, AxisDependency axis) {
+     public MPPointF getPosition(Entry e, AxisDependency axis) {
 
         if (e == null)
             return null;
@@ -1353,7 +1353,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      * @param y
      * @return
      */
-    @NullUnmarked public Entry getEntryByTouchPoint(float x, float y) {
+     public Entry getEntryByTouchPoint(float x, float y) {
         Highlight h = getHighlightByTouchPoint(x, y);
         if (h != null) {
             return mData.getEntryForHighlight(h);
@@ -1368,7 +1368,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
      * @param y
      * @return
      */
-    @NullUnmarked public IBarLineScatterCandleBubbleDataSet getDataSetByTouchPoint(float x, float y) {
+     public IBarLineScatterCandleBubbleDataSet getDataSetByTouchPoint(float x, float y) {
         Highlight h = getHighlightByTouchPoint(x, y);
         if (h != null) {
             return mData.getDataSetByIndex(h.getDataSetIndex());
@@ -1632,7 +1632,7 @@ public abstract class BarLineChartBase<T extends BarLineScatterCandleBubbleData<
         }
     }
 
-    @NullUnmarked @Override
+     @Override
     public Paint getPaint(int which) {
         Paint p = super.getPaint(which);
         if (p != null)

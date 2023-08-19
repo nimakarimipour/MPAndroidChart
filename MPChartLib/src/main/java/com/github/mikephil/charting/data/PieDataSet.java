@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.github.mikephil.charting.NullUnmarked;
+
 
 public class PieDataSet extends DataSet<PieEntry> implements IPieDataSet {
 
@@ -31,7 +31,7 @@ public class PieDataSet extends DataSet<PieEntry> implements IPieDataSet {
     private float mValueLinePart1Length = 0.3f;
     private float mValueLinePart2Length = 0.4f;
     private boolean mValueLineVariableLength = true;
-    @SuppressWarnings("NullAway") private Integer mHighlightColor = null;
+     private Integer mHighlightColor = null;
 
     public PieDataSet(List<PieEntry> yVals, String label) {
         super(yVals, label);
@@ -249,7 +249,7 @@ public class PieDataSet extends DataSet<PieEntry> implements IPieDataSet {
     }
 
     /** Sets the color for the highlighted sector (null for using entry color) */
-    @NullUnmarked public void setHighlightColor(@Nullable Integer color)
+     public void setHighlightColor(@Nullable Integer color)
     {
         this.mHighlightColor = color;
     }

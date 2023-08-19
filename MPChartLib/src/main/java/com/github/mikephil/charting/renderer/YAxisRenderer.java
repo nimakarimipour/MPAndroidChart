@@ -22,7 +22,7 @@ public class YAxisRenderer extends AxisRenderer {
 
     protected YAxis mYAxis;
 
-    @SuppressWarnings("NullAway.Init") protected Paint mZeroLinePaint;
+     protected Paint mZeroLinePaint;
 
     public YAxisRenderer(ViewPortHandler viewPortHandler, YAxis yAxis, Transformer trans) {
         super(viewPortHandler, trans, yAxis);

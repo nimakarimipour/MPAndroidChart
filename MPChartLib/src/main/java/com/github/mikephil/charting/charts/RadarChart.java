@@ -62,10 +62,10 @@ public class RadarChart extends PieRadarChartBase<RadarData> {
     /**
      * the object reprsenting the y-axis labels
      */
-    @SuppressWarnings("NullAway.Init") private YAxis mYAxis;
+     private YAxis mYAxis;
 
-    @SuppressWarnings("NullAway.Init") protected YAxisRendererRadarChart mYAxisRenderer;
-    @SuppressWarnings("NullAway.Init") protected XAxisRendererRadarChart mXAxisRenderer;
+     protected YAxisRendererRadarChart mYAxisRenderer;
+     protected XAxisRendererRadarChart mXAxisRenderer;
 
     public RadarChart(Context context) {
         super(context);

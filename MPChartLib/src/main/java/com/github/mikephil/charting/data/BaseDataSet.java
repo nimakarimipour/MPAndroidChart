@@ -26,12 +26,12 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     /**
      * List representing all colors that are used for this DataSet
      */
-    @SuppressWarnings("NullAway") protected List<Integer> mColors = null;
+     protected List<Integer> mColors = null;
 
     /**
      * List representing all colors that are used for drawing the actual values for this DataSet
      */
-    @SuppressWarnings("NullAway") protected List<Integer> mValueColors = null;
+     protected List<Integer> mValueColors = null;
 
     /**
      * label that describes the DataSet or the data the DataSet represents
@@ -51,17 +51,17 @@ public abstract class BaseDataSet<T extends Entry> implements IDataSet<T> {
     /**
      * custom formatter that is used instead of the auto-formatter if set
      */
-    @SuppressWarnings("NullAway.Init") protected transient IValueFormatter mValueFormatter;
+     protected transient IValueFormatter mValueFormatter;
 
     /**
      * the typeface used for the value text
      */
-    @SuppressWarnings("NullAway.Init") protected Typeface mValueTypeface;
+     protected Typeface mValueTypeface;
 
     private Legend.LegendForm mForm = Legend.LegendForm.DEFAULT;
     private float mFormSize = Float.NaN;
     private float mFormLineWidth = Float.NaN;
-    @SuppressWarnings("NullAway") private DashPathEffect mFormLineDashEffect = null;
+     private DashPathEffect mFormLineDashEffect = null;
 
     /**
      * if true, y-values are drawn on the chart

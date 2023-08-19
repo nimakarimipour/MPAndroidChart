@@ -9,7 +9,7 @@ import com.github.mikephil.charting.interfaces.dataprovider.CombinedDataProvider
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 
 import java.util.List;
-import com.github.mikephil.charting.NullUnmarked;
+
 
 /**
  * Created by Philipp Jahoda on 12/09/15.
@@ -20,9 +20,9 @@ public class CombinedHighlighter extends ChartHighlighter<CombinedDataProvider> 
     /**
      * bar highlighter for supporting stacked highlighting
      */
-    @SuppressWarnings("NullAway.Init") protected BarHighlighter barHighlighter;
+     protected BarHighlighter barHighlighter;
 
-    @NullUnmarked public CombinedHighlighter(CombinedDataProvider chart, BarDataProvider barChart) {
+     public CombinedHighlighter(CombinedDataProvider chart, BarDataProvider barChart) {
         super(chart);
 
         // if there is BarData, create a BarHighlighter

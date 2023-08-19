@@ -13,7 +13,7 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.dataprovider.BarDataProvider;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.renderer.BarChartRenderer;
-import com.github.mikephil.charting.NullUnmarked;
+
 
 /**
  * Chart that draws bars.
@@ -87,7 +87,7 @@ public class BarChart extends BarLineChartBase<BarData> implements BarDataProvid
      * @param y
      * @return
      */
-    @NullUnmarked @Override
+     @Override
     public Highlight getHighlightByTouchPoint(float x, float y) {
 
         if (mData == null) {

@@ -32,7 +32,7 @@ public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
      */
     protected RectF mBarRect = new RectF();
 
-    @SuppressWarnings("NullAway.Init") protected BarBuffer[] mBarBuffers;
+     protected BarBuffer[] mBarBuffers;
 
     protected Paint mShadowPaint;
     protected Paint mBarBorderPaint;

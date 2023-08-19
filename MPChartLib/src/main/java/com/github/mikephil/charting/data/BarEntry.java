@@ -16,12 +16,12 @@ public class BarEntry extends Entry {
     /**
      * the values the stacked barchart holds
      */
-    @SuppressWarnings("NullAway.Init") private float[] mYVals;
+     private float[] mYVals;
 
     /**
      * the ranges for the individual stack values - automatically calculated
      */
-    @SuppressWarnings("NullAway.Init") private Range[] mRanges;
+     private Range[] mRanges;
 
     /**
      * the sum of all negative values this entry (if stacked) contains

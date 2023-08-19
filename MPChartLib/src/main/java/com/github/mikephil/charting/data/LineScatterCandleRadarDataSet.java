@@ -6,7 +6,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineScatterCandleRadarD
 import com.github.mikephil.charting.utils.Utils;
 
 import java.util.List;
-import com.github.mikephil.charting.NullUnmarked;
+
 
 /**
  * Created by Philipp Jahoda on 11/07/15.
@@ -20,7 +20,7 @@ public abstract class LineScatterCandleRadarDataSet<T extends Entry> extends Bar
     protected float mHighlightLineWidth = 0.5f;
 
     /** the path effect for dashed highlight-lines */
-    @SuppressWarnings("NullAway") protected DashPathEffect mHighlightDashPathEffect = null;
+     protected DashPathEffect mHighlightDashPathEffect = null;
 
 
     public LineScatterCandleRadarDataSet(List<T> yVals, String label) {
@@ -92,7 +92,7 @@ public abstract class LineScatterCandleRadarDataSet<T extends Entry> extends Bar
     /**
      * Disables the highlight-line to be drawn in dashed mode.
      */
-    @NullUnmarked public void disableDashedHighlightLine() {
+     public void disableDashedHighlightLine() {
         mHighlightDashPathEffect = null;
     }
 

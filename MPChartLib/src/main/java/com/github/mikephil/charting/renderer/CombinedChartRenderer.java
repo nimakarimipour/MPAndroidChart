@@ -15,7 +15,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-import com.github.mikephil.charting.NullUnmarked;
+
 
 /**
  * Renderer class that is responsible for rendering multiple different data-types.
@@ -146,7 +146,7 @@ public class CombinedChartRenderer extends DataRenderer {
      * @param index
      * @return
      */
-    @NullUnmarked public DataRenderer getSubRenderer(int index) {
+     public DataRenderer getSubRenderer(int index) {
         if (index >= mRenderers.size() || index < 0)
             return null;
         else
