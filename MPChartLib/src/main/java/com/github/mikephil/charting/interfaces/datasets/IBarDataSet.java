@@ -4,13 +4,14 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.Fill;
 
 import java.util.List;
+import androidx.annotation.Nullable;
 
 /**
  * Created by philipp on 21/10/15.
  */
 public interface IBarDataSet extends IBarLineScatterCandleBubbleDataSet<BarEntry> {
 
-    List<Fill> getFills();
+    @Nullable List<Fill> getFills();
 
     Fill getFill(int index);
 

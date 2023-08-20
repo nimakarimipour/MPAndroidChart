@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import com.github.mikephil.charting.data.ScatterData;
 import com.github.mikephil.charting.interfaces.dataprovider.ScatterDataProvider;
 import com.github.mikephil.charting.renderer.ScatterChartRenderer;
+import androidx.annotation.Nullable;
 
 /**
  * The ScatterChart. Draws dots, triangles, squares and custom shapes into the
@@ -40,7 +41,7 @@ public class ScatterChart extends BarLineChartBase<ScatterData> implements Scatt
         getXAxis().setSpaceMax(0.5f);
     }
 
-    @Override
+    @Nullable @Override
     public ScatterData getScatterData() {
         return mData;
     }

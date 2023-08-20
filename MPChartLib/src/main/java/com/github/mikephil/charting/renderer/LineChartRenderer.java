@@ -26,6 +26,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.List;
+import androidx.annotation.Nullable;
 
 
 public class LineChartRenderer extends LineRadarRenderer {
@@ -41,13 +42,13 @@ public class LineChartRenderer extends LineRadarRenderer {
      * Bitmap object used for drawing the paths (otherwise they are too long if
      * rendered directly on the canvas)
      */
-     protected WeakReference<Bitmap> mDrawBitmap;
+     @Nullable protected WeakReference<Bitmap> mDrawBitmap;
 
     /**
      * on this canvas, the paths are rendered, it is initialized with the
      * pathBitmap
      */
-     protected Canvas mBitmapCanvas;
+     @Nullable protected Canvas mBitmapCanvas;
 
     /**
      * the bitmap configuration to be used
@@ -57,7 +58,7 @@ public class LineChartRenderer extends LineRadarRenderer {
     protected Path cubicPath = new Path();
     protected Path cubicFillPath = new Path();
 
-    public LineChartRenderer(LineDataProvider chart, ChartAnimator animator,
+    public LineChartRenderer(LineDataProvider chart, @Nullable ChartAnimator animator,
                              ViewPortHandler viewPortHandler) {
         super(animator, viewPortHandler);
         mChart = chart;
@@ -262,7 +263,7 @@ public class LineChartRenderer extends LineRadarRenderer {
         mRenderPaint.setPathEffect(null);
     }
 
-    protected void drawCubicFill(Canvas c, ILineDataSet dataSet, Path spline, Transformer trans, XBounds bounds) {
+    protected void drawCubicFill(@Nullable Canvas c, ILineDataSet dataSet, Path spline, @Nullable Transformer trans, XBounds bounds) {
 
         float fillMin = dataSet.getFillFormatter()
                 .getFillLinePosition(dataSet, mChart);
@@ -447,7 +448,7 @@ public class LineChartRenderer extends LineRadarRenderer {
      * @param trans
      * @param bounds
      */
-    protected void drawLinearFill(Canvas c, ILineDataSet dataSet, Transformer trans, XBounds bounds) {
+    protected void drawLinearFill(Canvas c, ILineDataSet dataSet, @Nullable Transformer trans, XBounds bounds) {
 
         final Path filled = mGenerateFilledPathBuffer;
 
@@ -698,7 +699,7 @@ public class LineChartRenderer extends LineRadarRenderer {
     }
 
     @Override
-    public void drawHighlighted(Canvas c, Highlight[] indices) {
+    public void drawHighlighted(Canvas c, @Nullable Highlight[] indices) {
 
         LineData lineData = mChart.getLineData();
 
@@ -767,7 +768,7 @@ public class LineChartRenderer extends LineRadarRenderer {
 
         private Path mCirclePathBuffer = new Path();
 
-         private Bitmap[] circleBitmaps;
+         @Nullable private Bitmap[] circleBitmaps;
 
         /**
          * Sets up the cache, returns true if a change of cache was required.

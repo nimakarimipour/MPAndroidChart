@@ -15,6 +15,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+import androidx.annotation.Nullable;
 
 
 /**
@@ -29,7 +30,7 @@ public class CombinedChartRenderer extends DataRenderer {
 
     protected WeakReference<Chart> mChart;
 
-    public CombinedChartRenderer(CombinedChart chart, ChartAnimator animator, ViewPortHandler viewPortHandler) {
+    public CombinedChartRenderer(CombinedChart chart, @Nullable ChartAnimator animator, ViewPortHandler viewPortHandler) {
         super(animator, viewPortHandler);
         mChart = new WeakReference<Chart>(chart);
         createRenderers();
@@ -107,7 +108,7 @@ public class CombinedChartRenderer extends DataRenderer {
     protected List<Highlight> mHighlightBuffer = new ArrayList<Highlight>();
 
     @Override
-    public void drawHighlighted(Canvas c, Highlight[] indices) {
+    public void drawHighlighted(Canvas c, @Nullable Highlight[] indices) {
 
         Chart chart = mChart.get();
         if (chart == null) return;
@@ -146,7 +147,7 @@ public class CombinedChartRenderer extends DataRenderer {
      * @param index
      * @return
      */
-     public DataRenderer getSubRenderer(int index) {
+     @Nullable public DataRenderer getSubRenderer(int index) {
         if (index >= mRenderers.size() || index < 0)
             return null;
         else

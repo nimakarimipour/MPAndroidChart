@@ -5,6 +5,7 @@ import android.graphics.RectF;
 import com.github.mikephil.charting.data.ChartData;
 import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.utils.MPPointF;
+import androidx.annotation.Nullable;
 
 /**
  * Interface that provides everything there is to know about the dimensions,
@@ -63,7 +64,7 @@ public interface ChartInterface {
 
     IValueFormatter getDefaultValueFormatter();
 
-    ChartData getData();
+    @Nullable ChartData getData();
 
     int getMaxVisibleCount();
 }

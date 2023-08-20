@@ -17,6 +17,7 @@ import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import androidx.annotation.Nullable;
 
 /**
  * Superclass of all render classes for the different data types (line, bar, ...).
@@ -28,7 +29,7 @@ public abstract class DataRenderer extends Renderer {
     /**
      * the animator object used to perform animations on the chart data
      */
-    protected ChartAnimator mAnimator;
+    @Nullable protected ChartAnimator mAnimator;
 
     /**
      * main paint object used for rendering
@@ -48,7 +49,7 @@ public abstract class DataRenderer extends Renderer {
      */
     protected Paint mValuePaint;
 
-    public DataRenderer(ChartAnimator animator, ViewPortHandler viewPortHandler) {
+    public DataRenderer(@Nullable ChartAnimator animator, ViewPortHandler viewPortHandler) {
         super(viewPortHandler);
         this.mAnimator = animator;
 
@@ -108,7 +109,7 @@ public abstract class DataRenderer extends Renderer {
      *
      * @param set
      */
-    protected void applyValueTextStyle(IDataSet set) {
+    protected void applyValueTextStyle(@Nullable IDataSet set) {
 
         mValuePaint.setTypeface(set.getValueTypeface());
         mValuePaint.setTextSize(set.getValueTextSize());
@@ -147,7 +148,7 @@ public abstract class DataRenderer extends Renderer {
      * @param y            position
      * @param color
      */
-    public void drawValue(Canvas c, IValueFormatter formatter, float value, Entry entry, int dataSetIndex, float x, float y, int color) {
+    public void drawValue(Canvas c, @Nullable IValueFormatter formatter, float value, Entry entry, int dataSetIndex, float x, float y, int color) {
         mValuePaint.setColor(color);
         c.drawText(formatter.getFormattedValue(value, entry, dataSetIndex, mViewPortHandler), x, y, mValuePaint);
     }
@@ -165,5 +166,5 @@ public abstract class DataRenderer extends Renderer {
      * @param c
      * @param indices the highlighted values
      */
-    public abstract void drawHighlighted(Canvas c, Highlight[] indices);
+    public abstract void drawHighlighted(Canvas c, @Nullable Highlight[] indices);
 }

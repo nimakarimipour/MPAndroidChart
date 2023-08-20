@@ -15,6 +15,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
+import androidx.annotation.Nullable;
 
 
 public class ScatterDataSet extends LineScatterCandleRadarDataSet<Entry> implements IScatterDataSet {
@@ -27,7 +28,7 @@ public class ScatterDataSet extends LineScatterCandleRadarDataSet<Entry> impleme
     /**
      * Renderer responsible for rendering this DataSet, default: square
      */
-    protected IShapeRenderer mShapeRenderer = new SquareShapeRenderer();
+    @Nullable protected IShapeRenderer mShapeRenderer = new SquareShapeRenderer();
 
     /**
      * The radius of the hole in the shape (applies to Square, Circle and Triangle)
@@ -100,7 +101,7 @@ public class ScatterDataSet extends LineScatterCandleRadarDataSet<Entry> impleme
         mShapeRenderer = shapeRenderer;
     }
 
-    @Override
+    @Nullable @Override
     public IShapeRenderer getShapeRenderer() {
         return mShapeRenderer;
     }
@@ -134,7 +135,7 @@ public class ScatterDataSet extends LineScatterCandleRadarDataSet<Entry> impleme
         return mScatterShapeHoleColor;
     }
 
-     public static IShapeRenderer getRendererForShape(ScatterChart.ScatterShape shape) {
+     @Nullable public static IShapeRenderer getRendererForShape(ScatterChart.ScatterShape shape) {
 
         switch (shape) {
             case SQUARE:

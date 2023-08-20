@@ -19,12 +19,13 @@ import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
+import androidx.annotation.Nullable;
 
 public class XAxisRendererHorizontalBarChart extends XAxisRenderer {
 
     protected BarChart mChart;
 
-    public XAxisRendererHorizontalBarChart(ViewPortHandler viewPortHandler, XAxis xAxis,
+    public XAxisRendererHorizontalBarChart(ViewPortHandler viewPortHandler, @Nullable XAxis xAxis,
             Transformer trans, BarChart chart) {
         super(viewPortHandler, xAxis, trans);
 

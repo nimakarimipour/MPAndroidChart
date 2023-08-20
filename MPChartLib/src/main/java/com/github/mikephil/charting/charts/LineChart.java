@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.interfaces.dataprovider.LineDataProvider;
 import com.github.mikephil.charting.renderer.LineChartRenderer;
+import androidx.annotation.Nullable;
 
 /**
  * Chart that draws lines, surfaces, circles, ...
@@ -34,7 +35,7 @@ public class LineChart extends BarLineChartBase<LineData> implements LineDataPro
         mRenderer = new LineChartRenderer(this, mAnimator, mViewPortHandler);
     }
 
-    @Override
+    @Nullable @Override
     public LineData getLineData() {
         return mData;
     }

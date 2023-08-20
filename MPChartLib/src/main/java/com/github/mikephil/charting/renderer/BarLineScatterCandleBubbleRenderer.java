@@ -7,6 +7,7 @@ import com.github.mikephil.charting.interfaces.dataprovider.BarLineScatterCandle
 import com.github.mikephil.charting.interfaces.datasets.IBarLineScatterCandleBubbleDataSet;
 import com.github.mikephil.charting.interfaces.datasets.IDataSet;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import androidx.annotation.Nullable;
 
 /**
  * Created by Philipp Jahoda on 09/06/16.
@@ -18,7 +19,7 @@ public abstract class BarLineScatterCandleBubbleRenderer extends DataRenderer {
      */
     protected XBounds mXBounds = new XBounds();
 
-    public BarLineScatterCandleBubbleRenderer(ChartAnimator animator, ViewPortHandler viewPortHandler) {
+    public BarLineScatterCandleBubbleRenderer(@Nullable ChartAnimator animator, ViewPortHandler viewPortHandler) {
         super(animator, viewPortHandler);
     }
 
@@ -28,7 +29,7 @@ public abstract class BarLineScatterCandleBubbleRenderer extends DataRenderer {
      * @param set
      * @return
      */
-    protected boolean shouldDrawValues(IDataSet set) {
+    protected boolean shouldDrawValues(@Nullable IDataSet set) {
         return set.isVisible() && (set.isDrawValuesEnabled() || set.isDrawIconsEnabled());
     }
 
@@ -39,7 +40,7 @@ public abstract class BarLineScatterCandleBubbleRenderer extends DataRenderer {
      * @param set
      * @return
      */
-    protected boolean isInBoundsX(Entry e, IBarLineScatterCandleBubbleDataSet set) {
+    protected boolean isInBoundsX(@Nullable Entry e, IBarLineScatterCandleBubbleDataSet set) {
 
         if (e == null)
             return false;

@@ -32,6 +32,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
+import androidx.annotation.Nullable;
 
 
 public class PieChartRenderer extends DataRenderer {
@@ -57,19 +58,19 @@ public class PieChartRenderer extends DataRenderer {
      */
     private Paint mEntryLabelsPaint;
 
-     private StaticLayout mCenterTextLayout;
-     private CharSequence mCenterTextLastValue;
+     @Nullable private StaticLayout mCenterTextLayout;
+     @Nullable private CharSequence mCenterTextLastValue;
     private RectF mCenterTextLastBounds = new RectF();
     private RectF[] mRectBuffer = {new RectF(), new RectF(), new RectF()};
 
     /**
      * Bitmap for drawing the center hole
      */
-     protected WeakReference<Bitmap> mDrawBitmap;
+     @Nullable protected WeakReference<Bitmap> mDrawBitmap;
 
-     protected Canvas mBitmapCanvas;
+     @Nullable protected Canvas mBitmapCanvas;
 
-    public PieChartRenderer(PieChart chart, ChartAnimator animator,
+    public PieChartRenderer(PieChart chart, @Nullable ChartAnimator animator,
                             ViewPortHandler viewPortHandler) {
         super(animator, viewPortHandler);
         mChart = chart;
@@ -797,7 +798,7 @@ public class PieChartRenderer extends DataRenderer {
 
     protected RectF mDrawHighlightedRectF = new RectF();
     @Override
-    public void drawHighlighted(Canvas c, Highlight[] indices) {
+    public void drawHighlighted(Canvas c, @Nullable Highlight[] indices) {
 
         /* Skip entirely if using rounded circle slices, because it doesn't make sense to highlight
          * in this way.

@@ -6,6 +6,7 @@ import android.view.View;
 import com.github.mikephil.charting.utils.ObjectPool;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import androidx.annotation.Nullable;
 
 /**
  * Runnable that is used for viewport modifications since they cannot be
@@ -20,14 +21,14 @@ public abstract class ViewPortJob extends ObjectPool.Poolable implements Runnabl
 
     protected float[] pts = new float[2];
 
-    protected ViewPortHandler mViewPortHandler;
+    @Nullable protected ViewPortHandler mViewPortHandler;
     protected float xValue = 0f;
     protected float yValue = 0f;
-    protected Transformer mTrans;
-    protected View view;
+    @Nullable protected Transformer mTrans;
+    @Nullable protected View view;
 
-    public ViewPortJob(ViewPortHandler viewPortHandler, float xValue, float yValue,
-                       Transformer trans, View v) {
+    public ViewPortJob(@Nullable ViewPortHandler viewPortHandler, float xValue, float yValue,
+                       @Nullable Transformer trans, @Nullable View v) {
 
         this.mViewPortHandler = viewPortHandler;
         this.xValue = xValue;

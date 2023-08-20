@@ -7,6 +7,7 @@ import android.os.ParcelFormatException;
 import android.os.Parcelable;
 
 import com.github.mikephil.charting.utils.Utils;
+import androidx.annotation.Nullable;
 
 /**
  * Class representing one entry in the chart. Might contain multiple values.
@@ -41,7 +42,7 @@ public class Entry extends BaseEntry implements Parcelable {
      * @param y the y value (the actual value of the entry)
      * @param data Spot for additional data this Entry represents.
      */
-    public Entry(float x, float y, Object data) {
+    public Entry(float x, float y, @Nullable Object data) {
         super(y, data);
         this.x = x;
     }
@@ -107,7 +108,7 @@ public class Entry extends BaseEntry implements Parcelable {
      * @param e
      * @return
      */
-    public boolean equalTo(Entry e) {
+    public boolean equalTo(@Nullable Entry e) {
 
         if (e == null)
             return false;

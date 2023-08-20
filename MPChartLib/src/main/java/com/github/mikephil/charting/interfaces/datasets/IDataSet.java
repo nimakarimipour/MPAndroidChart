@@ -12,6 +12,7 @@ import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.utils.MPPointF;
 
 import java.util.List;
+import androidx.annotation.Nullable;
 
 /**
  * Created by Philipp Jahoda on 21/10/15.
@@ -86,7 +87,7 @@ public interface IDataSet<T extends Entry> {
      *
      *
      */
-    T getEntryForXValue(float xValue, float closestToY, DataSet.Rounding rounding);
+    @Nullable T getEntryForXValue(float xValue, float closestToY, DataSet.Rounding rounding);
 
     /**
      * Returns the first Entry object found at the given x-value with binary
@@ -101,7 +102,7 @@ public interface IDataSet<T extends Entry> {
      * @param closestToY If there are multiple y-values for the specified x-value,
      * @return
      */
-    T getEntryForXValue(float xValue, float closestToY);
+    @Nullable T getEntryForXValue(float xValue, float closestToY);
 
     /**
      * Returns all Entry objects found at the given x-value with binary
@@ -145,7 +146,7 @@ public interface IDataSet<T extends Entry> {
      * @param e
      * @return
      */
-    int getEntryIndex(T e);
+    int getEntryIndex(@Nullable T e);
 
 
     /**
@@ -204,7 +205,7 @@ public interface IDataSet<T extends Entry> {
      *
      * @param e
      */
-    boolean removeEntry(T e);
+    boolean removeEntry(@Nullable T e);
 
     /**
      * Removes the Entry object closest to the given x-value from the DataSet.
@@ -275,7 +276,7 @@ public interface IDataSet<T extends Entry> {
      *
      * @return
      */
-    List<Integer> getColors();
+    @Nullable List<Integer> getColors();
 
     /**
      * Returns the first color (index 0) of the colors-array this DataSet
@@ -325,7 +326,7 @@ public interface IDataSet<T extends Entry> {
      *
      * @return
      */
-    IValueFormatter getValueFormatter();
+    @Nullable IValueFormatter getValueFormatter();
 
     /**
      * Returns true if the valueFormatter object of this DataSet is null.
@@ -383,7 +384,7 @@ public interface IDataSet<T extends Entry> {
      *
      * @return
      */
-    Typeface getValueTypeface();
+    @Nullable Typeface getValueTypeface();
 
     /**
      * Returns the text size that is used for drawing the values inside the chart
@@ -418,7 +419,7 @@ public interface IDataSet<T extends Entry> {
      * <p/>
      * Return `null` to use the default legend form line dash effect.
      */
-    DashPathEffect getFormLineDashEffect();
+    @Nullable DashPathEffect getFormLineDashEffect();
 
     /**
      * set this to true to draw y-values on the chart.
