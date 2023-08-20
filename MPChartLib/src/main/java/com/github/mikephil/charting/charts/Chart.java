@@ -55,6 +55,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import androidx.annotation.Nullable;
 
 
 /**
@@ -137,7 +138,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * listener that is called when a value on the chart is selected
      */
-     protected OnChartValueSelectedListener mSelectionListener;
+     @Nullable protected OnChartValueSelectedListener mSelectionListener;
 
      protected ChartTouchListener mChartTouchListener;
 
@@ -684,7 +685,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param high         - the highlight object
      * @param callListener - call the listener
      */
-     public void highlightValue(Highlight high, boolean callListener) {
+     public void highlightValue(@Nullable Highlight high, boolean callListener) {
 
         Entry e = null;
 
@@ -733,7 +734,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param y
      * @return
      */
-     public Highlight getHighlightByTouchPoint(float x, float y) {
+     @Nullable public Highlight getHighlightByTouchPoint(float x, float y) {
 
         if (mData == null) {
             Log.e(LOG_TAG, "Can't select by touch. No data set.");
@@ -1402,7 +1403,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param which e.g. Chart.PAINT_LEGEND_LABEL
      * @return
      */
-     public Paint getPaint(int which) {
+     @Nullable public Paint getPaint(int which) {
         switch (which) {
             case PAINT_INFO:
                 return mInfoPaint;

@@ -11,6 +11,7 @@ import com.github.mikephil.charting.utils.MPPointD;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import androidx.annotation.Nullable;
 
 /**
  * Baseclass of all axis renderers.
@@ -45,7 +46,7 @@ public abstract class AxisRenderer extends Renderer {
      */
      protected Paint mLimitLinePaint;
 
-    public AxisRenderer(ViewPortHandler viewPortHandler, Transformer trans, AxisBase axis) {
+    public AxisRenderer(ViewPortHandler viewPortHandler, @Nullable Transformer trans, AxisBase axis) {
         super(viewPortHandler);
 
         this.mTrans = trans;

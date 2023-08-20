@@ -34,7 +34,7 @@ public class Fill
     @Nullable
     private Integer mColor = null;
 
-     private Integer mFinalColor = null;
+     @Nullable private Integer mFinalColor = null;
 
     /**
      * the drawable to be used for filling
@@ -121,7 +121,7 @@ public class Fill
         this.mGradientColors = colors;
     }
 
-     public float[] getGradientPositions()
+     @Nullable public float[] getGradientPositions()
     {
         return mGradientPositions;
     }

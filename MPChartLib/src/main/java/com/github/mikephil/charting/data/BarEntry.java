@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;
 
 import com.github.mikephil.charting.highlight.Range;
+import androidx.annotation.Nullable;
 
 /**
  * Entry class for the BarChart. (especially stacked bars)
@@ -16,12 +17,12 @@ public class BarEntry extends Entry {
     /**
      * the values the stacked barchart holds
      */
-     private float[] mYVals;
+     @Nullable private float[] mYVals;
 
     /**
      * the ranges for the individual stack values - automatically calculated
      */
-     private Range[] mRanges;
+     @Nullable private Range[] mRanges;
 
     /**
      * the sum of all negative values this entry (if stacked) contains

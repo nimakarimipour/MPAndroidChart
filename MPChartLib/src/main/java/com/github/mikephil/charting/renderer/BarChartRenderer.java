@@ -22,6 +22,7 @@ import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
+import androidx.annotation.Nullable;
 
 public class BarChartRenderer extends BarLineScatterCandleBubbleRenderer {
 

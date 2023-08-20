@@ -2,6 +2,7 @@
 package com.github.mikephil.charting.highlight;
 
 import com.github.mikephil.charting.components.YAxis;
+import androidx.annotation.Nullable;
 
 /**
  * Contains information needed to determine the highlighted value.
@@ -48,7 +49,7 @@ public class Highlight {
     /**
      * the axis the highlighted value belongs to
      */
-     private YAxis.AxisDependency axis;
+     @Nullable private YAxis.AxisDependency axis;
 
     /**
      * the x-position (pixels) on which this highlight object was last drawn
@@ -222,7 +223,7 @@ public class Highlight {
      * @param h
      * @return
      */
-    public boolean equalTo(Highlight h) {
+    public boolean equalTo(@Nullable Highlight h) {
 
         if (h == null)
             return false;
