@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 
 import com.github.mikephil.charting.utils.Utils;
+import androidx.annotation.Nullable;
 
 
 /**
@@ -34,7 +35,7 @@ public class LimitLine extends ComponentBase {
     private String mLabel = "";
 
     /** the path effect of this LimitLine that makes dashed lines possible */
-     private DashPathEffect mDashPathEffect = null;
+     @Nullable private DashPathEffect mDashPathEffect = null;
 
     /** indicates the position of the LimitLine label */
     private LimitLabelPosition mLabelPosition = LimitLabelPosition.RIGHT_TOP;
@@ -153,7 +154,7 @@ public class LimitLine extends ComponentBase {
      * 
      * @return
      */
-    public DashPathEffect getDashPathEffect() {
+    @Nullable public DashPathEffect getDashPathEffect() {
         return mDashPathEffect;
     }
 

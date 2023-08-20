@@ -1,4 +1,5 @@
 package com.github.mikephil.charting.highlight;
+import androidx.annotation.Nullable;
 
 /**
  * Created by philipp on 10/06/16.
@@ -13,5 +14,5 @@ public interface IHighlighter
      * @param y
      * @return
      */
-    Highlight getHighlight(float x, float y);
+    @Nullable Highlight getHighlight(float x, float y);
 }
