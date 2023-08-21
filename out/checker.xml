@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><serialization><suggest active="true" enclosing="true"/><fieldInitInfo active="false"/><path>/Users/nima/Desktop/docker/benchmarks/mpandroid/out/0</path><uuid>af03de95-f42c-4462-ac29-e63b708e155f</uuid></serialization>
+=======
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><serialization><suggest active="true" enclosing="true"/><fieldInitInfo active="false"/><path>/home/nima/Desktop/docker/benchmarks/mpandroid/out/0</path><uuid>4db8fffb-c354-4875-ac7b-6ccddad2ced8</uuid></serialization>
+>>>>>>> base
