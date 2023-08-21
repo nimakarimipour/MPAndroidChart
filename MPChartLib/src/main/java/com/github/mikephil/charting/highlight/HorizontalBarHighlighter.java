@@ -10,6 +10,7 @@ import com.github.mikephil.charting.utils.MPPointD;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.jspecify.annotations.NullUnmarked;
 
 
 /**
@@ -21,7 +22,7 @@ public class HorizontalBarHighlighter extends BarHighlighter {
 		super(chart);
 	}
 
-	 @Override
+	 @NullUnmarked @Override
 	public Highlight getHighlight(float x, float y) {
 
 		BarData barData = mChart.getBarData();

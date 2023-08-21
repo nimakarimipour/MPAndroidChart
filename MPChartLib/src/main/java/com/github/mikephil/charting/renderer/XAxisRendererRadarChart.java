@@ -9,13 +9,14 @@ import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import org.jspecify.annotations.NullUnmarked;
 
 
 public class XAxisRendererRadarChart extends XAxisRenderer {
 
     private RadarChart mChart;
 
-     public XAxisRendererRadarChart(ViewPortHandler viewPortHandler, XAxis xAxis, RadarChart chart) {
+     @NullUnmarked public XAxisRendererRadarChart(ViewPortHandler viewPortHandler, XAxis xAxis, RadarChart chart) {
         super(viewPortHandler, xAxis, null);
 
         mChart = chart;

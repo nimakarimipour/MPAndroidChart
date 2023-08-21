@@ -6,6 +6,7 @@ import android.view.View;
 
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.highlight.Highlight;
+import org.jspecify.annotations.NullUnmarked;
 
 
 /**
@@ -39,7 +40,7 @@ public abstract class ChartTouchListener<T extends Chart<?>> extends GestureDete
     /**
      * the last highlighted object (via touch)
      */
-     protected Highlight mLastHighlighted;
+     @SuppressWarnings("NullAway.Init") protected Highlight mLastHighlighted;
 
     /**
      * the gesturedetector used for detecting taps and longpresses, ...
@@ -116,7 +117,7 @@ public abstract class ChartTouchListener<T extends Chart<?>> extends GestureDete
      *
      * @param e
      */
-     protected void performHighlight(Highlight h, MotionEvent e) {
+     @NullUnmarked protected void performHighlight(Highlight h, MotionEvent e) {
 
         if (h == null || h.equalTo(mLastHighlighted)) {
             mChart.highlightValue(null, true);

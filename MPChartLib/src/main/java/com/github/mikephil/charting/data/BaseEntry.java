@@ -11,10 +11,10 @@ public abstract class BaseEntry {
     private float y = 0f;
 
     /** optional spot for additional data this Entry represents */
-     private Object mData = null;
+     @SuppressWarnings("NullAway") private Object mData = null;
 
     /** optional icon image */
-     private Drawable mIcon = null;
+     @SuppressWarnings("NullAway") private Drawable mIcon = null;
 
     public BaseEntry() {
 

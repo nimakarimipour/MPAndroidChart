@@ -19,6 +19,7 @@ import com.github.mikephil.charting.utils.HorizontalViewPortHandler;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.TransformerHorizontalBarChart;
 import com.github.mikephil.charting.utils.Utils;
+import org.jspecify.annotations.NullUnmarked;
 
 
 /**
@@ -253,7 +254,7 @@ public class HorizontalBarChart extends BarChart {
      * @param axis
      * @return
      */
-     @Override
+     @NullUnmarked @Override
     public MPPointF getPosition(Entry e, AxisDependency axis) {
 
         if (e == null)
@@ -276,7 +277,7 @@ public class HorizontalBarChart extends BarChart {
      * @param y
      * @return
      */
-     @Override
+     @NullUnmarked @Override
     public Highlight getHighlightByTouchPoint(float x, float y) {
 
         if (mData == null) {

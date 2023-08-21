@@ -9,6 +9,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineRadarDataSet;
 import com.github.mikephil.charting.utils.Utils;
 
 import java.util.List;
+import org.jspecify.annotations.NullUnmarked;
 
 
 /**
@@ -27,7 +28,7 @@ public abstract class LineRadarDataSet<T extends Entry> extends LineScatterCandl
     /**
      * the drawable to be used for filling the line surface
      */
-     protected Drawable mFillDrawable;
+     @SuppressWarnings("NullAway.Init") protected Drawable mFillDrawable;
 
     /**
      * transparency used for filling line surface
@@ -60,7 +61,7 @@ public abstract class LineRadarDataSet<T extends Entry> extends LineScatterCandl
      *
      * @param color
      */
-     public void setFillColor(int color) {
+     @NullUnmarked public void setFillColor(int color) {
         mFillColor = color;
         mFillDrawable = null;
     }

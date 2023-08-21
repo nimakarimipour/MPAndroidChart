@@ -3,6 +3,7 @@ package com.github.mikephil.charting.data;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.jspecify.annotations.NullUnmarked;
 
 
 /**
@@ -299,7 +300,7 @@ public abstract class DataSet<T extends Entry> extends BaseDataSet<T> {
         return mEntries.indexOf(e);
     }
 
-     @Override
+     @NullUnmarked @Override
     public T getEntryForXValue(float xValue, float closestToY, Rounding rounding) {
 
         int index = getEntryIndex(xValue, closestToY, rounding);

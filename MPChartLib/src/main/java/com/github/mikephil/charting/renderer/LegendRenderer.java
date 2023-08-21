@@ -23,6 +23,7 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import org.jspecify.annotations.NullUnmarked;
 
 
 public class LegendRenderer extends Renderer {
@@ -81,7 +82,7 @@ public class LegendRenderer extends Renderer {
      *
      * @param data
      */
-     public void computeLegend(ChartData<?> data) {
+     @NullUnmarked public void computeLegend(ChartData<?> data) {
 
         if (!mLegend.isLegendCustom()) {
 

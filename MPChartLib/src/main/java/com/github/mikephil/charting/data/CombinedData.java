@@ -9,6 +9,7 @@ import com.github.mikephil.charting.interfaces.datasets.IBarLineScatterCandleBub
 
 import java.util.ArrayList;
 import java.util.List;
+import org.jspecify.annotations.NullUnmarked;
 
 
 /**
@@ -19,11 +20,11 @@ import java.util.List;
  */
 public class CombinedData extends BarLineScatterCandleBubbleData<IBarLineScatterCandleBubbleDataSet<? extends Entry>> {
 
-     private LineData mLineData;
-     private BarData mBarData;
-     private ScatterData mScatterData;
-     private CandleData mCandleData;
-     private BubbleData mBubbleData;
+     @SuppressWarnings("NullAway.Init") private LineData mLineData;
+     @SuppressWarnings("NullAway.Init") private BarData mBarData;
+     @SuppressWarnings("NullAway.Init") private ScatterData mScatterData;
+     @SuppressWarnings("NullAway.Init") private CandleData mCandleData;
+     @SuppressWarnings("NullAway.Init") private BubbleData mBubbleData;
 
     public CombinedData() {
         super();
@@ -184,7 +185,7 @@ public class CombinedData extends BarLineScatterCandleBubbleData<IBarLineScatter
      * @param highlight
      * @return the entry that is highlighted
      */
-     @Override
+     @NullUnmarked @Override
     public Entry getEntryForHighlight(Highlight highlight) {
 
         if (highlight.getDataIndex() >= getAllData().size())
@@ -214,7 +215,7 @@ public class CombinedData extends BarLineScatterCandleBubbleData<IBarLineScatter
      * @param highlight current highlight
      * @return dataset related to highlight
      */
-     public IBarLineScatterCandleBubbleDataSet<? extends Entry> getDataSetByHighlight(Highlight highlight) {
+     @NullUnmarked public IBarLineScatterCandleBubbleDataSet<? extends Entry> getDataSetByHighlight(Highlight highlight) {
         if (highlight.getDataIndex() >= getAllData().size())
             return null;
 

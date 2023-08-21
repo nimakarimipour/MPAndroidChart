@@ -12,13 +12,14 @@ import com.github.mikephil.charting.utils.Utils;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.List;
+import org.jspecify.annotations.NullUnmarked;
 
 
 public class YAxisRendererRadarChart extends YAxisRenderer {
 
     private RadarChart mChart;
 
-     public YAxisRendererRadarChart(ViewPortHandler viewPortHandler, YAxis yAxis, RadarChart chart) {
+     @NullUnmarked public YAxisRendererRadarChart(ViewPortHandler viewPortHandler, YAxis yAxis, RadarChart chart) {
         super(viewPortHandler, yAxis, null);
 
         this.mChart = chart;

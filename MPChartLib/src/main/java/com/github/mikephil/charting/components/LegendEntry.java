@@ -38,7 +38,7 @@ public class LegendEntry {
      * The legend entry text.
      * A `null` label will start a group.
      */
-     public String label;
+     @SuppressWarnings("NullAway.Init") public String label;
 
     /**
      * The form to draw for this entry.
@@ -68,7 +68,7 @@ public class LegendEntry {
      *
      * Set to null to use the legend's default
      */
-     public DashPathEffect formLineDashEffect = null;
+     @SuppressWarnings("NullAway") public DashPathEffect formLineDashEffect = null;
 
     /**
      * The color for drawing the form

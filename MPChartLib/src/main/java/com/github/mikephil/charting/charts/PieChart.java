@@ -18,6 +18,7 @@ import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.Utils;
 
 import java.util.List;
+import org.jspecify.annotations.NullUnmarked;
 
 
 /**
@@ -113,7 +114,7 @@ public class PieChart extends PieRadarChartBase<PieData> {
         super(context, attrs, defStyle);
     }
 
-     @Override
+     @NullUnmarked @Override
     protected void init() {
         super.init();
 

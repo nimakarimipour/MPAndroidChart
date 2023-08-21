@@ -28,22 +28,22 @@ public abstract class AxisRenderer extends Renderer {
     /**
      * paint object for the grid lines
      */
-     protected Paint mGridPaint;
+     @SuppressWarnings("NullAway.Init") protected Paint mGridPaint;
 
     /**
      * paint for the x-label values
      */
-     protected Paint mAxisLabelPaint;
+     @SuppressWarnings("NullAway.Init") protected Paint mAxisLabelPaint;
 
     /**
      * paint for the line surrounding the chart
      */
-     protected Paint mAxisLinePaint;
+     @SuppressWarnings("NullAway.Init") protected Paint mAxisLinePaint;
 
     /**
      * paint used for the limit lines
      */
-     protected Paint mLimitLinePaint;
+     @SuppressWarnings("NullAway.Init") protected Paint mLimitLinePaint;
 
     public AxisRenderer(ViewPortHandler viewPortHandler, Transformer trans, AxisBase axis) {
         super(viewPortHandler);
