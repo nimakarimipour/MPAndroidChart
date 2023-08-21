@@ -9,6 +9,7 @@ import com.github.mikephil.charting.interfaces.datasets.IBarLineScatterCandleBub
 
 import java.util.ArrayList;
 import java.util.List;
+import androidx.annotation.Nullable;
 
 
 /**
@@ -19,11 +20,11 @@ import java.util.List;
  */
 public class CombinedData extends BarLineScatterCandleBubbleData<IBarLineScatterCandleBubbleDataSet<? extends Entry>> {
 
-     private LineData mLineData;
-     private BarData mBarData;
-     private ScatterData mScatterData;
-     private CandleData mCandleData;
-     private BubbleData mBubbleData;
+     @Nullable private LineData mLineData;
+     @Nullable private BarData mBarData;
+     @Nullable private ScatterData mScatterData;
+     @Nullable private CandleData mCandleData;
+     @Nullable private BubbleData mBubbleData;
 
     public CombinedData() {
         super();
@@ -116,23 +117,23 @@ public class CombinedData extends BarLineScatterCandleBubbleData<IBarLineScatter
         }
     }
 
-    public BubbleData getBubbleData() {
+    @Nullable public BubbleData getBubbleData() {
         return mBubbleData;
     }
 
-    public LineData getLineData() {
+    @Nullable public LineData getLineData() {
         return mLineData;
     }
 
-    public BarData getBarData() {
+    @Nullable public BarData getBarData() {
         return mBarData;
     }
 
-    public ScatterData getScatterData() {
+    @Nullable public ScatterData getScatterData() {
         return mScatterData;
     }
 
-    public CandleData getCandleData() {
+    @Nullable public CandleData getCandleData() {
         return mCandleData;
     }
 
@@ -184,7 +185,7 @@ public class CombinedData extends BarLineScatterCandleBubbleData<IBarLineScatter
      * @param highlight
      * @return the entry that is highlighted
      */
-     @Override
+     @Nullable @Override
     public Entry getEntryForHighlight(Highlight highlight) {
 
         if (highlight.getDataIndex() >= getAllData().size())
@@ -214,7 +215,7 @@ public class CombinedData extends BarLineScatterCandleBubbleData<IBarLineScatter
      * @param highlight current highlight
      * @return dataset related to highlight
      */
-     public IBarLineScatterCandleBubbleDataSet<? extends Entry> getDataSetByHighlight(Highlight highlight) {
+     @Nullable public IBarLineScatterCandleBubbleDataSet<? extends Entry> getDataSetByHighlight(Highlight highlight) {
         if (highlight.getDataIndex() >= getAllData().size())
             return null;
 

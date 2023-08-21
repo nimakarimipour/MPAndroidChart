@@ -55,6 +55,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import androidx.annotation.Nullable;
+import org.jspecify.annotations.NullUnmarked;
 
 
 /**
@@ -77,7 +79,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * object that holds all data that was originally set for the chart, before
      * it was modified or any filtering algorithms had been applied
      */
-     protected T mData = null;
+     @SuppressWarnings("NullAway") protected T mData = null;
 
     /**
      * Flag that indicates if highlighting per tap (touch) is enabled
@@ -106,18 +108,18 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * paint object used for drawing the description text in the bottom right
      * corner of the chart
      */
-     protected Paint mDescPaint;
+     @Nullable protected Paint mDescPaint;
 
     /**
      * paint object for drawing the information text when there are no values in
      * the chart
      */
-     protected Paint mInfoPaint;
+     @SuppressWarnings("NullAway.Init") protected Paint mInfoPaint;
 
     /**
      * the object representing the labels on the x-axis
      */
-     protected XAxis mXAxis;
+     @SuppressWarnings("NullAway.Init") protected XAxis mXAxis;
 
     /**
      * if true, touch gestures are enabled on the chart
@@ -127,19 +129,19 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * the object responsible for representing the description text
      */
-     protected Description mDescription;
+     @Nullable protected Description mDescription;
 
     /**
      * the legend object containing all data associated with the legend
      */
-     protected Legend mLegend;
+     @Nullable protected Legend mLegend;
 
     /**
      * listener that is called when a value on the chart is selected
      */
-     protected OnChartValueSelectedListener mSelectionListener;
+     @Nullable protected OnChartValueSelectedListener mSelectionListener;
 
-     protected ChartTouchListener mChartTouchListener;
+     @SuppressWarnings("NullAway.Init") protected ChartTouchListener mChartTouchListener;
 
     /**
      * text that is displayed when the chart is empty
@@ -149,16 +151,16 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * Gesture listener for custom callbacks when making gestures on the chart.
      */
-     private OnChartGestureListener mGestureListener;
+     @Nullable private OnChartGestureListener mGestureListener;
 
-     protected LegendRenderer mLegendRenderer;
+     @SuppressWarnings("NullAway.Init") protected LegendRenderer mLegendRenderer;
 
     /**
      * object responsible for rendering the data
      */
-     protected DataRenderer mRenderer;
+     @SuppressWarnings("NullAway.Init") protected DataRenderer mRenderer;
 
-     protected IHighlighter mHighlighter;
+     @SuppressWarnings("NullAway.Init") protected IHighlighter mHighlighter;
 
     /**
      * object that manages the bounds and drawing constraints of the chart
@@ -168,7 +170,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * object responsible for animations
      */
-     protected ChartAnimator mAnimator;
+     @SuppressWarnings("NullAway.Init") protected ChartAnimator mAnimator;
 
     /**
      * Extra offsets to be appended to the viewport
@@ -309,7 +311,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * Clears the chart from all data (sets it to null) and refreshes it (by
      * calling invalidate()).
      */
-     public void clear() {
+     @NullUnmarked public void clear() {
         mData = null;
         mOffsetsCalculated = false;
         mIndicesToHighlight = null;
@@ -432,7 +434,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * Draws the description text in the bottom right corner of the chart (per default)
      */
-    protected void drawDescription(Canvas c) {
+    @NullUnmarked protected void drawDescription(Canvas c) {
 
         // check if description should be drawn
         if (mDescription != null && mDescription.isEnabled()) {
@@ -468,7 +470,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * array of Highlight objects that reference the highlighted slices in the
      * chart
      */
-     protected Highlight[] mIndicesToHighlight;
+     @SuppressWarnings("NullAway.Init") protected Highlight[] mIndicesToHighlight;
 
     /**
      * The maximum distance in dp away from an entry causing it to highlight.
@@ -684,7 +686,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param high         - the highlight object
      * @param callListener - call the listener
      */
-     public void highlightValue(Highlight high, boolean callListener) {
+     @NullUnmarked public void highlightValue(@Nullable Highlight high, boolean callListener) {
 
         Entry e = null;
 
@@ -733,7 +735,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param y
      * @return
      */
-     public Highlight getHighlightByTouchPoint(float x, float y) {
+     @Nullable public Highlight getHighlightByTouchPoint(float x, float y) {
 
         if (mData == null) {
             Log.e(LOG_TAG, "Can't select by touch. No data set.");
@@ -774,7 +776,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
     /**
      * the view that represents the marker
      */
-     protected IMarker mMarker;
+     @Nullable protected IMarker mMarker;
 
     /**
      * draws all MarkerViews on the highlighted positions
@@ -1051,7 +1053,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
-    public OnChartGestureListener getOnChartGestureListener() {
+    @Nullable public OnChartGestureListener getOnChartGestureListener() {
         return mGestureListener;
     }
 
@@ -1262,7 +1264,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
-    public IMarker getMarker() {
+    @Nullable public IMarker getMarker() {
         return mMarker;
     }
 
@@ -1271,7 +1273,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
         setMarker(v);
     }
 
-    @Deprecated
+    @Nullable @Deprecated
     public IMarker getMarkerView() {
         return getMarker();
     }
@@ -1291,7 +1293,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
-    public Description getDescription() {
+    @Nullable public Description getDescription() {
         return mDescription;
     }
 
@@ -1302,7 +1304,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      *
      * @return
      */
-    public Legend getLegend() {
+    @Nullable public Legend getLegend() {
         return mLegend;
     }
 
@@ -1402,7 +1404,7 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
      * @param which e.g. Chart.PAINT_LEGEND_LABEL
      * @return
      */
-     public Paint getPaint(int which) {
+     @Nullable public Paint getPaint(int which) {
         switch (which) {
             case PAINT_INFO:
                 return mInfoPaint;

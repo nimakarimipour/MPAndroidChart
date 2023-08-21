@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import org.jspecify.annotations.NullUnmarked;
 
 
 public class Fill
@@ -34,7 +35,7 @@ public class Fill
     @Nullable
     private Integer mColor = null;
 
-     private Integer mFinalColor = null;
+     @Nullable private Integer mFinalColor = null;
 
     /**
      * the drawable to be used for filling
@@ -111,7 +112,7 @@ public class Fill
         calculateFinalColor();
     }
 
-     public int[] getGradientColors()
+     @NullUnmarked public int[] getGradientColors()
     {
         return mGradientColors;
     }
@@ -121,7 +122,7 @@ public class Fill
         this.mGradientColors = colors;
     }
 
-     public float[] getGradientPositions()
+     @Nullable public float[] getGradientPositions()
     {
         return mGradientPositions;
     }

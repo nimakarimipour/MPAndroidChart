@@ -11,6 +11,8 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.utils.ObjectPool;
 import com.github.mikephil.charting.utils.Transformer;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+import androidx.annotation.Nullable;
+import org.jspecify.annotations.NullUnmarked;
 
 
 /**
@@ -47,12 +49,12 @@ public class AnimatedZoomJob extends AnimatedViewPortJob implements Animator.Ani
     protected float zoomCenterX;
     protected float zoomCenterY;
 
-    protected YAxis yAxis;
+    @Nullable protected YAxis yAxis;
 
     protected float xAxisRange;
 
      @SuppressLint("NewApi")
-    public AnimatedZoomJob(ViewPortHandler viewPortHandler, View v, Transformer trans, YAxis axis, float xAxisRange, float scaleX, float scaleY, float xOrigin, float yOrigin, float zoomCenterX, float zoomCenterY, float zoomOriginX, float zoomOriginY, long duration) {
+    public AnimatedZoomJob(@Nullable ViewPortHandler viewPortHandler, @Nullable View v, @Nullable Transformer trans, @Nullable YAxis axis, float xAxisRange, float scaleX, float scaleY, float xOrigin, float yOrigin, float zoomCenterX, float zoomCenterY, float zoomOriginX, float zoomOriginY, long duration) {
         super(viewPortHandler, scaleX, scaleY, trans, v, xOrigin, yOrigin, duration);
 
         this.zoomCenterX = zoomCenterX;
@@ -65,7 +67,7 @@ public class AnimatedZoomJob extends AnimatedViewPortJob implements Animator.Ani
     }
 
     protected Matrix mOnAnimationUpdateMatrixBuffer = new Matrix();
-    @Override
+    @NullUnmarked @Override
     public void onAnimationUpdate(ValueAnimator animation) {
 
         float scaleX = xOrigin + (xValue - xOrigin) * phase;
