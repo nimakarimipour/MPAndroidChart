@@ -1,5 +1,8 @@
 id	class	method	parent	size	flags	nullable	visibility	non-primitive-return	uri
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 46c140438d1eefe0d8200c9e479c9dd5901aa3e1
 1	com.github.mikephil.charting.renderer.AxisRenderer	AxisRenderer(com.github.mikephil.charting.utils.ViewPortHandler,com.github.mikephil.charting.utils.Transformer,com.github.mikephil.charting.components.AxisBase)	0	3	[false, true, false]	false	public	false	file:///Users/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/AxisRenderer.java
 2	com.github.mikephil.charting.renderer.AxisRenderer	getPaintAxisLabels()	0	0	[]	false	public	true	file:///Users/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/AxisRenderer.java
 3	com.github.mikephil.charting.renderer.AxisRenderer	getPaintGrid()	0	0	[]	false	public	true	file:///Users/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/renderer/AxisRenderer.java
@@ -1962,6 +1965,7 @@ id	class	method	parent	size	flags	nullable	visibility	non-primitive-return	uri
 1991	com.github.mikephil.charting.matrix.Vector3	pointsInSameDirection(com.github.mikephil.charting.matrix.Vector3)	0	1	[false]	false	public	false	file:///Users/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/matrix/Vector3.java
 1992	com.github.mikephil.charting.buffer.HorizontalBarBuffer	HorizontalBarBuffer(int,int,boolean)	0	3	[false, false, false]	false	public	false	file:///Users/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/buffer/HorizontalBarBuffer.java
 1993	com.github.mikephil.charting.buffer.HorizontalBarBuffer	feed(com.github.mikephil.charting.interfaces.datasets.IBarDataSet)	1105	1	[false]	false	public	false	file:///Users/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/buffer/HorizontalBarBuffer.java
+<<<<<<< HEAD
 =======
 1	com.github.mikephil.charting.formatter.IndexAxisValueFormatter	IndexAxisValueFormatter()	0	0	[]	false	public	false	file:///home/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/formatter/IndexAxisValueFormatter.java
 2	com.github.mikephil.charting.formatter.IndexAxisValueFormatter	IndexAxisValueFormatter(java.lang.String[])	0	1	[false]	false	public	false	file:///home/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/formatter/IndexAxisValueFormatter.java
@@ -3926,3 +3930,5 @@ id	class	method	parent	size	flags	nullable	visibility	non-primitive-return	uri
 1992	com.github.mikephil.charting.listener.PieRadarChartTouchListener	computeScroll()	0	0	[]	false	public	false	file:///home/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/listener/PieRadarChartTouchListener.java
 1993	com.github.mikephil.charting.listener.PieRadarChartTouchListener$AngularVelocitySample	AngularVelocitySample(long,float)	0	2	[false, false]	false	public	false	file:///home/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/listener/PieRadarChartTouchListener.java
 >>>>>>> base
+=======
+>>>>>>> 46c140438d1eefe0d8200c9e479c9dd5901aa3e1

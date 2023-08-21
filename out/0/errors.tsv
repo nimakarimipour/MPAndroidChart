@@ -1,5 +1,6 @@
 message_type	message	enc_class	enc_member	offset	path	target_kind	target_class	target_method	target_param	target_index	target_path
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 DEREFERENCE_NULLABLE	dereferenced expression mFormat is @Nullable	com.github.mikephil.charting.formatter.DefaultValueFormatter	getFormattedValue(float,com.github.mikephil.charting.data.Entry,int,com.github.mikephil.charting.utils.ViewPortHandler)	1534	/home/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/formatter/DefaultValueFormatter.java	null	null	null	null	null	null
 RETURN_NULLABLE	returning @Nullable expression from method with @NonNull return type	com.github.mikephil.charting.data.ChartData	getDataSetByIndex(int)	9509	/home/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/data/ChartData.java	METHOD	com.github.mikephil.charting.data.ChartData	getDataSetByIndex(int)	null	null	/home/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/data/ChartData.java
@@ -104,3 +105,5 @@ DEREFERENCE_NULLABLE	dereferenced expression yAxis is @Nullable	com.github.mikep
 DEREFERENCE_NULLABLE	dereferenced expression mTrans is @Nullable	com.github.mikephil.charting.jobs.AnimatedZoomJob	onAnimationUpdate(android.animation.ValueAnimator)	3306	/home/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/jobs/AnimatedZoomJob.java	null	null	null	null	null	null
 DEREFERENCE_NULLABLE	dereferenced expression velocityTracker is @Nullable	com.github.mikephil.charting.listener.BarLineChartTouchListener	onTouch(android.view.View,android.view.MotionEvent)	8017	/home/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/listener/BarLineChartTouchListener.java	null	null	null	null	null	null
 >>>>>>> base
+=======
+>>>>>>> 46c140438d1eefe0d8200c9e479c9dd5901aa3e1

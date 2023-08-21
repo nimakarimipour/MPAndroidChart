@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><scanner><method active="true"/><field active="true"/><call active="true"/><class active="true"/><uuid>1069909d-b192-4e55-96d2-69de2a902a55</uuid><path>/Users/nima/Desktop/docker/benchmarks/mpandroid/out/0</path><processor><LOMBOK active="true"/></processor><annotations/></scanner>
 =======
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><scanner><method active="true"/><field active="true"/><call active="true"/><class active="true"/><uuid>aa263c14-8d25-43b8-9443-b03336ee4835</uuid><path>/home/nima/Desktop/docker/benchmarks/mpandroid/out/0</path><processor><LOMBOK active="true"/></processor><annotations/></scanner>
 >>>>>>> base
+=======
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><scanner><method active="true"/><field active="true"/><call active="true"/><class active="true"/><uuid>8a753e85-b5e2-4f35-ac2c-2ae5cb36e575</uuid><path>/Users/nima/Desktop/docker/benchmarks/mpandroid/out/0</path><processor><LOMBOK active="true"/></processor><annotations/></scanner>
+>>>>>>> 46c140438d1eefe0d8200c9e479c9dd5901aa3e1

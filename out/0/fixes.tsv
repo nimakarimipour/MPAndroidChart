@@ -1,5 +1,6 @@
 kind	class	method	param	index	uri	reason	annotation	rootClass	rootMethod
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 METHOD	com.github.mikephil.charting.data.ChartData	getDataSetByIndex(int)	null	null	/home/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/data/ChartData.java	RETURN_NULLABLE	nullable	com.github.mikephil.charting.data.ChartData	getDataSetByIndex(int)
 METHOD	com.github.mikephil.charting.data.ChartData	getMaxEntryCountSet()	null	null	/home/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/data/ChartData.java	RETURN_NULLABLE	nullable	com.github.mikephil.charting.data.ChartData	getMaxEntryCountSet()
@@ -96,3 +97,5 @@ FIELD	com.github.mikephil.charting.jobs.ViewPortJob	null	view	null	/home/nima/De
 FIELD	com.github.mikephil.charting.jobs.ViewPortJob	null	mViewPortHandler	null	/home/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/jobs/ViewPortJob.java	ASSIGN_FIELD_NULLABLE	nullable	com.github.mikephil.charting.jobs.ViewPortJob	ViewPortJob(com.github.mikephil.charting.utils.ViewPortHandler,float,float,com.github.mikephil.charting.utils.Transformer,android.view.View)
 FIELD	com.github.mikephil.charting.jobs.ViewPortJob	null	view	null	/home/nima/Desktop/docker/benchmarks/mpandroid/MPChartLib/src/main/java/com/github/mikephil/charting/jobs/ViewPortJob.java	ASSIGN_FIELD_NULLABLE	nullable	com.github.mikephil.charting.jobs.ViewPortJob	ViewPortJob(com.github.mikephil.charting.utils.ViewPortHandler,float,float,com.github.mikephil.charting.utils.Transformer,android.view.View)
 >>>>>>> base
+=======
+>>>>>>> 46c140438d1eefe0d8200c9e479c9dd5901aa3e1
