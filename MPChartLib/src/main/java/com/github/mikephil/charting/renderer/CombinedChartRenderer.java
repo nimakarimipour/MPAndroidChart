@@ -15,6 +15,8 @@ import com.github.mikephil.charting.utils.ViewPortHandler;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+import androidx.annotation.Nullable;
+import org.jspecify.annotations.NullUnmarked;
 
 
 /**
@@ -39,7 +41,7 @@ public class CombinedChartRenderer extends DataRenderer {
      * Creates the renderers needed for this combined-renderer in the required order. Also takes the DrawOrder into
      * consideration.
      */
-    public void createRenderers() {
+    @NullUnmarked public void createRenderers() {
 
         mRenderers.clear();
 
@@ -146,7 +148,7 @@ public class CombinedChartRenderer extends DataRenderer {
      * @param index
      * @return
      */
-     public DataRenderer getSubRenderer(int index) {
+     @Nullable public DataRenderer getSubRenderer(int index) {
         if (index >= mRenderers.size() || index < 0)
             return null;
         else

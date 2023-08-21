@@ -8,6 +8,7 @@ import com.github.mikephil.charting.utils.Fill;
 
 import java.util.ArrayList;
 import java.util.List;
+import androidx.annotation.Nullable;
 
 public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> implements IBarDataSet {
 
@@ -41,7 +42,7 @@ public class BarDataSet extends BarLineScatterCandleBubbleDataSet<BarEntry> impl
      */
     private String[] mStackLabels = new String[]{};
 
-     protected List<Fill> mFills = null;
+     @SuppressWarnings("NullAway") protected List<Fill> mFills = null;
 
     public BarDataSet(List<BarEntry> yVals, String label) {
         super(yVals, label);

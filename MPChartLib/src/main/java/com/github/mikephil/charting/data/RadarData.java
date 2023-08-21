@@ -7,6 +7,7 @@ import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import androidx.annotation.Nullable;
 
 /**
  * Data container for the RadarChart.
@@ -15,7 +16,7 @@ import java.util.List;
  */
 public class RadarData extends ChartData<IRadarDataSet> {
 
-     private List<String> mLabels;
+     @Nullable private List<String> mLabels;
 
     public RadarData() {
         super();
@@ -47,7 +48,7 @@ public class RadarData extends ChartData<IRadarDataSet> {
         this.mLabels = Arrays.asList(labels);
     }
 
-    public List<String> getLabels() {
+    @Nullable public List<String> getLabels() {
         return mLabels;
     }
 

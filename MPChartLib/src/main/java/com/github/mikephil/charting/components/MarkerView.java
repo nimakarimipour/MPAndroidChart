@@ -13,6 +13,7 @@ import com.github.mikephil.charting.utils.FSize;
 import com.github.mikephil.charting.utils.MPPointF;
 
 import java.lang.ref.WeakReference;
+import androidx.annotation.Nullable;
 
 
 /**
@@ -25,7 +26,7 @@ public class MarkerView extends RelativeLayout implements IMarker {
 
     private MPPointF mOffset = new MPPointF();
     private MPPointF mOffset2 = new MPPointF();
-     private WeakReference<Chart> mWeakChart;
+     @Nullable private WeakReference<Chart> mWeakChart;
 
     /**
      * Constructor. Sets up the MarkerView with a custom layout resource.
@@ -76,7 +77,7 @@ public class MarkerView extends RelativeLayout implements IMarker {
         mWeakChart = new WeakReference<>(chart);
     }
 
-     public Chart getChartView() {
+     @Nullable public Chart getChartView() {
         return mWeakChart == null ? null : mWeakChart.get();
     }
 
